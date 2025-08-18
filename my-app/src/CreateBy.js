@@ -16,7 +16,7 @@ function CreateBy({items, specialName}) {
                 <div className={'gridContainer'}>
                 <Keycap name={items[0].name} part={items[0].part} />
                 <Keycap name={items[1].name} part={items[1].part} />
-                <Keycap name={items[2].name} part={items[2].part} specialName={specialName}/> // 예외케이스를 위해 specialname을 사용
+                <Keycap name={items[2].name} part={items[2].part} specialName={specialName}/> {/* 예외케이스를 위해 specialname을 사용 */}
                 <Keycap name={items[3].name} part={items[3].part} />
             </div>
 
