@@ -1,0 +1,19 @@
+{
+  "name": "jinro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {`n    "dev": "node ./src/server.js", 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./scripts/seed-pool-fixed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "bootstrap": "^5.3.7",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.2"
+  }
+}
