@@ -1,0 +1,97 @@
+.sub-recruitment {
+  position: relative;
+  min-height: 350vh;  
+  background: radial-gradient(
+    40rem 30rem at 50% 50%,
+    #000 100%
+  );
+  color: #fff;
+  overflow: hidden;
+}
+
+
+.recru-info{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.25rem;
+}
+.info-title{
+  padding-left: clamp(12px, 3vw, 40px);
+  font-size:5rem;
+  font-weight:700;
+  letter-spacing:.5rem;
+  color:rgba(185, 185, 180, 0.438);
+}
+.recru-crew{
+  padding-left: clamp(12px, 3vw, 40px);
+  font-size:3rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:0;
+}
+
+
+.recru-main {
+  position: absolute;
+  top: 49%;             
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: clamp(1px, 0.1vh, 9px);
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(22px, 5.6vw, 72px);
+
+  z-index: 2;
+  isolation: isolate;     
+}
+
+
+.recru-main::before{
+  content:"";
+  position:absolute;
+  inset:-140px;                
+  z-index:-1;
+  pointer-events:none;
+
+  
+  background:
+    radial-gradient(28rem 20rem at 50% 50%,
+      rgba(105, 190, 243, 0.979) 0%,  
+      rgba(93, 177, 230, 0.288) 38%,
+      rgba(70, 69, 69, 0) 70%
+    ),
+    radial-gradient(54rem 40rem at 50% 58%,
+      rgba(255,255,255,.05) 0%,  
+      rgba(0,0,0,0) 78%
+    );
+
+  filter: blur(20px);          
+  opacity: .62;                
+}
+
+.recru-text { line-height: 1.05; color: rgba(161, 161, 158, 0.438); }
+.init-CODA, .init-CHANCE {
+  color:#fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35), 0 0 18px rgba(0,0,0,.25);
+}
+
+
+.ballongift {
+  position: absolute;
+  width: 350px; height: auto;
+  left: 56%; top: 51%;
+  z-index: 1;
+}
+.rocket {
+  position: absolute;
+  width: 500px; height: auto;
+  left: 21%; top: 28%;
+  z-index: 1;
+}

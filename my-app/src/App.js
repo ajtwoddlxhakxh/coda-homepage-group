@@ -2,6 +2,7 @@ import SubProject from "./sub_project";
 import CreateBy from "./CreateBy";
 import Navbar from "./Navbar";
 import Sub_main from "./Sub_main";
+import Sub_recruitment from "./Sub_recruitment";
 
 function App() {
   const developer = [
@@ -16,7 +17,7 @@ function App() {
 
       <SubProject />
       <Sub_main />
-
+      <Sub_recruitment />
       {/* Navbar 컴포넌트 추가 */}
       <Navbar />
     </div>
