@@ -1,11 +1,9 @@
-// TODO: 로그인 페이지 개발 로그인 사이트와 비밀번호
-// 화면에 들어갈거는 id, password 입력하기 고려해야될거는 공백제거, 로그인 후 로그아웃 생각
-
-
-import { useEffect, useState, useRef} from "react";
-import {Link} from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
+import { useState } from "react";
 import './manage_login.css'
+import Recruit from '/manage_recruit'
+import {Link} from "react-router-dom";
+
 
 export default function Login() {
     // id, pw관리함수
@@ -24,6 +22,7 @@ export default function Login() {
         })
             .then(response => {
                 // 성공응답 (2xx) 처리
+                <Recruit loginId={id} loginPw={pw}/>
                 console.log('로그인 성공', response.data)
                 // main 이동
             })
@@ -37,6 +36,10 @@ export default function Login() {
                     console.log("레이트 리밋 초과")
                 }
                 else {
+                    // 테스트용도
+                    <Recruit loginId={id} loginPw={pw}/>
+                    <Link to={'/admin/admins/'}></Link>
+
                     console.log("UNKNOWN_ERROR")
                 }
             })}
