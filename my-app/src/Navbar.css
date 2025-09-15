@@ -7,7 +7,12 @@
     font-variation-settings:
             "wdth" 100
 }
+/*navbar.js 구조
+(div)navbar - (div)navberContainer - (div)navbar_logo
+                                   - (ul)navbar_menu
 
+
+*/
 
 .navberContainer {
     max-width: 1320px;

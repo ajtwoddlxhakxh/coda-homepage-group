@@ -1,18 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 import './manage_login.css'
-import Recruit from '/manage_recruit'
+// import Recruit from '/manage_recruit'
 import {Link} from "react-router-dom";
 
 
 export default function Login() {
-    // id, pw관리함수
+    // id, pw상태를 관리함
     const [id, setId] = useState('123');
     const [pw, setPw] = useState('123');
+    // 테스트용 id, pw출력
     console.log(id, pw)
 
-    // 로그인 요청 보내기
+    // 로그인 요청 보내기, axios사용
     const handleSubmit = async (e) => {
+        // 폼 제출시 페이지가 새로고침되는 동작을 막음
         e.preventDefault();
 
         // 서버 주소교체 필요
@@ -22,9 +24,13 @@ export default function Login() {
         })
             .then(response => {
                 // 성공응답 (2xx) 처리
-                <Recruit loginId={id} loginPw={pw}/>
+                // 서버 응답을 response로 반환
                 console.log('로그인 성공', response.data)
-                // main 이동
+                // manage_recruit으로 이동함
+
+                // TODO 다른 컴포넌트에 데이터 넘겨주기
+                // <Recruit loginId={id} loginPw={pw}/>
+
             })
             .catch(error => {
                 // 에러응답 (4xx) 처리
@@ -36,11 +42,11 @@ export default function Login() {
                     console.log("레이트 리밋 초과")
                 }
                 else {
-                    // 테스트용도
-                    <Recruit loginId={id} loginPw={pw}/>
-                    <Link to={'/admin/admins/'}></Link>
-
                     console.log("UNKNOWN_ERROR")
+
+                    // 테스트 용
+                    // <Recruit loginId={id} loginPw={pw}/>
+
                 }
             })}
     // 입력창 값이 변경될 때 id, pw갱신

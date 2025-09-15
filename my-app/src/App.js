@@ -25,7 +25,10 @@ function App() {
   return (
     <div className="App">
 
-      {/* route 경로설정, 앞으로 새 페이지 제작시 routes-route에 추가해주세요*/}
+      {/* route 경로설정 */}
+      {/*새 컴포넌트 만들면 아래에 <route>를 추가해주세요*/}
+      {/*  <Route path="{경로}" element={컴포넌트} /> */}
+
         <Routes>
             <Route index element={<Homepage />} />
             <Route path="/" element={<Homepage />} />
