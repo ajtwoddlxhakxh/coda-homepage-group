@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useNavigate } from "react";
 import './manage_login.css'
-// import Recruit from '/manage_recruit'
 import {Link} from "react-router-dom";
-
+import ManageRecruit from "./manage_recruit";
+// TODO withRouter사용법?     this.props.history.push("/user");사용법?
 
 export default function Login() {
     // id, pw상태를 관리함
@@ -18,34 +18,31 @@ export default function Login() {
         e.preventDefault();
 
         // 서버 주소교체 필요
-        axios.post('http://localhost:4000/docs/#/Auth/post_auth_login', {
-            email: id,
-            password: pw
-        })
-            .then(response => {
+        axios.post(
+            'http://localhost:4000/docs/#/Auth/post_auth_login',
+            { email: id, password: pw },
+            {withCredentials: true}
+        ).then(response => {
                 // 성공응답 (2xx) 처리
                 // 서버 응답을 response로 반환
                 console.log('로그인 성공', response.data)
                 // manage_recruit으로 이동함
 
                 // TODO 다른 컴포넌트에 데이터 넘겨주기
-                // <Recruit loginId={id} loginPw={pw}/>
+            useNavigate('/manage_recruit')
 
             })
             .catch(error => {
                 // 에러응답 (4xx) 처리
-                if (error.status === 401) {
+                if (error.response?.status === 401) {
                     console.log("AUTH_INVALID_CREDENTIALS")
                     alert("이메일 또는 비밀번호가 올바르지 않습니다.")
                 }
-                else if (error.status === 429) {
+                else if (error.response?.status === 429) {
                     console.log("레이트 리밋 초과")
                 }
                 else {
                     console.log("UNKNOWN_ERROR")
-
-                    // 테스트 용
-                    // <Recruit loginId={id} loginPw={pw}/>
 
                 }
             })}
