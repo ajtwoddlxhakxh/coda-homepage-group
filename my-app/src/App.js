@@ -3,9 +3,15 @@ import Sub_createby from "./Sub_createby";
 import Navbar from "./Navbar";
 import Sub_main from "./Sub_main";
 import Sub_recruitment from "./Sub_recruitment";
-import {Route, Routes} from "react-router-dom";
+
+// 관리자 페이지
+import Recruit from "./manage_recruit";
+import Login from "./manage_login";
+
+import {Route, Routes, useLocation} from "react-router-dom";
 import React from "react";
 
+//TODO 특정 경로일때만 navbar보이게 설정
 function App() {
   const developer = [
     { name: "유하선", part: "BACK-END" },
@@ -36,8 +42,13 @@ function App() {
             <Route path="projects" element={<Sub_project />} />
             <Route path="recruitment" element={<Sub_recruitment />} />
             <Route path="contact" element={<Sub_main />} />
+
+        {/* 관리자 페이지 route */}
+            <Route path="admin/recruit" element={<Recruit/>}/>
+            <Route path="admin/login" element={<Login/>}/>
         </Routes>
-        <Navbar />
+
+        {/*<Navbar />*/}
     </div>
   );
 }

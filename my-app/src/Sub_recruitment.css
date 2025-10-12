@@ -1,16 +1,21 @@
 .sub-recruitment {
   position: relative;
   min-height: 350vh;
-  background: radial-gradient(
-          40rem 30rem at 50% 50%,
-          #000 100%
-  );
+  background: radial-gradient( 40rem 30rem at 50% 50% ,#000 0%,#17171c 45%,#0c0c10 70%,#000 100% );
+
   color: #fff;
   overflow: hidden;
+
 }
 /* TODO 에러 수정필요 */
 
-
+/*background: radial-gradient(*/
+/*40rem 30rem at 50% 50%,*/
+/*#2b2b32 0%,*/
+/*#17171c 45%,*/
+/*#0c0c10 70%,*/
+/*#000 100%*/
+/*);*/
 
 .recru-info{
   display:flex;
