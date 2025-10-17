@@ -5,7 +5,7 @@
 }
 
 /* CODA 섹션 */
-.coda-section {
+.codaSection {
   position: relative;
   min-height: 200vh;
   background: #000;
@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.coda-stack {
+.codaStack {
   position: relative;
   z-index: 2;
   display: flex;
@@ -26,7 +26,7 @@
   font-size: clamp(5px, 3vw, 40px);
   letter-spacing: 1px;
 }
-.coda-row {
+.codaRow {
   line-height: 1.05;
 }
 
@@ -49,7 +49,7 @@
 }
 
 /* 이미지 공통 */
-.float-img {
+.floatImg {
   position: absolute;
   width: clamp(80px, 10vw, 140px);
   height: auto;
@@ -75,7 +75,7 @@
 
   animation-duration: 12s, 5s;
 }
-.key1 {
+.Key1 {
   width: 250px;
   height: auto;
   right: 20%;
@@ -83,20 +83,20 @@
   rotate: -30deg;
   animation-duration: 9s, 6s;
 }
-.key2 {
+.Key2 {
   width: 200px;
   height: auto;
   left: 42%;
   top: 28%;
   animation-duration: 11s, 7s;
 }
-.key3 {
+.Key3 {
   left: 62%;
   top: 52%;
 
   animation-duration: 13s, 8s;
 }
-.mainkey {
+.Mainkey {
   width: 300px;
   height: auto;
   left: 40%;
@@ -105,7 +105,7 @@
 
   animation-duration: 14s, 6s;
 }
-.headset {
+.Headset {
   width: 500px;
   height: auto;
   right: 13%;
@@ -113,7 +113,7 @@
 
   animation-duration: 10s, 5s;
 }
-.chess {
+.Chess {
   width: 300px;
   height: auto;
   right: 58%;
