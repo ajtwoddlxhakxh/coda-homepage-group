@@ -8,13 +8,13 @@ export default function Sub_main() {
         {/* 중앙 CODA 문구 */}
         <div className="codaStack">
           <div className="codaRow">
-            <span className="init init-c">C</span>REATE
+            <span className="init initC">C</span>REATE
           </div>
           <div className="codaRow">
-            <span className="init init-o">O</span>BSERVE
+            <span className="init initO">O</span>BSERVE
           </div>
           <div className="codaRow">
-            <span className="init init-d">D</span>EVELOP
+            <span className="init initD">D</span>EVELOP
           </div>
           <div className="codaRow">
             <span className="init initA">A</span>CHIEVE
