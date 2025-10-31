@@ -1,19 +1,21 @@
 import axios from "axios";
 import { useState, } from "react";
 import './manage_login.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import ManageRecruit from "./manage_recruit";
 
 // TODO withRouter사용법?     this.props.history.push("/user");사용법?
 
 export default function Login() {
     // id, pw상태를 관리함
-    const [id, setId] = useState('123');
-    const [pw, setPw] = useState('123');
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
     // 테스트용 id, pw출력
     console.log(id, pw)
 
     const baseURL = process.env.REACT_APP_API_URL;
+    const navigate = useNavigate();
+
 
     // 로그인 요청 보내기, axios사용
     const handleSubmit = async (e) => {
@@ -22,18 +24,21 @@ export default function Login() {
         // 서버 주소교체 필요
         axios.post(
             `${baseURL}/admin/login`,
-            { email: id, password: pw }
-            // {withCredentials: true}
+            { email: id, password: pw },
+            {withCredentials: true}
         ).then(response => {
-                // 성공응답 (2xx) 처리
-                // 서버 응답을 response로 반환
-                console.log('로그인 성공', response.data)
-                // manage_recruit으로 이동함
+            // 성공응답 (2xx) 처리
+            // 서버 응답을 response로 반환
+            console.log('로그인 성공', response.data)
+            // manage_recruit으로 이동함
 
-                // TODO 다른 컴포넌트에 데이터 넘겨주기
-            // useNavigate('/manage_recruit')
+            // TODO 다른 컴포넌트에 데이터 넘겨주기
+            const authToken = response.data.token;
+            localStorage.setItem('authToken', authToken);
 
-            })
+            navigate('/test');
+
+        })
             .catch(error => {
                 // 에러응답 (4xx) 처리
                 if (error.response?.status === 401) {
