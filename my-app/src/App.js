@@ -9,6 +9,7 @@ import Recruit from "./manage_recruit";
 import Login from "./manage_login";
 
 import {Route, Routes, useLocation} from "react-router-dom";
+import ClubCoda from "./clubcoda";
 import React from "react";
 
 //TODO 특정 경로일때만 navbar보이게 설정
@@ -22,6 +23,7 @@ function App() {
     function Homepage() {
         return (
             <>
+                <ClubCoda />  
                 <Sub_main />
                 <Sub_project />
                 <Sub_createby items={developer} specialName={"leader"} />
