@@ -1,4 +1,14 @@
 import "./Sub_main.css";
+import bulb from './img/bulb.svg'
+import bulb2 from './img/bulb2.svg'
+import key from './img/keycap.svg'
+import key1 from './img/keycap1.svg'
+import key2 from './img/keycap2.svg'
+import key3 from './img/keycap3.svg'
+import mainkey from './img/mainkey.svg'
+import headset from './img/headset.svg'
+import chess from './img/Chess.svg'
+
 
 export default function Sub_main() {
   return (
@@ -22,34 +32,34 @@ export default function Sub_main() {
         </div>
 
         {/* 떠다니는 이미지들 */}
-        <img className="floatImg bulb" src="/images/bulb.svg" alt="Bulb" />
-        <img className="floatImg bulb2" src="/images/bulb2.svg" alt="Bulb 2" />
+        <img className="floatImg bulb" src={bulb} alt="Bulb" />
+        <img className="floatImg bulb2" src={bulb2} alt="Bulb 2" />
         <img
-          className="floatImgKey1"
-          src="/images/keycap1.svg"
+          className="floatImg Key1"
+          src={key1}
           alt="Keycap 1"
         />
         <img
-          className="floatImgKey2"
-          src="/images/keycap2.svg"
+          className="floatImg Key2"
+          src={key2}
           alt="Keycap 2"
         />
         <img
-          className="floatImgKey3"
-          src="/images/keycap3.svg"
+          className="floatImg Key3"
+          src={key3}
           alt="Keycap 3"
         />
         <img
-          className="floatImgMainkey"
-          src="/images/mainkey.svg"
+          className="floatImg Mainkey"
+          src={mainkey}
           alt="Main Keycap"
         />
         <img
-          className="floatImgHeadset"
-          src="/images/headset.svg"
+          className="floatImg Headset"
+          src={headset}
           alt="Headset"
         />
-        <img className="floatImgChess" src="/images/chess.svg" alt="Chess" />
+        <img className="floatImg Chess" src={chess} alt="Chess" />
       </section>
     </div>
   );

@@ -39,7 +39,7 @@ All development commands must be run from the `my-app/` directory:
 **Frontend + Backend (recommended):**
 ```bash
 cd my-app
-npm run dev              # Start both frontend (port 3000) and backend (port 4000) concurrently
+npm run dev              # Start both frontend (port 3000) and backend (port 4001) concurrently
 ```
 
 **Frontend only:**
@@ -53,9 +53,10 @@ npm test                 # Run Jest test suite in watch mode
 **Backend only:**
 ```bash
 cd my-app/backend
-npm run dev              # Start Express server (port 4000)
+npm run dev              # Start Express server (port 4001)
 npm run start            # Production mode
 npm run seed             # Seed admin pool data
+npm run seed:admin       # Seed admin accounts
 ```
 
 **Environment Setup:**
@@ -104,31 +105,67 @@ Each component has a corresponding CSS file with the same base name.
 - MongoDB with Mongoose ODM
 - JWT authentication (bcryptjs + jsonwebtoken)
 - CORS enabled for cross-origin requests
+- File upload handling (multer)
+- Validation (Zod)
+- Swagger UI API documentation at `/docs`
 
 **API Routes:**
 1. **Auth Routes** (`/auth/*`):
    - `POST /auth/login` - Admin login with JWT token generation
    - Protected with JWT verification middleware
 
-2. **Public Routes** (`/public/*`):
+2. **User Auth Routes** (`/user-auth/*`):
+   - User authentication endpoints (separate from admin)
+
+3. **Public Routes** (`/public/*`):
    - `GET /` - API status check
    - `GET /health` - Health check endpoint
    - `POST /applications` - Job application submission (email, name, purpose required)
 
-3. **Admin Routes** (planned):
+4. **Admin Routes** (`/admin/*`):
    - Protected routes for managing applications
    - Requires Bearer token authorization
+
+5. **Projects Routes** (`/projects/*`):
+   - Project management endpoints
+
+6. **Posts Routes** (`/posts/*`):
+   - Content management for posts
+
+7. **Members Routes** (`/members/*`):
+   - Member management endpoints
+
+8. **Club Info Routes** (`/club-info/*`):
+   - Club information management
+
+9. **Inquiries Routes** (`/inquiries/*`):
+   - Inquiry and complaint handling
+
+10. **Export Routes** (`/export/*`):
+    - Data export functionality (Excel/Power Query integration)
 
 **Database Models:**
 - `Admin` - Admin user accounts
 - `AdminPool` - Admin pool management
 - `JobApplication` - Recruitment applications (status: pending/approved/rejected)
+- `User` - Regular user accounts
+- `AuditLog` - System audit trail for tracking changes
+- `ClubInfo` - Club information and settings
+- `Complaint` - User complaints and feedback
+- `Member` - Club member profiles
+- `Position` - Member positions/roles
+- `Post` - Content posts and announcements
+- `Project` - Project information and details
+- `Recruit` - Recruitment campaign management
 
-**Environment Variables** (see `backend/.env.example`):
+**Environment Variables** (see `backend/.env`):
 - `MONGODB_URI` - MongoDB connection string
-- `PORT` - Server port (default: 4000)
+- `PORT` - Server port (default: 4001)
 - `JWT_SECRET` - Secret key for JWT signing
 - `JWT_EXPIRES_IN` - Token expiration time (default: 7d)
+- `POWER_QUERY_API_KEY` - API key for Excel/Power Query integration
+
+**Note:** Backend now includes an `uploads/` directory for file storage. Both `.env` and `uploads/` are in `.gitignore`.
 
 ### Frontend-Backend Integration
 

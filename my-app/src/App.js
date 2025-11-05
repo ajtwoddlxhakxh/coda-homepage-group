@@ -8,6 +8,9 @@ import Sub_recruitment from "./Sub_recruitment";
 import Recruit from "./manage_recruit";
 import Login from "./manage_login";
 
+// 테스트 페이지
+import Test from "./test";
+
 import {Route, Routes, useLocation} from "react-router-dom";
 import React from "react";
 
@@ -15,9 +18,9 @@ import React from "react";
 function App() {
   const developer = [
     { name: "유하선", part: "BACK-END" },
-    { name: "유도현", part: "BACK-END" },
-    { name: "권영은", part: "FRONT-END" },
-    { name: "남태현", part: "FRONT-END" },
+      { name: "유도현", part: "BACK-END" },
+      { name: "권영은", part: "FRONT-END" },
+      { name: "남태현", part: "FRONT-END" },
   ]; /*Create By 명단*/
     function Homepage() {
         return (
@@ -38,7 +41,7 @@ function App() {
         <Routes>
             <Route index element={<Homepage />} />
             <Route path="/" element={<Homepage />} />
-            <Route path="about" element={<Sub_main />} />
+            <Route path="about" element={<Homepage/>}    />
             <Route path="projects" element={<Sub_project />} />
             <Route path="recruitment" element={<Sub_recruitment />} />
             <Route path="contact" element={<Sub_main />} />
@@ -46,9 +49,13 @@ function App() {
         {/* 관리자 페이지 route */}
             <Route path="admin/recruit" element={<Recruit/>}/>
             <Route path="admin/login" element={<Login/>}/>
+
+        {/* 테스트용 페이지 */}
+            <Route path="test" element={<Test />} />
         </Routes>
 
-        {/*<Navbar />*/}
+
+        <Navbar />
     </div>
   );
 }
