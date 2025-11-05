@@ -11,7 +11,7 @@ import Login from "./manage_login";
 // 테스트 페이지
 
 import {Route, Routes, useLocation} from "react-router-dom";
-import React, {useEffect, useState, } from "react";
+import React from "react";
 
 //TODO 특정 경로일때만 navbar보이게 설정
 function App() {
@@ -24,6 +24,7 @@ function App() {
     function Homepage() {
         return (
             <>
+                <ClubCoda />
                 <Sub_main />
                 <Sub_project />
                 <Sub_createby items={developer} specialName={"leader"} />

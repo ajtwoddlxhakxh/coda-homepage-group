@@ -1,0 +1,6 @@
+.ClubCoda{
+  display:grid; grid-template-columns:220px 1fr; gap:20px; align-items:center;
+  max-width:1100px; margin:32px auto; padding:0 20px;
+}
+.ClubCoda__logo{ width:100%; height:auto; display:block; }
+.ClubCoda__desc{ margin:0; white-space:pre-line; font-size:18px; line-height:1.5; }
