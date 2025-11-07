@@ -36,7 +36,7 @@ export default function Login() {
             const authToken = response.data.token;
             localStorage.setItem('authToken', authToken);
 
-            navigate('/test');
+            navigate('/admin/recruit');
 
         })
             .catch(error => {

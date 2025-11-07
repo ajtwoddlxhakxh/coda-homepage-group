@@ -12,7 +12,7 @@ import Login from "./manage_login";
 import Test from "./test";
 
 import {Route, Routes, useLocation} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState, } from "react";
 
 //TODO 특정 경로일때만 navbar보이게 설정
 function App() {
@@ -31,9 +31,40 @@ function App() {
             </>
         )
     }
+    // 사용자의 현재 주소를 파악하고 네비바를 상황에 맞게 출력합니다(사용자, 관리자)
+    function NavbarGreeting(props) {
+
+        const location = useLocation();
+        const userLocation  = location.pathname;
+        const [isAdmin, setisAdmin] = useState(false);
+
+        // 주소값 변경시 or isAdmin변경시 작동됨
+        useEffect(() => {
+            if (userLocation == "/admin*" ) {
+                setisAdmin(true);
+            }
+            else {
+                setisAdmin(false)
+            }
+        }, [userLocation])
+
+        if (userLocation.startsWith("/admin")) {
+            // 네비바 출력 x
+            return null;
+        }
+        else if (isAdmin === false) {
+            return <Navbar />;
+        }
+        else {
+            // 관리자 전용 네비바가 출력됩니다.
+            // <NewNavber />
+            return null;
+        }
+
+    }
   return (
     <div className="App">
-
+        <NavbarGreeting />
       {/* route 경로설정 */}
       {/*새 컴포넌트 만들면 아래에 <route>를 추가해주세요*/}
       {/*  <Route path="{경로}" element={컴포넌트} /> */}
@@ -52,10 +83,8 @@ function App() {
 
         {/* 테스트용 페이지 */}
             <Route path="test" element={<Test />} />
+
         </Routes>
-
-
-        <Navbar />
     </div>
   );
 }

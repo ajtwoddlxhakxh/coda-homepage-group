@@ -18,15 +18,15 @@ function ManageRecruit(token) {
 
     useEffect(() => {
         console.log(savetoken)
-        // axios.post(`${baseURL}/admin/positions`,
-        //     {title: "123", fields: "123", startDate:"123", endDate:"123"},
-        //     {
-        //     headers: {
-        //         Authorization: `Bearer ${savetoken}`
-        //     }
-        //
-        // },);
-        // })
+        axios.post(`${baseURL}/admin/positions`,
+            {title: "123", fields: "123", startDate:"123", endDate:"123"},
+            {
+            headers: {
+                Authorization: `Bearer ${savetoken}`
+            }
+
+        },);
+        })
         axios.get(`${baseURL}/admin/admins`, {
             headers: {
                 Authorization: `Bearer ${savetoken}`
@@ -44,11 +44,6 @@ function ManageRecruit(token) {
 
             })
 
-
-    },);
-
-    // recruitContainer(로그인 확인하기 아니라면 404출력) - applicationStatus
-    //                  - recruitForm
 
 
     return (

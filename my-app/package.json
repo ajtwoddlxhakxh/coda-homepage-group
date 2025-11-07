@@ -17,7 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "start:backend": "cd backend && npm run dev",
-    "dev": "concurrently \"npm start\" \"npm run start:backend\" --names \"frontend,backend\" --prefix-colors \"cyan,yellow\"",
+    "seed:admin": "cd backend && npm run seed:admin",
+    "dev": "npm run seed:admin && concurrently \"npm start\" \"npm run start:backend\" --names \"frontend,backend\" --prefix-colors \"cyan,yellow\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
