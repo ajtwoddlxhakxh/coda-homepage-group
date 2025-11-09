@@ -10,3 +10,7 @@ build/
 coverage/
 .env
 .DS_Store
+
+# ai
+CLAUDE.md
+.claude
