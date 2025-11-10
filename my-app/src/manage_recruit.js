@@ -4,6 +4,8 @@ import useApplicants from './hooks/useRecruitments'
 import axios from 'axios';
 import './manage_recruit.css'
 import Manage_applicantTable from "./manage_applicantTable";
+import Manage_pagenation from "./manage_pagenation";
+import * as test from "node:test";
 
 function ManageRecruit(token) {
     const {data, status, error, loading} = useApplicants()
@@ -13,6 +15,24 @@ function ManageRecruit(token) {
         viewed: status?.filter(item => item.status === 'viewed'),
         approved: status?.filter(item => item.status === 'approved')
     }
+    // 페이지 위치 관리
+    const [currentPage, setCurrentPage] = useState(1);
+    const testItems = [
+        {
+            _id: '507f1f77bcf86cd799439011',
+            name: '홍길동',
+            phone: '010-1234-5678',
+            createdAt: '2025-11-10T12:34:56.789Z',
+            status: 'pending'
+        },
+        {
+            _id: '507f1f77bcf86cd799439012',
+            name: '김철수',
+            phone: '010-9876-5432',
+            createdAt: '2025-11-09T10:20:30.000Z',
+            status: 'viewed'
+        }
+    ];
     // 쿠키인증시간 끝나면??
     return (
         <div className={'recruitContainer'}>
@@ -43,13 +63,13 @@ function ManageRecruit(token) {
 
             <div className={'applicantTable'}>
                 {/*코드가 너무 길어져서 따로 뺐어요*/}
-                <Manage_applicantTable/>
+                <Manage_applicantTable currentPage={currentPage} items={testItems}/>
             </div>
 
             {/*페이지 번호 확인 */}
             <div className={'pagination'}>
                 <span className={'pageNumber'}>
-                    <Manage_applicantTable type={'pagination'}/>
+                    <Manage_pagenation totalPage={data?.totalPages || 1} onPageChange={setCurrentPage}/>
                 </span>
             </div>
 

@@ -9,7 +9,6 @@ import Recruit from "./manage_recruit";
 import Login from "./manage_login";
 
 // 테스트 페이지
-import Test from "./test";
 
 import {Route, Routes, useLocation} from "react-router-dom";
 import React, {useEffect, useState, } from "react";
@@ -82,7 +81,6 @@ function App() {
             <Route path="admin/login" element={<Login/>}/>
 
         {/* 테스트용 페이지 */}
-            <Route path="test" element={<Test />} />
 
         </Routes>
     </div>
