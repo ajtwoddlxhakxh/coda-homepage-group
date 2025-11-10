@@ -7,11 +7,16 @@
     font-variation-settings:
             "wdth" 100
 }
+/*navbar.js 구조
+(div)navbar - (div)navberContainer - (div)navbar_logo
+                                   - (ul)navbar_menu
 
+
+*/
 
 .navberContainer {
     max-width: 1320px;
-    max-height: 90px;
+    max-height: 80px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -30,6 +35,9 @@
     filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.5));
 
     border: 2px solid rgba(45, 47, 49);
+    /*최상단에 배치*/
+    z-index: 100;
+
 }
 
 .navbar_menu,

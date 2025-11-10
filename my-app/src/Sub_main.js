@@ -4,52 +4,52 @@ export default function Sub_main() {
   return (
     <div className="submain">
       {/* CODA 섹션 */}
-      <section className="coda-section">
+      <section className="codaSection">
         {/* 중앙 CODA 문구 */}
-        <div className="coda-stack">
-          <div className="coda-row">
-            <span className="init init-c">C</span>REATE
+        <div className="codaStack">
+          <div className="codaRow">
+            <span className="init initC">C</span>REATE
           </div>
-          <div className="coda-row">
-            <span className="init init-o">O</span>BSERVE
+          <div className="codaRow">
+            <span className="init initO">O</span>BSERVE
           </div>
-          <div className="coda-row">
-            <span className="init init-d">D</span>EVELOP
+          <div className="codaRow">
+            <span className="init initD">D</span>EVELOP
           </div>
-          <div className="coda-row">
-            <span className="init init-a">A</span>CHIEVE
+          <div className="codaRow">
+            <span className="init initA">A</span>CHIEVE
           </div>
         </div>
 
         {/* 떠다니는 이미지들 */}
-        <img className="float-img bulb" src="/images/bulb.svg" alt="Bulb" />
-        <img className="float-img bulb2" src="/images/bulb2.svg" alt="Bulb 2" />
+        <img className="floatImg bulb" src="/images/bulb.svg" alt="Bulb" />
+        <img className="floatImg bulb2" src="/images/bulb2.svg" alt="Bulb 2" />
         <img
-          className="float-img key1"
+          className="floatImgKey1"
           src="/images/keycap1.svg"
           alt="Keycap 1"
         />
         <img
-          className="float-img key2"
+          className="floatImgKey2"
           src="/images/keycap2.svg"
           alt="Keycap 2"
         />
         <img
-          className="float-img key3"
+          className="floatImgKey3"
           src="/images/keycap3.svg"
           alt="Keycap 3"
         />
         <img
-          className="float-img mainkey"
+          className="floatImgMainkey"
           src="/images/mainkey.svg"
           alt="Main Keycap"
         />
         <img
-          className="float-img headset"
+          className="floatImgHeadset"
           src="/images/headset.svg"
           alt="Headset"
         />
-        <img className="float-img chess" src="/images/chess.svg" alt="Chess" />
+        <img className="floatImgChess" src="/images/chess.svg" alt="Chess" />
       </section>
     </div>
   );
