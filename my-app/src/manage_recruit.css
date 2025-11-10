@@ -1,0 +1,218 @@
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --brand: #00d084; /* 상단 요약의 포인트 색 */
+  --chip: #eef2ff;
+  --waiting: #f59e0b; /* 대기 */
+  --accepted: #10b981; /* 승인 */
+  --rejected: #ef4444; /* 반려 */
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background: var(--bg);
+}
+
+.recruitContainer {
+  max-width: 1040px;
+  margin: 32px auto;
+  padding: 0 16px 56px;
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR",
+    Helvetica, Arial, sans-serif;
+}
+
+/* === 상단 요약 === */
+.applicationStatus {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+  margin-bottom: 20px;
+}
+.applicationStatus h1 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+.applicationStatus ul {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin: 4px 0 0;
+  list-style: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+.applicationStatus li {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+.applicationStatus li:nth-child(1)::before {
+  content: "•";
+  color: var(--waiting);
+  margin-right: 6px;
+}
+.applicationStatus li:nth-child(2)::before {
+  content: "•";
+  color: var(--accepted);
+  margin-right: 6px;
+}
+.applicationStatus li:nth-child(3)::before {
+  content: "•";
+  color: var(--rejected);
+  margin-right: 6px;
+}
+
+/* === 검색/필터 영역(비워둔 div도 틀 잡아줌) === */
+.recruitForm {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+/* === 리스트 === */
+.recruitList {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 헤더처럼 보이는 라인(데이터가 없어도 틀이 나오게 pseudo 사용 X) 
+   실제 행들만 카드처럼 보이게 해서 표 레이아웃 느낌을 냅니다. */
+.applicantItem {
+  display: grid;
+  grid-template-columns: 120px 1.2fr 1.6fr 160px 120px; /* 번호/이름/연락처/신청일시/상태 */
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
+}
+.applicantItem:last-child {
+  border-bottom: none;
+}
+
+.applicantItem:hover {
+  background: #fcfcfd;
+}
+
+/* 각 컬럼 텍스트 */
+.applicantItem p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.applicantItem p:nth-child(1) {
+  /* 번호 */
+  font-weight: 700;
+  color: #111827;
+}
+.applicantItem p:nth-child(2) {
+  /* 이름 */
+  font-weight: 600;
+}
+.applicantItem p:nth-child(3) {
+  /* 연락처 */
+  color: var(--muted);
+}
+.applicantItem p:nth-child(4) {
+  /* 신청일시 */
+  color: var(--muted);
+}
+
+/* 상태 Pill */
+.applicantItem p:last-child {
+  justify-self: start;
+}
+.applicantItem p:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  color: #374151;
+}
+.applicantItem p:last-child::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #9ca3af; /* 기본 회색 */
+}
+
+/* 상태별 색 – JSX를 바꾸지 않아도 텍스트로 구분해 색상 적용 */
+.applicantItem p:last-child:has(> span.status-waiting),
+.applicantItem p:last-child:has(> .waiting) {
+  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.08);
+  color: #92400e;
+}
+.applicantItem p:last-child:has(> span.status-waiting)::before,
+.applicantItem p:last-child:has(> .waiting)::before {
+  background: var(--waiting);
+}
+
+.applicantItem p:last-child:has(> span.status-accepted),
+.applicantItem p:last-child:has(> .accepted) {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.08);
+  color: #065f46;
+}
+.applicantItem p:last-child:has(> span.status-accepted)::before,
+.applicantItem p:last-child:has(> .accepted)::before {
+  background: var(--accepted);
+}
+
+.applicantItem p:last-child:has(> span.status-rejected),
+.applicantItem p:last-child:has(> .rejected) {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.08);
+  color: #7f1d1d;
+}
+.applicantItem p:last-child:has(> span.status-rejected)::before,
+.applicantItem p:last-child:has(> .rejected)::before {
+  background: var(--rejected);
+}
+
+/* 작은 디테일들 */
+button,
+.chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  color: #374151;
+  font-weight: 700;
+}
