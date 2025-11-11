@@ -18,12 +18,18 @@ export default function Sub_recruitment() {
         </div>
       </div>
 
-      <div className="recru-sub-title">
-        <span className="sub-recru-title">BEFORE SIGN UP</span>
+      <div className="recruSubTitle">
+        <span className="subRecruTitle">BEFORE SIGN UP</span>
       </div>
 
-      <div className="recru-sub">
-        <div className="recru-rule">
+      <img
+        className="recrucheck"
+        src="/images/recrucheck.svg"
+        alt="recrucheck"
+      />
+
+      <div className="recruSub">
+        <div className="recruRule">
           <span className="rule-1"> 규칙 1 블로그 업로드 및 깃허브 커밋</span>
           <span className="rule-2">
             {" "}
@@ -44,10 +50,26 @@ export default function Sub_recruitment() {
       <img className="rocket" src="/images/rocket.svg" alt="rocket" />
 
       <div className="LastRecruit">
-        <span className="LastTitle1">CLICK AND FINISH SIGN UP</span>
-        <span className="LastTitle2">CLICK AND FINISH SIGN UP</span>
+        <span className="LastTitle1">
+          <p>
+            <br>CLICK AND</br>
+            <br>FINISH</br>
+            SIGN UP
+          </p>
+        </span>
+        <span className="LastTitle2">
+          <p>
+            <br>CLICK AND</br>
+            <br>FINISH</br>
+            SIGN UP
+          </p>
+        </span>
       </div>
-      <img className="globes" src="/images/globes.svg" alt="globes" />
+      <img
+        className="globes"
+        src="/images/globes.svg"
+        onClick={() => navigate("/사용자 신청페이지 라우터 이름")}
+      />
       <img
         className="NormalRocket"
         src="/images/NormalRocket.svg"
