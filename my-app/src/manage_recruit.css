@@ -1,3 +1,119 @@
-.stats {
-
+.recruitList {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* 각 지원자 행 */
+.applicantItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.applicantItem:hover {
+  background-color: #f9f9f9;
+}
+
+/* 각 열의 텍스트 */
+.applicantItem p {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  color: #333;
+  font-weight: 400;
+}
+
+.applicantItem p:first-child {
+  flex: 0.5;
+}
+
+/* 헤더 부분 */
+.recruitHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.recruitHeader p {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.recruitContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 상태 표시 줄 전체 */
+.applicationStatus {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #222;
+  font-weight: 600;
+}
+
+/* "총 n명" 부분 */
+.applicationStatus h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  margin-right: 8px;
+  position: relative;
+}
+
+/* "총 n명" 뒤 구분선 */
+.applicationStatus h1::after {
+  content: "|";
+  color: #999;
+  margin-left: 8px;
+}
+
+/* 대기·승인·반려 리스트 */
+.applicationStatus ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+/* 각 상태 앞 구분선 */
+.applicationStatus ul li::before {
+  content: "|";
+  margin-right: 8px;
+  color: #999;
+}
+
+.applicationStatus ul li:first-child::before {
+  content: "";
+  margin-right: 0;
+}
+
+/* 상태별 색상 */
+.applicationStatus li:nth-child(1) {
+  color: #f39c12;
+} /* 대기 - 주황 */
+.applicationStatus li:nth-child(2) {
+  color: #27ae60;
+} /* 승인 - 초록 */
+.applicationStatus li:nth-child(3) {
+  color: #ff0000;
+} /* 반려 - 빨강 */
