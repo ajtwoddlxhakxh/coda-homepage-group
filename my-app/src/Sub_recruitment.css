@@ -1,175 +1,255 @@
 .sub-recruitment {
   position: relative;
-  min-height: 350vh;
-  background: radial-gradient(
-    40rem 30rem at 50% 50%,
-    #000 0%,
-    #17171c 45%,
-    #0c0c10 70%,
-    #000 100%
-  );
-
+  width: 100%;
+  background: #000;
   color: #fff;
   overflow: hidden;
+  font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
-/* TODO 에러 수정필요 */
+.sub-recruitment > .recru-info,
+.sub-recruitment > .recru-main,
+.sub-recruitment section {
+  position: relative;
+  width: 100%;
+}
 
-/*background: radial-gradient(*/
-/*40rem 30rem at 50% 50%,*/
-/*#2b2b32 0%,*/
-/*#17171c 45%,*/
-/*#0c0c10 70%,*/
-/*#000 100%*/
-/*);*/
-
+/* 섹션 높이 */
 .recru-info {
+  padding-top: 2rem;
+}
+.recru-main {
+  min-height: 115vh;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.before-signup {
+  min-height: 140vh;
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 6vw, 64px);
+}
+.cta-signup {
+  min-height: 120vh;
+  padding: clamp(20px, 4vw, 40px);
+}
+
+/* ========== 상단: 히어로 ========== */
+.recru-info {
+  position: absolute;
+  left: 1.2rem;
+  top: 1rem;
+  z-index: 3;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 .info-title {
-  padding-left: clamp(12px, 3vw, 40px);
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: 0.5rem;
-  color: rgba(185, 185, 180, 0.438);
+  display: block;
+  font-weight: 800;
+  font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+  letter-spacing: 0.06em;
+  opacity: 0.9;
 }
 .recru-crew {
-  padding-left: clamp(12px, 3vw, 40px);
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0;
+  display: block;
+  font-size: clamp(0.68rem, 1.1vw, 0.95rem);
+  opacity: 0.85;
+  margin-top: 0.15rem;
 }
 
-.recru-main {
-  position: absolute;
-  top: 49%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: clamp(1px, 0.1vh, 9px);
-  text-align: center;
-  font-weight: 700;
-  font-size: clamp(22px, 5.6vw, 72px);
-
-  z-index: 2;
-  isolation: isolate;
-}
-
+/* 글로우(원상복구) */
 .recru-main::before {
   content: "";
   position: absolute;
-  inset: -140px;
-  z-index: -1;
-  pointer-events: none;
-
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 560px);
+  height: min(70vw, 560px);
   background: radial-gradient(
-      28rem 20rem at 50% 50%,
-      rgba(105, 190, 243, 0.979) 0%,
-      rgba(93, 177, 230, 0.288) 38%,
-      rgba(70, 69, 69, 0) 70%
-    ),
-    radial-gradient(
-      54rem 40rem at 50% 58%,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(0, 0, 0, 0) 78%
-    );
-
-  filter: blur(20px);
-  opacity: 0.62;
+    ellipse at center,
+    rgba(69, 139, 180, 0.35) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(2px);
+  z-index: 0;
 }
-
 .recru-text {
-  line-height: 1.05;
-  color: rgba(161, 161, 158, 0.438);
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 3.2rem);
+  letter-spacing: 0.02em;
+  line-height: 1.06;
 }
-.init-CODA,
+.init {
+  display: inline-block;
+  font-weight: 900;
+}
+.init-CODA {
+  color: #e8f7ff;
+  filter: drop-shadow(0 2px 6px rgba(156, 245, 255, 0.25));
+}
 .init-CHANCE {
   color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 0, 0, 0.25);
 }
 
-.ballongift {
-  position: absolute;
-  width: 350px;
-  height: auto;
-  left: 56%;
-  top: 51%;
-  z-index: 1;
-}
+/* 로켓 더 큼 + 선물은 로켓의 오른쪽-아래로 조금 더 내려 */
 .rocket {
   position: absolute;
-  width: 500px;
+  left: clamp(10px, 3.6vw, 44px);
+  top: clamp(72px, 9vh, 150px);
+  width: clamp(160px, 26vw, 320px);
   height: auto;
-  left: 21%;
-  top: 28%;
+  z-index: 2;
+  pointer-events: none;
+}
+.ballongift {
+  position: absolute;
+  right: clamp(7vw, 10vw, 14vw);
+  top: clamp(48vh, 54vh, 60vh); /* “조금 더 아래” */
+  width: clamp(110px, 20vw, 190px);
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ========== 중단: BEFORE SIGN UP ========== */
+/* 타이틀 크게 + 체크를 정확히 옆으로 */
+.before-title {
+  display: inline-block;
+  margin-left: 3.2rem; /* 체크와 간격 */
+  font-weight: 900;
+  font-size: clamp(1.35rem, 3.6vw, 2.4rem);
+  letter-spacing: 0.05em;
+}
+.recrucheck {
+  position: absolute;
+  left: clamp(65px, 3.5vw, 40px);
+  top: clamp(83px, 3.9vw, 100px); /* 제목 세로 중앙 근처 */
+  width: clamp(26px, 2.9vw, 34px);
+  height: auto;
+}
+
+/* 규칙: 가운데 정렬 + 간격 더 넓게 */
+.Rule {
+  max-width: 100ch;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: 0.92;
+  font-size: clamp(0.9rem, 1.7vw, 1.15rem);
+}
+.rule1 {
+  margin-top: clamp(150px, 5.5vh, 55px);
+} /* 첫 항목 위 여유 크게 */
+.Rule + .Rule {
+  margin-top: clamp(80px, 4.6vh, 92px);
+} /* 항목 간 간격 더 넓게 */
+
+/* “규칙 근처” 기준으로 이미지 배치
+   : before-signup를 기준으로 중앙 영역 주변에 붙임 */
+.before-signup {
+  display: block;
+}
+.headphonerecru {
+  position: absolute;
+  /* 규칙 블록 좌측 근처 */
+  left: 18%;
+  top: 18%;
+  width: clamp(120px, 22vw, 200px); /* 더 큼 */
+  height: auto;
+  opacity: 0.96;
+}
+.pencil {
+  position: absolute;
+  right: 22%;
+  top: 48%;
+  width: clamp(45px, 14vw, 90px);
+  height: auto;
+  opacity: 0.95;
+}
+.emoji {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 73%; /* 규칙 아래쪽 근처 */
+  width: clamp(80px, 18vw, 150px); /* 살짝 더 작게 */
+  height: auto;
+}
+
+/* ========== 하단: CLICK AND FINISH SIGN UP ========== */
+/* 타이틀 더 작게 + 그림자 진하게(가독) */
+.LastRecruit {
+  position: absolute;
+  left: clamp(10px, 2vw, 18px);
+  top: clamp(10px, 2.2vw, 18px);
+  z-index: 3;
+}
+.LastRecruit p {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  font-size: clamp(1.1rem, 3.2vw, 1.9rem); /* 글자 크기 ↓ */
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 8px 22px rgba(0, 0, 0, 0.55); /* 그림자 강화 */
+}
+.LastTitle2 p {
+  opacity: 0.3;
+  transform: translateY(-50%);
+}
+
+/* 지구본은 하단 섹션 “가운데” 정렬 */
+.cta-signup {
+  display: block;
+}
+.globes {
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  transform: translateX(-50%);
+  width: clamp(380px, 46vw, 200px);
+  height: auto;
+  z-index: 2;
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+.globes:hover {
+  transform: translateX(-50%) scale(1.02);
+}
+
+/* 로켓은 조금 더 크게, 우하단 쪽 */
+.NormalRocket {
+  position: absolute;
+  right: clamp(20vw, 6vw, 30vw);
+  bottom: clamp(40px, 8vh, 100px);
+  width: clamp(130px, 33vw, 380px); /* 더 큼 */
+  height: auto;
+  z-index: 2;
+}
+
+/* 달은 하단 맨아래 “가운데” 크게 */
+.moon {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: clamp(230px, 30vw, 120px); /* 더 큼 */
+  height: auto;
+  opacity: 0.95;
   z-index: 1;
 }
 
-.recruSubTitle {
-  position: relative;
-  min-height: 350vh;
-  background: radial-gradient(
-    40rem 30rem at 50% 50%,
-    #000 0%,
-    #17171c 45%,
-    #0c0c10 70%,
-    #000 100%
-  );
-
-  color: #fff;
-  overflow: hidden;
-}
-
-.subRecruTitle {
-  padding-left: clamp(12px, 3vw, 40px);
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: 0.5rem;
-  color: rgb(255, 255, 255);
-}
-
-.recrucheck {
-  position: absolute;
-  width: 150px;
-  height: auto;
-  right: 18%;
-}
-
-.recruSub {
-  position: relative;
-}
-
-.recruRule {
-  position: absolute;
-  top: 2rem;
-  left: -8rem;
-}
-
-.rule-1 {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.rule-2 {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-}
-.rule-3 {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 1rem;
+/* ========== 안전 가드 & 반응형 ========== */
+.rocket,
+.ballongift,
+.headphonerecru,
+.pencil,
+.emoji,
+.globes,
+.NormalRocket,
+.moon {
+  max-width: 95vw;
 }

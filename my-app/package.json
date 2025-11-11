@@ -24,7 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.2.1"
   },
   "eslintConfig": {
     "extends": [

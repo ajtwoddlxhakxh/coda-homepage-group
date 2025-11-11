@@ -1,5 +1,14 @@
 import React from "react";
 import "./Sub_recruitment.css";
+import ballongift from "./img/ballongift.svg";
+import rocket from "./img/rocket.svg";
+import globes from "./img/globes.svg";
+import NormalRocket from "./img/NormalRocket.svg";
+import moon from "./img/moon.svg";
+import headphonerecru from "./img/headphonerecru.svg";
+import pencil from "./img/pencil.svg";
+import emoji from "./img/emoji.svg";
+import recrucheck from "./img/recrucheck.svg";
 
 export default function Sub_recruitment() {
   return (
@@ -17,65 +26,51 @@ export default function Sub_recruitment() {
           <span className="init init-CHANCE">'CHANCE'</span>이다.
         </div>
       </div>
+      <img className="ballongift" src={ballongift} alt="ballongift" />
+      <img className="rocket" src={rocket} alt="rocket" />
 
-      <div className="recruSubTitle">
-        <span className="subRecruTitle">BEFORE SIGN UP</span>
-      </div>
+      <div className="sub-recruitment">
+        {/* 1) BEFORE SIGN UP */}
+        <section className="before-signup">
+          <img className="recrucheck" src={recrucheck} alt="recrucheck" />
+          <h2 className="before-title">BEFORE SIGN UP</h2>
 
-      <img
-        className="recrucheck"
-        src="/images/recrucheck.svg"
-        alt="recrucheck"
-      />
-
-      <div className="recruSub">
-        <div className="recruRule">
-          <span className="rule-1"> 규칙 1 블로그 업로드 및 깃허브 커밋</span>
-          <span className="rule-2">
-            {" "}
-            규칙 2 매달 1회 개인 참여 사업 및 프로젝트 조사
-          </span>
-          <span className="rule-3">
-            {" "}
-            규칙 3 열심히 노력하는 모습을 보여줄 것.
-          </span>
-        </div>
-      </div>
-
-      <img
-        className="ballongift"
-        src="/images/ballongift.svg"
-        alt="ballongift"
-      />
-      <img className="rocket" src="/images/rocket.svg" alt="rocket" />
-
-      <div className="LastRecruit">
-        <span className="LastTitle1">
-          <p>
-            <br>CLICK AND</br>
-            <br>FINISH</br>
-            SIGN UP
+          <p className="Rule rule1">규칙 1. 블로그 업로드 및 깃허브 커밋</p>
+          <p className="Rule rule2">
+            규칙 2. 매달 1회 개인 참여 사업 및 프로젝트 조사
           </p>
-        </span>
-        <span className="LastTitle2">
-          <p>
-            <br>CLICK AND</br>
-            <br>FINISH</br>
-            SIGN UP
-          </p>
-        </span>
+          <p className="Rule rule3">규칙 3. 열심히 노력하는 모습을 보여줄 것</p>
+
+          <img
+            className="headphonerecru"
+            src={headphonerecru}
+            alt="headphonerecru"
+          />
+          <img className="pencil" src={pencil} alt="pencil" />
+          <img className="emoji" src={emoji} alt="emoji" />
+        </section>
+
+        {/* 2) CLICK AND FINISH SIGN UP */}
+        <section className="cta-signup">
+          <div className="LastRecruit">
+            <span className="LastTitle1">
+              <p>CLICK AND FINISH SIGN UP</p>
+            </span>
+            <span className="LastTitle2">
+              <p>CLICK AND FINISH SIGN UP</p>
+            </span>
+          </div>
+
+          <img
+            className="globes"
+            src={globes}
+            alt="globes"
+            // onClick={() => navigate("/사용자 신청페이지 라우터 이름")}
+          />
+          <img className="NormalRocket" src={NormalRocket} alt="NormalRocket" />
+          <img className="moon" src={moon} alt="moon" />
+        </section>
       </div>
-      <img
-        className="globes"
-        src="/images/globes.svg"
-        onClick={() => navigate("/사용자 신청페이지 라우터 이름")}
-      />
-      <img
-        className="NormalRocket"
-        src="/images/NormalRocket.svg"
-        alt="NormalRocket"
-      />
-      <img className="moon" src="/images/moon.svg" alt="moon" />
     </div>
   );
 }
