@@ -54,10 +54,10 @@ export default function Sub_recruitment() {
         <section className="cta-signup">
           <div className="LastRecruit">
             <span className="LastTitle1">
-              <p>CLICK AND FINISH SIGN UP</p>
+              <p>CLICK THE GLOBES</p>
             </span>
             <span className="LastTitle2">
-              <p>CLICK AND FINISH SIGN UP</p>
+              <p>CLICK THE GLOBES</p>
             </span>
           </div>
 
