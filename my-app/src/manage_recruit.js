@@ -5,34 +5,18 @@ import axios from "axios";
 import "./manage_recruit.css";
 import Manage_applicantTable from "./manage_applicantTable";
 import Manage_pagenation from "./manage_pagenation";
-//import * as test from "node:test";
 
 function ManageRecruit(token) {
   const { data, status, error, loading } = useApplicants();
   const allStatus = {
     total: status?.length,
     pending: status?.filter((item) => item.status === "pending"),
-    viewed: status?.filter((item) => item.status === "viewed"),
     approved: status?.filter((item) => item.status === "approved"),
+     rejected: status?.filter((item) => item.status === "rejected")
+
   };
   // 페이지 위치 관리
   const [currentPage, setCurrentPage] = useState(1);
-  const testItems = [
-    {
-      _id: "507f1f77bcf86cd799439011",
-      name: "홍길동",
-      phone: "010-1234-5678",
-      createdAt: "2025-11-10T12:34:56.789Z",
-      status: "pending",
-    },
-    {
-      _id: "507f1f77bcf86cd799439012",
-      name: "김철수",
-      phone: "010-9876-5432",
-      createdAt: "2025-11-09T10:20:30.000Z",
-      status: "viewed",
-    },
-  ];
   // 쿠키인증시간 끝나면??
   return (
     <div className={"recruitContainer"}>
@@ -44,10 +28,10 @@ function ManageRecruit(token) {
             대기중: {allStatus.pending?.length || "null"}
           </li>
           <li className={"approvedCount"}>
-            조회됨: {allStatus.viewed?.length || "null"}
+            승인됨: {allStatus.approved?.length || "null"}
           </li>
           <li className={"rejectedCount"}>
-            승인됨: {allStatus.approved?.length || "null"}
+            거절됨: {allStatus.rejected?.length || "null"}
           </li>
         </ul>
       </div>
@@ -58,14 +42,14 @@ function ManageRecruit(token) {
 
       <div className={"applicantTable"}>
         {/*코드가 너무 길어져서 따로 뺐어요*/}
-        <Manage_applicantTable currentPage={currentPage} items={testItems} />
+        <Manage_applicantTable currentPage={currentPage} items={status} />
       </div>
 
       {/*페이지 번호 확인 */}
       <div className={"pagination"}>
         <span className={"pageNumber"}>
           <Manage_pagenation
-            totalPage={data?.totalPages || 1}
+            totalPage={data?.totalPages || 7}
             onPageChange={setCurrentPage}
           />
         </span>

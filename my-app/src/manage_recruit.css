@@ -1,4 +1,5 @@
 /* === 전체 컨테이너 === */
+
 .recruitContainer {
   width: 90%;
   max-width: 1200px;
@@ -8,7 +9,8 @@
   flex-direction: column;
   gap: 36px;
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
-  color: #222;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 /* === 요약 영역 === */
@@ -16,6 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: #ffffff;
 }
 
 /* "요약" 제목 */
