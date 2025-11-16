@@ -23,8 +23,10 @@ function RecruitApplyPage({ question1, question2, positionId }) {
 
     if (!positionId) {
       alert("모집 공고 ID(positionId)가 없습니다.");
+      console.log("❗ positionId 없음");
       return;
     }
+
     if (!form.name || !form.major || !form.studentId) {
       alert("이름 / 이메일 / 연락처는 필수입니다.");
       return;
@@ -45,6 +47,8 @@ ${form.answer1}
 ${form.answer2}
     `.trim();
 
+    console.log("👉 제출 positionId:", positionId);
+
     try {
       const baseURL = process.env.REACT_APP_API_URL;
       const url = `${baseURL}/public/recruits`;
@@ -56,8 +60,12 @@ ${form.answer2}
       formData.append("phone", form.studentId);
       formData.append("documents", documents);
 
-      const res = await axios.post(url, formData);
+      // 디버그용
+      for (let [key, value] of formData.entries()) {
+        console.log("formData:", key, "=>", value);
+      }
 
+      const res = await axios.post(url, formData);
       console.log("신청 응답:", res.data);
       alert("신청이 성공적으로 접수되었습니다!");
 

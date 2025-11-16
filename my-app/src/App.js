@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Sub_main from "./Sub_main";
 import Sub_recruitment from "./Sub_recruitment";
 import Clubcoda from "./Clubcoda";
-import RecruitApplyPage from "./clubrecru";
+import RecruitApplyWrapper from "./RecruitApplyWrapper";
 
 // 관리자 페이지
 import Recruit from "./manage_recruit";
@@ -74,16 +74,8 @@ function App() {
         <Route path="projects" element={<Sub_project />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
         <Route path="contact" element={<Sub_main />} />
-        <Route
-          path="/clubrecru"
-          element={
-            <RecruitApplyPage
-              //positionId="6738c2f23185de3a1b0b1234"
-              question1="동아리에 지원한 이유를 적어주세요."
-              question2="본인의 강점 또는 관심 분야를 적어주세요."
-            />
-          }
-        />
+        <Route path="/clubrecru" element={<RecruitApplyWrapper />} />
+        {/* <Route path="/recruit/apply" element={<RecruitApplyWrapper />} /> */}
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
         <Route path="admin/login" element={<Login />} />
