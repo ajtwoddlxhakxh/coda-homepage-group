@@ -1,4 +1,3 @@
-/* === 전체 컨테이너 === */
 .recruitContainer {
   width: 90%;
   max-width: 1200px;
@@ -11,7 +10,7 @@
   color: #222;
 }
 
-/* === 요약 영역 === */
+/* ======================== 요약 영역 ======================= */
 .summarySection {
   display: flex;
   flex-direction: column;
@@ -21,13 +20,13 @@
 /* "요약" 제목 */
 .summarySection::before {
   content: "요약";
-  font-size: 1.4rem; /* 중간 크기 */
+  font-size: 1.4rem;
   font-weight: 700;
   color: #000;
   margin-bottom: 4px;
 }
 
-/* 하단 요약 리스트 */
+/* 요약 값 리스트 */
 .summaryStats {
   display: flex;
   align-items: center;
@@ -39,7 +38,7 @@
   color: #333;
 }
 
-/* 항목 간 | 구분선 */
+/* 항목 사이 | 구분선 */
 .summaryStats li::after {
   content: "|";
   margin-left: 12px;
@@ -49,105 +48,201 @@
   content: "";
 }
 
-/* 텍스트 스타일 */
+/* 색/굵기 */
 .summaryStats .totalCount {
   font-weight: 600;
 }
 .summaryStats .waitingCount {
-  color: #f5a623; /* 대기 - 주황 */
+  color: #f5a623;
   font-weight: 600;
 }
 .summaryStats .approvedCount {
-  color: #3cb44a; /* 승인 - 초록 */
+  color: #3cb44a;
   font-weight: 600;
 }
 .summaryStats .rejectedCount {
-  color: #d0021b; /* 반려 - 빨강 */
+  color: #d0021b;
   font-weight: 600;
 }
 
-/* === 신청 관리 헤더 === */
+/* ========================================================= */
+/* =============== 신청 관리 제목 + 검색줄 ================== */
+/* ========================================================= */
+
 .managementHeader {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 12px 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  gap: 16px;
+  position: relative;
+  margin-top: 40px; /* 요약과 간격 */
+  padding-top: 44px; /* 제목과 검색줄 사이 여백 */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* 검색 영역 */
+/* "신청 관리" 텍스트 */
+.managementHeader::before {
+  content: "신청 관리";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+}
+
+/* 검색 + 전체선택 라인 */
 .searchSection {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* 검색창 */
-.searchSection input[type="text"] {
+/* 검정색 검색창 (가짜 input) */
+.searchSection::before {
+  content: "검색";
+  display: flex;
+  align-items: center;
   width: 260px;
   height: 38px;
-  padding: 6px 12px;
-  border: 1px solid #bfbfbf; /* 회색 테두리 */
+  padding: 0 12px;
   border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  background-color: #000;
+  color: #cfcfcf;
   font-size: 0.95rem;
-  outline: none;
-  transition: all 0.2s ease;
-  color: #fff; /* 텍스트 흰색 */
-  background-color: #000; /* 배경 검정 */
-  text-align: left;
+  box-sizing: border-box;
 }
 
-.searchSection input[type="text"]::placeholder {
-  color: #cfcfcf; /* 플레이스홀더 밝은 회색 */
-  text-align: left;
-}
-
-.searchSection input[type="text"]:focus {
-  border-color: #8a8a8a; /* 포커스 시 테두리 살짝 진한 회색 */
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
-}
-
-/* 전체 선택 버튼: 회색 박스 */
-.selectAllButton {
-  background-color: #e9e9e9; /* 밝은 회색 */
-  color: #222;
-  border: 1px solid #d0d0d0;
-  border-radius: 8px;
+/* 전체 선택 버튼 */
+.searchSection::after {
+  content: "전체 선택";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  background-color: #e9e9e9;
+  color: #222;
   font-size: 0.92rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.selectAllButton:hover {
-  background-color: #dcdcdc; /* hover 시 조금 진한 회색 */
-}
+/* ========================================================= */
+/* ====================== 테이블 영역 ======================== */
+/* ========================================================= */
 
-/* === 지원자 테이블 전체 컨테이너 === */
 .applicantTable {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 90%;
-  max-width: 900px;
-  margin: 40px auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px auto 0;
 }
 
-/* === 공통 그리드 (체크박스 포함 6열) === */
+/* React 안에서 table 구조를 쓴 경우 */
+.applicantTable table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* 행 사이 세로 간격 */
+}
+
+/* 헤더 행 – 연한 회색 박스 */
+.applicantTable thead tr {
+  background-color: #f3f3f3;
+}
+
+/* 헤더 셀 공통 */
+.applicantTable thead th {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 헤더 모서리 둥글게 */
+.applicantTable thead th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.applicantTable thead th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* 번호, 신청일시, 상태 뒤에 ▾ 표시 */
+.applicantTable thead th:nth-child(2)::after,
+.applicantTable thead th:nth-child(5)::after,
+.applicantTable thead th:nth-child(6)::after {
+  content: "▾";
+  margin-left: 4px;
+  font-size: 0.7rem;
+}
+
+/* 상태 앞에 ● 표시 */
+.applicantTable thead th:nth-child(6)::before {
+  content: "●";
+  margin-right: 4px;
+  font-size: 0.6rem;
+}
+
+/* ============ 데이터 행을 카드(박스)처럼 ============ */
+.applicantTable tbody tr,
+.tableRow {
+  /* 혹시 div 버전(tableRow)도 쓸 수 있게 같이 지정 */
+  background: #fff;
+  border: 2px solid #3d3d3d; /* 얇은 연회색 테두리 */
+  border-radius: 12px; /* 둥근 모서리 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 살짝 그림자 */
+}
+
+/* table 구조일 때 각 셀 패딩/정렬 */
+.applicantTable tbody td {
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+/* 체크박스 칸 */
+.applicantTable thead th:first-child,
+.applicantTable tbody td:first-child {
+  text-align: center;
+  width: 40px;
+}
+
+/* 번호, 상태 중앙 정렬 */
+.applicantTable thead th:nth-child(2),
+.applicantTable tbody td:nth-child(2),
+.applicantTable thead th:nth-child(6),
+.applicantTable tbody td:nth-child(6) {
+  text-align: center;
+}
+
+/* 이름, 연락처, 신청일시 왼쪽 정렬 */
+.applicantTable thead th:nth-child(3),
+.applicantTable tbody td:nth-child(3),
+.applicantTable thead th:nth-child(4),
+.applicantTable tbody td:nth-child(4),
+.applicantTable thead th:nth-child(5),
+.applicantTable tbody td:nth-child(5) {
+  text-align: left;
+}
+
+/* 마지막(상태) 셀은 살짝 오른쪽 여백 */
+.applicantTable tbody td:last-child {
+  padding-right: 20px;
+}
+
+/* ========================================================= */
+/* ===== div 기반 레이아웃(예전 tableGrid/tableRow 용) ===== */
+/* ========================================================= */
+
 .tableGrid {
   display: grid;
-  grid-template-columns: 40px 90px 1.2fr 1.2fr 1fr 120px; /* 체크 | 번호 | 이름 | 연락처 | 신청일시 | 상태 */
+  grid-template-columns: 40px 90px 1.2fr 1.2fr 1fr 120px;
   align-items: center;
   column-gap: 12px;
 }
 
-/* === 헤더 바 === */
 .tableHeader {
-  background: #f1f1f1;
+  background: #f3f3f3;
   border-radius: 10px;
   padding: 10px 12px;
   font-weight: 700;
@@ -155,29 +250,12 @@
   color: #333;
 }
 
-/* === 행(리스트 아이템) === */
 .tableRow {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
   padding: 12px 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    border-color 0.12s ease;
-  display: grid;
-  grid-template-columns: 40px 90px 1.2fr 1.2fr 1fr 120px;
-  column-gap: 12px;
-  align-items: center;
+  margin-top: 8px;
 }
 
-/* hover 시 살짝 떠오르는 효과 */
-.tableRow:hover {
-  transform: translateY(-1px);
-  border-color: #e2e2e2;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-}
-
-/* === 셀 정렬 === */
+/* div 버전 셀 스타일 */
 .cell-center {
   text-align: center;
 }
@@ -193,7 +271,7 @@
   color: #444;
 }
 
-/* === 상태 표시 (● + 텍스트) === */
+/* 상태 배지(div 버전) */
 .statusBadge {
   display: inline-flex;
   align-items: center;
@@ -208,21 +286,20 @@
   border-radius: 50%;
 }
 
-/* 상태별 점 색상 */
+/* 색 지정 (필요 시 사용) */
 .status--pending .statusDot {
   background: #f5a623;
-} /* 대기 (주황) */
+}
 .status--approved .statusDot {
   background: #29b34a;
-} /* 승인 (초록) */
+}
 .status--rejected .statusDot {
   background: #d0021b;
-} /* 반려 (빨강) */
+}
 .status--viewed .statusDot {
   background: #1e90ff;
-} /* 조회됨 (파랑) */
+}
 
-/* 상태별 텍스트 색상 */
 .status--pending .statusText {
   color: #f5a623;
 }
@@ -236,7 +313,10 @@
   color: #1e90ff;
 }
 
-/* === 전체 컨테이너 === */
+/* ========================================================= */
+/* ====================== 페이지네이션 ======================= */
+/* ========================================================= */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -245,7 +325,6 @@
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
 }
 
-/* 페이지 숫자 감싸는 부분 */
 .pageNumber {
   display: flex;
   justify-content: center;
@@ -253,7 +332,6 @@
   gap: 10px;
 }
 
-/* === 각 페이지 버튼 === */
 .pageButton {
   width: 34px;
   height: 34px;
@@ -270,13 +348,11 @@
   transition: all 0.2s ease;
 }
 
-/* 마우스 올렸을 때 */
 .pageButton:hover {
   background-color: #f3f3f3;
   border-color: #999;
 }
 
-/* === 현재 페이지 표시 === */
 .pageButton.active {
   background-color: #555;
   color: #fff;
@@ -285,7 +361,6 @@
   transform: scale(1.05);
 }
 
-/* 비활성 상태 */
 .pageButton.disabled {
   opacity: 0.4;
   pointer-events: none;
