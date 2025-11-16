@@ -1,5 +1,7 @@
 import React from "react";
 import "./Sub_recruitment.css";
+import { useNavigate } from "react-router-dom";
+
 import ballongift from "./img/ballongift.svg";
 import rocket from "./img/rocket.svg";
 import globes from "./img/globes.svg";
@@ -11,6 +13,8 @@ import emoji from "./img/emoji.svg";
 import recrucheck from "./img/recrucheck.svg";
 
 export default function Sub_recruitment() {
+  const navigate = useNavigate();
+
   return (
     <div className="sub-recruitment">
       <div className="recru-info">
@@ -65,7 +69,7 @@ export default function Sub_recruitment() {
             className="globes"
             src={globes}
             alt="globes"
-            // onClick={() => navigate("/사용자 신청페이지 라우터 이름")}
+            onClick={() => navigate("/clubrecru")}
           />
           <img className="NormalRocket" src={NormalRocket} alt="NormalRocket" />
           <img className="moon" src={moon} alt="moon" />
