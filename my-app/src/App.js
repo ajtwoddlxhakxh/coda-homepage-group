@@ -78,6 +78,7 @@ function App() {
           path="/clubrecru"
           element={
             <RecruitApplyPage
+              //positionId="6738c2f23185de3a1b0b1234"
               question1="동아리에 지원한 이유를 적어주세요."
               question2="본인의 강점 또는 관심 분야를 적어주세요."
             />

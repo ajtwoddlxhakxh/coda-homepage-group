@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./clubrecru.css";
+import axios from "axios";
 
-function RecruitApplyPage({ question1, question2 }) {
+function RecruitApplyPage({ question1, question2, positionId }) {
   const [form, setForm] = useState({
     name: "",
     studentId: "",
@@ -17,10 +18,66 @@ function RecruitApplyPage({ question1, question2 }) {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("신청 데이터 :", form);
-    alert("신청이 완료되었습니다!");
+
+    if (!positionId) {
+      alert("모집 공고 ID(positionId)가 없습니다.");
+      return;
+    }
+    if (!form.name || !form.major || !form.studentId) {
+      alert("이름 / 이메일 / 연락처는 필수입니다.");
+      return;
+    }
+
+    const documents = `
+[지원자 정보]
+학교: ${form.school}
+나이: ${form.age}
+
+[연락처] ${form.studentId}
+[이메일] ${form.major}
+
+[Q1] ${question1}
+${form.answer1}
+
+[Q2] ${question2}
+${form.answer2}
+    `.trim();
+
+    try {
+      const baseURL = process.env.REACT_APP_API_URL;
+      const url = `${baseURL}/public/recruits`;
+
+      const formData = new FormData();
+      formData.append("positionId", positionId);
+      formData.append("name", form.name);
+      formData.append("email", form.major);
+      formData.append("phone", form.studentId);
+      formData.append("documents", documents);
+
+      const res = await axios.post(url, formData);
+
+      console.log("신청 응답:", res.data);
+      alert("신청이 성공적으로 접수되었습니다!");
+
+      // 폼 초기화
+      setForm({
+        name: "",
+        studentId: "",
+        major: "",
+        age: "",
+        school: "",
+        answer1: "",
+        answer2: "",
+      });
+    } catch (error) {
+      console.error("신청 중 오류:", error);
+      const msg =
+        error.response?.data?.message ||
+        "서버 오류로 인해 신청을 처리할 수 없습니다.";
+      alert(msg);
+    }
   };
 
   return (
@@ -29,7 +86,7 @@ function RecruitApplyPage({ question1, question2 }) {
         <h1 className="apply-title">동아리 신청</h1>
 
         <form className="apply-form" onSubmit={handleSubmit}>
-          {/* 이름 / 학번 */}
+          {/* 이름 / 연락처 */}
           <div className="apply-row">
             <div className="apply-field">
               <label htmlFor="name">이름</label>
@@ -43,7 +100,7 @@ function RecruitApplyPage({ question1, question2 }) {
             </div>
 
             <div className="apply-field">
-              <label htmlFor="studentId">학번</label>
+              <label htmlFor="studentId">연락처</label>
               <input
                 id="studentId"
                 name="studentId"
@@ -54,10 +111,10 @@ function RecruitApplyPage({ question1, question2 }) {
             </div>
           </div>
 
-          {/* 전공 / 나이 */}
+          {/* 이메일 / 나이 */}
           <div className="apply-row">
             <div className="apply-field">
-              <label htmlFor="major">전공</label>
+              <label htmlFor="major">Email</label>
               <input
                 id="major"
                 name="major"
@@ -78,6 +135,8 @@ function RecruitApplyPage({ question1, question2 }) {
               />
             </div>
           </div>
+
+          {/* 학교명 */}
           <div className="apply-row single">
             <div className="apply-field">
               <label htmlFor="school">학교명</label>
