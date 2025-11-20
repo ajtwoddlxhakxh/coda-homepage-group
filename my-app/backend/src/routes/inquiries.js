@@ -7,11 +7,11 @@ const router = Router();
 // ✅ POST /inquiries - 방문자가 새로운 문의 제출
 router.post('/', async (req, res) => {
     try {
-        const { name, email, subject, message } = req.body;
-        if (!name || !email || !subject || !message) {
+        const { email, tag, subject, message } = req.body;
+        if (!email || !tag || !subject || !message) {
             return res.status(400).json({ message: '모든 필드를 입력해주세요.' });
         }
-        const newInquiry = new Complaint({ name, email, subject, message });
+        const newInquiry = new Complaint({ email, tag, subject, message });
         await newInquiry.save();
         res.status(201).json({ message: '문의가 성공적으로 접수되었습니다.' });
     } catch (error) {

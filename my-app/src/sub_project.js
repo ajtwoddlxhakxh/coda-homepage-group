@@ -7,6 +7,7 @@ import crown from './img/crown.svg';
 import gamepad from './img/gamepad.svg';
 
 //TODO LINk로 이미지, 텍스트 감싸기, CSS작업+
+// todo link에 텍스트 적용안됨, award제작
 
 export default function SubProject() {
   return (

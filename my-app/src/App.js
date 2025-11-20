@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Sub_main from "./Sub_main";
 import Sub_recruitment from "./Sub_recruitment";
 import Clubcoda from "./Clubcoda";
+import Sub_contact from "./sub_contact";
 import RecruitApplyWrapper from "./RecruitApplyWrapper";
 
 // 관리자 페이지
@@ -73,9 +74,10 @@ function App() {
         <Route path="about" element={<ClubCoda />} />
         <Route path="projects" element={<Sub_project />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
-        <Route path="contact" element={<Sub_main />} />
+        <Route path="contact" element={<Sub_contact/>} />
         <Route path="/clubrecru" element={<RecruitApplyWrapper />} />
         {/* <Route path="/recruit/apply" element={<RecruitApplyWrapper />} /> */}
+
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
         <Route path="admin/login" element={<Login />} />

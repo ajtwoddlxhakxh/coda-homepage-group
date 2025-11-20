@@ -1,6 +1,7 @@
 import "./Sub_main.css";
 import bulb from './img/bulb.svg'
 import bulb2 from './img/bulb2.svg'
+// todo key 사용하는건가요?
 import key from './img/keycap.svg'
 import key1 from './img/keycap1.svg'
 import key2 from './img/keycap2.svg'

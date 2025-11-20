@@ -30,7 +30,8 @@ function CreateBy({items, specialName}) {
     );
 }
 
-function Keycap({name, part, specialName}) {
+// todo 팀원 깃허브? 링크추가(선택사항)
+function Keycap({name, part}) {
     // part값에 따라 css name생성  FRONT-END -> frontend
     const partClassName = part.toLowerCase().replace('-', '');
 

@@ -35,9 +35,11 @@ function ManageRecruit(token) {
           </li>
         </ul>
       </div>
-      {/*검색박스, 검색은 마지막에 작성*/}
+      {/* todo 검색창 구현하기, css랑 className차이 있음 */}
       <div className={"managementHeader"}>
-        <span className={"searchSection"}></span>
+        <span className={"searchSection"}>
+            <input type={'search'}/>
+        </span>
       </div>
 
       <div className={"applicantTable"}>
@@ -53,8 +55,7 @@ function ManageRecruit(token) {
             onPageChange={setCurrentPage}
           />
         </span>
-      </div>
-    </div>
+      </div>    </div>
   );
 }
 
