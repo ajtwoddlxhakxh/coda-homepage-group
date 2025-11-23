@@ -12,3 +12,14 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 페이지별 배경색 클래스 */
+.bg-black {
+    background-color: #000;
+    min-height: 100vh;
+}
+
+.bg-white {
+    background-color: #fff;
+    min-height: 100vh;
+}

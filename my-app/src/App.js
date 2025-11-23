@@ -19,6 +19,17 @@ import ClubCoda from "./Clubcoda";
 
 //TODO 특정 경로일때만 navbar보이게 설정
 function App() {
+  const location = useLocation();
+
+  // 경로에 따라 배경색 클래스를 결정하는 함수
+  const getBackgroundClass = () => {
+    const path = location.pathname;
+    if (path.startsWith('/admin')) {
+      return 'bg-white';
+    }
+    return 'bg-black';  // 관리자 페이지 제외 모두 검정 배경
+  };
+
   const developer = [
     { name: "유하선", part: "BACK-END" },
     { name: "유도현", part: "BACK-END" },
@@ -62,7 +73,7 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <div className={`App ${getBackgroundClass()}`}>
       <NavbarGreeting />
       {/* route 경로설정 */}
       {/*새 컴포넌트 만들면 아래에 <route>를 추가해주세요*/}

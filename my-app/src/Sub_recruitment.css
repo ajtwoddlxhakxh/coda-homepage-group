@@ -1,3 +1,4 @@
+/* todo 좌우 여백이 있어야될것 같아요*/
 .sub-recruitment {
   position: relative;
   width: 100%;
@@ -6,8 +7,6 @@
   overflow: hidden;
   font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  transform:scale(0.7);
-
 }
 .sub-recruitment > .recru-info,
 .sub-recruitment > .recru-main,
