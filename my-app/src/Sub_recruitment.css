@@ -17,7 +17,7 @@
 
 /* 섹션 높이 */
 .recruInfo {
-  padding-top: 2rem;
+  padding-top: 360px;
 }
 .recruMain {
   min-height: 200vh;
@@ -45,6 +45,8 @@
   z-index: 3;
   line-height: 1.2;
   text-transform: uppercase;
+  margin: auto;
+  padding: auto;
 }
 .infoTitle {
   display: block;
@@ -137,7 +139,7 @@
 .rocket {
   position: absolute;
   left: clamp(100px, 3.6vw, 120px);
-  top: clamp(430px, 9vh, 150px);
+  top: clamp(750px, 9vh, 150px);
   width: clamp(160px, 26vw, 320px);
   height: auto;
   z-index: 2;
@@ -146,7 +148,7 @@
 .ballongift {
   position: absolute;
   right: clamp(24vw, 10vw, 14vw);
-  top: clamp(180vh, 54vh, 60vh);
+  top: clamp(220vh, 54vh, 60vh);
   width: clamp(110px, 20vw, 190px);
   height: auto;
   z-index: 2;
