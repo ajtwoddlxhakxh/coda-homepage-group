@@ -16,28 +16,28 @@ export default function Sub_recruitment() {
   const navigate = useNavigate();
 
   return (
-    <div className="sub-recruitment">
-      <div className="recru-info">
-        <span className="info-title">RECRUITMENT</span>
-        <span className="recru-crew">동아리 신청하기</span>
+    <div className="subRecruitment">
+      <div className="recruInfo">
+        <span className="infoTitle">RECRUITMENT</span>
+        <span className="recruCrew">동아리 신청하기</span>
       </div>
 
-      <div className="recru-main">
-        <div className="recru-text">
-          <span className="init init-CODA">CODA</span>는
+      <div className="recruMain">
+        <div className="recruText">
+          <span className="init initCODA">CODA</span>는
         </div>
-        <div className="recru-text">
-          <span className="init init-CHANCE">'CHANCE'</span>이다.
+        <div className="recruText">
+          <span className="init initCHANCE">'CHANCE'</span>이다.
         </div>
       </div>
       <img className="ballongift" src={ballongift} alt="ballongift" />
       <img className="rocket" src={rocket} alt="rocket" />
 
-      <div className="sub-recruitment">
+      <div className="subRecruitment">
         {/* 1) BEFORE SIGN UP */}
         <section className="before-signup">
           <img className="recrucheck" src={recrucheck} alt="recrucheck" />
-          <h2 className="before-title">BEFORE SIGN UP</h2>
+          <h2 className="beforeTitle">BEFORE SIGN UP</h2>
 
           <p className="Rule rule1">규칙 1. 블로그 업로드 및 깃허브 커밋</p>
           <p className="Rule rule2">
@@ -55,7 +55,7 @@ export default function Sub_recruitment() {
         </section>
 
         {/* 2) CLICK AND FINISH SIGN UP */}
-        <section className="cta-signup">
+        <section className="ctaSignup">
           <div className="LastRecruit">
             <span className="LastTitle1">
               <p>CLICK THE GLOBES</p>

@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import "./clubrecru.css";
 import axios from "axios";
 
-function RecruitApplyPage({ question1, question2, positionId }) {
+function RecruitApplyPage({
+  question1,
+  question2,
+  positionId,
+  submitDisabledReason,
+}) {
   const [form, setForm] = useState({
     name: "",
-    studentId: "",
-    major: "",
+    studentId: "", // 연락처
+    major: "", // email
     age: "",
     school: "",
     answer1: "",
@@ -21,12 +26,19 @@ function RecruitApplyPage({ question1, question2, positionId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // ✅ 기간/공고 없음/로딩/에러 등 제출 불가 사유가 있으면 여기서 차단
+    if (submitDisabledReason) {
+      alert(submitDisabledReason);
+      return;
+    }
+
     if (!positionId) {
       alert("모집 공고 ID(positionId)가 없습니다.");
       console.log("❗ positionId 없음");
       return;
     }
 
+    // 필수값 체크(기존 너 코드 유지)
     if (!form.name || !form.major || !form.studentId) {
       alert("이름 / 이메일 / 연락처는 필수입니다.");
       return;
@@ -47,8 +59,6 @@ ${form.answer1}
 ${form.answer2}
     `.trim();
 
-    console.log("👉 제출 positionId:", positionId);
-
     try {
       const baseURL = process.env.REACT_APP_API_URL;
       const url = `${baseURL}/public/recruits`;
@@ -61,9 +71,9 @@ ${form.answer2}
       formData.append("documents", documents);
 
       // 디버그용
-      for (let [key, value] of formData.entries()) {
-        console.log("formData:", key, "=>", value);
-      }
+      // for (let [key, value] of formData.entries()) {
+      //   console.log("formData:", key, "=>", value);
+      // }
 
       const res = await axios.post(url, formData);
       console.log("신청 응답:", res.data);
@@ -92,6 +102,21 @@ ${form.answer2}
     <div className="apply-wrapper">
       <div className="apply-container">
         <h1 className="apply-title">동아리 신청</h1>
+
+        {/* 모집기간/데이터 문제 안내 (폼은 보여주되 제출만 막음) */}
+        {submitDisabledReason && (
+          <div
+            className="apply-banner"
+            style={{
+              color: "white",
+              marginBottom: 14,
+              opacity: 0.9,
+              fontSize: 14,
+            }}
+          >
+            {submitDisabledReason}
+          </div>
+        )}
 
         <form className="apply-form" onSubmit={handleSubmit}>
           {/* 이름 / 연락처 */}
@@ -185,7 +210,16 @@ ${form.answer2}
 
           {/* 제출 버튼 */}
           <div className="apply-submit-wrapper">
-            <button type="submit" className="apply-submit-btn">
+            <button
+              type="submit"
+              className="apply-submit-btn"
+              disabled={!!submitDisabledReason}
+              style={
+                submitDisabledReason
+                  ? { opacity: 0.5, cursor: "not-allowed" }
+                  : undefined
+              }
+            >
               <span className="apply-submit-check">✔</span>
               <span>제출하기</span>
             </button>
