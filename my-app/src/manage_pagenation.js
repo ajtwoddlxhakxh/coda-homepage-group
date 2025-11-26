@@ -1,31 +1,49 @@
-import { useEffect, useState, useRef} from "react";
+import { useEffect, useState } from "react";
 
+function Manage_pagenation({ totalPage, onPageChange }) {
+    const [currentPage, setCurrentPage] = useState(1);
 
-function Manage_pagenation({totalPage, onPageChange}) {
-    const limit = 6
-    const [page, setPage] = useState([])
+    const handlePageChange = (pageNum) => {
+        setCurrentPage(pageNum);
+        onPageChange(pageNum);
+    };
 
-   useEffect(()=>{
-       // setpage에서 배열로 저장하게 변경하기
-       const pages = [];
-       let cnt = 1
-       for (let i = 0; i < Math.ceil(totalPage.length / limit); i++){
-           pages.push(cnt);
-           cnt +=1
-       }
-       setPage(pages);
-   }, [])
+    // 페이지 버튼 배열 생성
+    const pageButtons = [];
+    for (let i = 1; i <= totalPage; i++) {
+        pageButtons.push(i);
+    }
 
     return (
         <nav>
-            {
-                page.map((i) =>(
-                    <button onClick={() => onPageChange(i)} >{i}</button>
-                ))
-            }
+            {/* 이전 버튼 */}
+            <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+            >
+                이전
+            </button>
+
+            {/* 페이지 번호 버튼 */}
+            {pageButtons.map((pageNum) => (
+                <button
+                    key={pageNum}
+                    onClick={() => handlePageChange(pageNum)}
+                    className={currentPage === pageNum ? "active" : ""}
+                >
+                    {pageNum}
+                </button>
+            ))}
+
+            {/* 다음 버튼 */}
+            <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPage}
+            >
+                다음
+            </button>
         </nav>
-
-
-    )
+    );
 }
-export default Manage_pagenation
+
+export default Manage_pagenation;

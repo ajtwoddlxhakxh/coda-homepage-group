@@ -1,32 +1,13 @@
-import { useEffect, useState, useRef, } from "react";
+import { useEffect, useState, useRef } from "react";
 import React from "react";
-import {Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
+function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
 
-// CSS 구조:
-// .Manage_applicantTable (table)
-//   ├─ thead
-//   │   └─ tr
-//   │       ├─ th (체크박스)
-//   │       ├─ th (번호)
-//   │       ├─ th (이름)
-//   │       ├─ th (연락처)
-//   │       ├─ th (신청일시)
-//   │       └─ th (상태)
-//   │
-//   └─ tbody
-//       └─ tr
-//           ├─ td.checkbox (input[type="checkbox"])
-//           ├─ td.id
-//           ├─ td.name
-//           ├─ td.contact
-//           ├─ td.date
-//           └─ td.status
-
-// className은 아직 작성 안해놨어요
-function Manage_applicantTable({currentPage, items = []}) {
-
-    // 로컬 테스트용 데이터 (items가 비어있을 때 사용)
+    // 현재 페이지에 해당하는 항목만 추출
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentItems = items.slice(startIndex, endIndex);
 
     // 선택된 항목들의 ID를 관리하는 상태
     const [selectedItems, setSelectedItems] = useState(new Set());
@@ -34,19 +15,28 @@ function Manage_applicantTable({currentPage, items = []}) {
     // 현재 확장된 행의 ID를 관리하는 상태
     const [expandedId, setExpandedId] = useState(null);
 
+    // 페이지 변경 시 확장된 행 초기화
+    useEffect(() => {
+        setExpandedId(null);
+    }, [currentPage]);
+
     // 행 클릭 핸들러 (확장/축소)
     const handleRowClick = (itemId) => {
         setExpandedId(expandedId === itemId ? null : itemId);
     };
 
-    // 전체 선택/해제 핸들러
+    // 전체 선택/해제 핸들러 (현재 페이지 기준)
     const handleSelectAll = (e) => {
         if (e.target.checked) {
-            // 모든 항목 선택
-            setSelectedItems(new Set(items.map(item => item._id)));
+            // 현재 페이지의 모든 항목 선택
+            const newSelected = new Set(selectedItems);
+            currentItems.forEach(item => newSelected.add(item._id));
+            setSelectedItems(newSelected);
         } else {
-            // 모든 항목 선택 해제
-            setSelectedItems(new Set());
+            // 현재 페이지의 모든 항목 선택 해제
+            const newSelected = new Set(selectedItems);
+            currentItems.forEach(item => newSelected.delete(item._id));
+            setSelectedItems(newSelected);
         }
     };
 
@@ -79,35 +69,27 @@ function Manage_applicantTable({currentPage, items = []}) {
                     checked={selectedItems.has(item._id)}
                 />
             );
-
         }
-        if (header.key === 'phone') {
-            return item[header.key].replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-
-        }
-
         if (header.key === 'createdAt') {
             return formatDate(item[header.key]);
         }
-        //
-        // if (header.key === 'status') return (
-        //
-        // )
-
         return item[header.key];
     };
 
     const manageTableHeaders = [
-        { key: 'checkbox', data: '', type:'checkbox'},
+        { key: 'checkbox', data: '', type: 'checkbox' },
         { key: '_id', data: '번호' },
-        { key: 'name', data: '이름' },
-        { key: 'phone', data: '연락처' },
+        { key: 'email', data: '이메일' },
+        { key: 'tag', data: '문의 유형' },
         { key: 'createdAt', data: '신청일시' },
         { key: 'status', data: '상태' }
-    ]
+    ];
 
+    // 현재 페이지의 모든 항목이 선택되었는지 확인
+    const isAllCurrentPageSelected = currentItems.length > 0 &&
+        currentItems.every(item => selectedItems.has(item._id));
 
-    return(
+    return (
         <table>
             {/*테이블 머리*/}
             <thead>
@@ -117,12 +99,12 @@ function Manage_applicantTable({currentPage, items = []}) {
                     <input
                         type={'checkbox'}
                         onChange={handleSelectAll}
-                        checked={items.length > 0 && selectedItems.size === items.length}
+                        checked={isAllCurrentPageSelected}
                     />
                 </th>
                 <th>번호</th>
-                <th>이름</th>
-                <th>연락처</th>
+                <th>이메일</th>
+                <th>문의 유형</th>
                 <th>신청일시</th>
                 <th>상태</th>
             </tr>
@@ -130,7 +112,7 @@ function Manage_applicantTable({currentPage, items = []}) {
 
             <tbody>
             {
-                items.map((item, id) => (
+                currentItems.map((item, id) => (
                     <React.Fragment key={item._id}>
                         {/* 신청자 정보 행 */}
                         <tr
@@ -188,12 +170,11 @@ function Manage_applicantTable({currentPage, items = []}) {
             }
             </tbody>
         </table>
-    )
+    );
 }
 
-export function getPage(){
-    alert('ggg')
+export function getPage() {
+    alert('ggg');
 }
 
-
-export default Manage_applicantTable
+export default Manage_applicantTable;

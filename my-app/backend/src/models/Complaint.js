@@ -8,8 +8,8 @@ const complaintSchema = new mongoose.Schema({
   message: { type: String, required: true }, // 문의 내용
   status: {
     type: String,
-    enum: ['new', 'in-progress', 'resolved'], // '신규', '처리중', '해결됨'
-    default: 'new',
+    enum: ['in-progress', 'resolved'], // '신규', '처리중', '해결됨'
+    default: 'in-progress',
   },
 }, {
   timestamps: true,

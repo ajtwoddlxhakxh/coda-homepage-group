@@ -10,6 +10,7 @@ import RecruitApplyWrapper from "./RecruitApplyWrapper";
 // 관리자 페이지
 import Recruit from "./manage_recruit";
 import Login from "./manage_login";
+import Contact from "./manage_contact";
 
 // 테스트 페이지
 
@@ -92,6 +93,7 @@ function App() {
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
         <Route path="admin/login" element={<Login />} />
+        <Route path={"admin/contact"} element={<Contact />} />
 
         {/* 테스트용 페이지 */}
       </Routes>

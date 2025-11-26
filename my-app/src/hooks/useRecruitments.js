@@ -27,9 +27,9 @@ function useApplicants(type) {
             }
             )
             .then(response => {
-                setData(response.data)
-                setStatus(response.data.docs)
-                setLoading(true)
+                    setData(response.data)
+                    setStatus(response.data.docs)
+                    setLoading(true)
 
 
             })

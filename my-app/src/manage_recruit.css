@@ -82,7 +82,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #000;
 }
@@ -94,11 +94,8 @@
   gap: 10px;
 }
 
-/* 검정색 검색창 (가짜 input) */
-.searchSection::before {
-  content: "검색";
-  display: flex;
-  align-items: center;
+/* 실제 검색창 input 스타일 */
+.searchSection input[type='search'] {
   width: 260px;
   height: 38px;
   padding: 0 12px;
@@ -110,9 +107,17 @@
   box-sizing: border-box;
 }
 
+.searchSection input[type='search']::placeholder {
+  color: #cfcfcf;
+}
+
+.searchSection input[type='search']:focus {
+  outline: none;
+  border-color: #888;
+}
+
 /* 전체 선택 버튼 */
-.searchSection::after {
-  content: "전체 선택";
+.selectAllButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -123,6 +128,17 @@
   color: #222;
   font-size: 0.92rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectAllButton:hover {
+  background-color: #d5d5d5;
+  border-color: #b0b0b0;
+}
+
+.selectAllButton:active {
+  background-color: #c5c5c5;
 }
 
 .applicantTable {
@@ -178,9 +194,31 @@
 .applicantTable tbody tr,
 .tableRow {
   background: #fff;
-  border: 1.5px solid #d0d0d0;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(152, 152, 152, 0.06);
+  border: 3px solid #e0e0e0;
+  border-radius: 30px;
+  box-shadow: none;
+}
+
+/* 행 내부 td에 테두리 적용 (table border-collapse 우회) */
+.applicantTable tbody tr td:first-child {
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.applicantTable tbody tr td:last-child {
+  border-right: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.applicantTable tbody tr td:not(:first-child):not(:last-child) {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .applicantTable tbody td {
@@ -259,9 +297,17 @@
 .statusBadge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   justify-content: flex-end;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 상태 텍스트 뒤에 드롭다운 화살표 */
+.statusBadge::after {
+  content: "▼";
+  font-size: 0.65rem;
+  color: inherit;
 }
 
 .statusDot {
@@ -343,4 +389,156 @@
 .pageButton.disabled {
   opacity: 0.4;
   pointer-events: none;
+}
+
+/* ===================== 클릭 가능한 행 스타일 ===================== */
+.applicantTable tbody tr.clickableRow {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.applicantTable tbody tr.clickableRow:hover {
+  background-color: #f8f8f8;
+}
+
+/* 확장된 행 - 아래쪽 테두리와 radius 제거하여 detailRow와 연결 */
+.applicantTable tbody tr.clickableRow.expanded {
+  background-color: #f9f9f9;
+}
+
+.applicantTable tbody tr.clickableRow.expanded td:first-child {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+}
+
+.applicantTable tbody tr.clickableRow.expanded td:last-child {
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+}
+
+.applicantTable tbody tr.clickableRow.expanded td:not(:first-child):not(:last-child) {
+  border-bottom: none;
+}
+
+/* ===================== 상세 정보 확장 행 ===================== */
+.applicantTable tbody tr.detailRow {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.applicantTable tbody tr.detailRow td {
+  padding: 0;
+  border: none;
+}
+
+.detailContent {
+  padding: 24px;
+  margin: 0 0 8px 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: none;
+  animation: slideDown 0.25s ease-out;
+  min-height: 120px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding: 0 24px;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    padding: 24px;
+  }
+}
+
+.detailHeader {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  margin-bottom: 16px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.detailValue {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.detailDocuments {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.documentsText {
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* ===================== 체크박스 커스텀 스타일 ===================== */
+.applicantTable input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.applicantTable input[type="checkbox"]:checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.applicantTable input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.applicantTable input[type="checkbox"]:hover {
+  border-color: #666;
 }

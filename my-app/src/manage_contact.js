@@ -1,0 +1,60 @@
+import { useEffect, useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import useContact from './hooks/useContact'
+import ManageContact from './manage_contactTable';
+
+import Manage_pagenation from "./manage_pagenation";
+import Manage_contactTable from "./manage_contactTable";
+
+function ManageRecruit(token) {
+    const { data, status, error, loading } = useContact();
+    const allStatus = {
+        total: status?.length,
+        progress: status?.filter((item) => item.status === "in-progress"),
+        resolved: status?.filter((item) => item.status === "resolved")
+    };
+    // 페이지 위치 관리
+    const [currentPage, setCurrentPage] = useState(1);
+    // 쿠키인증시간 끝나면??
+    console.log(data)
+    return (
+        <div className={"recruitContainer"}>
+            {/*상태확인*/}
+            <div className={"summarySection"}>
+                <ul className={"summaryStats"}>
+                    <li className={"totalCount"}>전체: {allStatus.total ?? 0}</li>
+                    <li className={"waitingCount"}>
+                        대기: {allStatus.progress?.length || 'null'}
+                    </li>
+                    <li className={"confirmCount"}>
+                        완료: {allStatus.resolved?.length ?? null}
+                    </li>
+                </ul>
+            </div>
+        {/*    <div className={"managementHeader"}>*/}
+        {/*<span className={"searchSection"}>*/}
+        {/*    <input type={'search'} placeholder={'Search'}/>*/}
+        {/*    <button className={"selectAllButton"}>전체 선택</button>*/}
+        {/*</span>*/}
+        {/*    </div>*/}
+            <div className={"applicantTable"}>
+                {/*코드가 너무 길어져서 따로 뺐어요*/}
+                <span><h1>문의관리</h1> </span>
+
+                <Manage_contactTable currentPage={currentPage} items={status} />
+            </div>
+
+            {/*페이지 번호 확인 */}
+            <div className={"pagination"}>
+        <span className={"pageNumber"}>
+          <Manage_pagenation
+              totalPage={data?.totalPages || 7}
+              onPageChange={setCurrentPage}
+          />
+        </span>
+            </div>
+        </div>
+    );
+}
+
+export default ManageRecruit;
