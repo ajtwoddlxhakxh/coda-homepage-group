@@ -94,19 +94,19 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
             {/*테이블 머리*/}
             <thead>
             <tr>
-                {/*전체 선택용 체크박스*/}
-                <th>
-                    <input
-                        type={'checkbox'}
-                        onChange={handleSelectAll}
-                        checked={isAllCurrentPageSelected}
-                    />
-                </th>
-                <th>번호</th>
-                <th>이메일</th>
-                <th>문의 유형</th>
-                <th>신청일시</th>
-                <th>상태</th>
+                {manageTableHeaders.map((header) => (
+                    <th key={header.key}>
+                        {header.type === 'checkbox' ? (
+                            <input
+                                type={'checkbox'}
+                                onChange={handleSelectAll}
+                                checked={isAllCurrentPageSelected}
+                            />
+                        ) : (
+                            header.data
+                        )}
+                    </th>
+                ))}
             </tr>
             </thead>
 

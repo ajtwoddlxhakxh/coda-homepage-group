@@ -83,12 +83,11 @@ function App() {
       <Routes>
         <Route index element={<Homepage />} />
         <Route path="/" element={<Homepage />} />
-        <Route path="about" element={<ClubCoda />} />
+        <Route path="about" element={<Homepage />} />
         <Route path="projects" element={<Sub_project />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
         <Route path="contact" element={<Sub_contact/>} />
         <Route path="/clubrecru" element={<RecruitApplyWrapper />} />
-        {/* <Route path="/recruit/apply" element={<RecruitApplyWrapper />} /> */}
 
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
