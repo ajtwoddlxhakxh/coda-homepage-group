@@ -1,5 +1,5 @@
 /* todo 좌우 여백이 있어야될것 같아요*/
-.sub-recruitment {
+.subRecruitment {
   position: relative;
   width: 100%;
   background: #000;
@@ -8,18 +8,18 @@
   font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
-.sub-recruitment > .recru-info,
-.sub-recruitment > .recru-main,
-.sub-recruitment section {
+.subRecruitment > .recruInfo,
+.subRecruitment > .recruMain,
+.subRecruitment section {
   position: relative;
   width: 100%;
 }
 
 /* 섹션 높이 */
-.recru-info {
+.recruInfo {
   padding-top: 2rem;
 }
-.recru-main {
+.recruMain {
   min-height: 200vh;
   display: flex;
   flex-direction: column;
@@ -28,17 +28,17 @@
   text-align: center;
   background: radial-gradient(circle at center, #0d1a23 0%, #000 80%);
 }
-.before-signup {
+.beforeSignup {
   min-height: 140vh;
   padding: clamp(20px, 4vw, 40px) clamp(16px, 6vw, 64px);
 }
-.cta-signup {
+.ctaSignup {
   min-height: 120vh;
   padding: clamp(20px, 4vw, 40px);
 }
 
 /* ========== 상단: 히어로 ========== */
-.recru-info {
+.recruInfo {
   position: absolute;
   left: 1.2rem;
   top: 1rem;
@@ -46,7 +46,7 @@
   line-height: 1.2;
   text-transform: uppercase;
 }
-.info-title {
+.infoTitle {
   display: block;
   font-weight: 800;
   font-size: clamp(5rem, 1.4vw, 1.1rem);
@@ -55,7 +55,7 @@
   margin-top: 7%;
   color: #8cddff;
 }
-.recru-crew {
+.recruCrew {
   display: block;
   font-size: clamp(3rem, 1.1vw, 0.95rem);
   opacity: 0.85;
@@ -63,7 +63,7 @@
 }
 
 /* 글로우(원상복구) */
-.recru-main::before {
+.recruMain::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -79,7 +79,7 @@
   filter: blur(2px);
   z-index: 0;
 }
-.recru-text {
+.recruText {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -92,13 +92,13 @@
   text-shadow: 0 0 8px rgba(200, 220, 255, 0.8),
     0 0 18px rgba(130, 180, 255, 0.5);
 }
-.recru-text:nth-child(1) {
+.recruText:nth-child(1) {
   --chars: 8;
   --dur: 2.2s;
   animation: typing var(--dur) steps(var(--chars)) 0.1s forwards,
     caret 1s step-end infinite;
 }
-.recru-text:nth-child(2) {
+.recruText:nth-child(2) {
   --chars: 13;
   --dur: 2.8s;
   animation: typing var(--dur) steps(var(--chars)) calc(0.1s + 2.2s + 0.4s)
@@ -120,18 +120,18 @@
   }
 }
 
-.recru-text:first-child {
+.recruText:first-child {
   margin-bottom: 0.3em;
 }
 .init {
   display: inline-block;
   font-weight: 900;
 }
-.init-CODA {
+.initCODA {
   color: #e8f7ff;
   filter: drop-shadow(0 2px 6px rgba(156, 245, 255, 0.25));
 }
-.init-CHANCE {
+.initCHANCE {
   color: #fff;
 }
 .rocket {
@@ -155,17 +155,17 @@
 }
 
 /* ========== 중단: BEFORE SIGN UP ========== */
-.before-title {
+.beforeTitle {
   display: inline-block;
-  margin-left: 3.2rem;
+  margin-left: 5.4rem;
   font-weight: 900;
   font-size: clamp(1.35rem, 3.6vw, 2.4rem);
   letter-spacing: 0.05em;
 }
 .recrucheck {
   position: absolute;
-  left: clamp(65px, 3.5vw, 40px);
-  top: clamp(83px, 3.9vw, 100px);
+  left: clamp(20px, 3.5vw, 100px);
+  top: clamp(20px, 3.9vw, 100px);
   width: clamp(26px, 2.9vw, 34px);
   height: auto;
 }
@@ -187,7 +187,7 @@
   margin-top: clamp(80px, 4.6vh, 92px);
 }
 
-.before-signup {
+.beforeSignup {
   display: block;
 }
 .headphonerecru {
@@ -213,7 +213,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 73%;
+  top: 100%;
   width: clamp(80px, 18vw, 150px);
   height: auto;
 }
@@ -251,7 +251,7 @@
   transform: translateY(-50%);
 }
 
-.cta-signup {
+.ctaSignup {
   display: block;
 }
 .globes {
