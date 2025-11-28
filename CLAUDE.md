@@ -1,4 +1,4 @@
-# CLAUDE.md
+   # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -17,6 +17,12 @@ The project uses a monorepo structure with frontend and backend combined:
 ```
 my-app/
 ├── src/                    # React frontend source
+│   ├── admin/              # Admin portal components
+│   ├── components/         # Shared components (Navbar, etc)
+│   ├── public/             # Public-facing page components
+│   ├── App.js              # Main router
+│   ├── index.js            # Entry point
+│   └── RecruitApplyWrapper.js  # Recruitment application wrapper
 ├── public/                 # Static assets
 ├── backend/                # Express backend
 │   ├── src/
@@ -71,7 +77,7 @@ npm run seed:admin       # Seed admin accounts
 The application uses React Router for client-side routing with two main areas:
 
 1. **Public Pages** (defined in App.js:38-44):
-   - `/` or index - Homepage (combines Sub_main + Sub_project + Sub_createby)
+   - `/` or index - Homepage (combines Sub_main + sub_project + Sub_createby)
    - `/about` - About section
    - `/projects` - Projects showcase
    - `/recruitment` - Public recruitment information
@@ -83,18 +89,27 @@ The application uses React Router for client-side routing with two main areas:
 
 ### Component Organization
 
-The codebase uses a flat component structure in `my-app/src/`:
+The codebase uses a modular component structure organized by functionality:
 
-**Public Components:**
+**Public Components** (`my-app/src/public/`):
 - `Sub_main.js` - Main landing section with CODA acronym (CREATE, OBSERVE, DEVELOP, ACHIEVE) and floating images
-- `Sub_project.js` - Projects display section
+- `sub_project.js` - Projects display section
 - `Sub_createby.js` - Team/developer credits section
 - `Sub_recruitment.js` - Public recruitment information
-- `Navbar.js` - Navigation bar (currently commented out in App.js:51)
+- `sub_contact.js` - Contact page component
+- `Clubcoda.js` - Club introduction component
+- `clubrecru.js` - Recruitment information component
 
-**Admin Components:**
+**Admin Components** (`my-app/src/admin/`):
 - `manage_login.js` - Admin login form with axios authentication
 - `manage_recruit.js` - Admin dashboard for managing applications
+- `manage_contact.js` - Contact management
+- `manage_applicantTable.js` - Applicant table component
+- `manage_contactTable.js` - Contact table component
+- `manage_pagenation.js` - Pagination component
+
+**Shared Components** (`my-app/src/components/`):
+- `Navbar.js` - Navigation bar (currently commented out in App.js:51)
 
 Each component has a corresponding CSS file with the same base name.
 

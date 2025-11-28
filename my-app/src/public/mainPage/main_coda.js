@@ -1,17 +1,17 @@
-import "./Sub_main.css";
-import bulb from './img/bulb.svg'
-import bulb2 from './img/bulb2.svg'
+import "./main_coda.css";
+import bulb from '../../img/bulb.svg'
+import bulb2 from '../../img/bulb2.svg'
 // todo key 사용하는건가요?
-import key from './img/keycap.svg'
-import key1 from './img/keycap1.svg'
-import key2 from './img/keycap2.svg'
-import key3 from './img/keycap3.svg'
-import mainkey from './img/mainkey.svg'
-import headset from './img/headset.svg'
-import chess from './img/Chess.svg'
+import key from '../../img/keycap.svg'
+import key1 from '../../img/keycap1.svg'
+import key2 from '../../img/keycap2.svg'
+import key3 from '../../img/keycap3.svg'
+import mainkey from '../../img/mainkey.svg'
+import headset from '../../img/headset.svg'
+import chess from '../../img/Chess.svg'
 
 
-export default function Sub_main() {
+export default function Main_coda() {
   return (
     <div className="submain">
       {/* CODA 섹션 */}

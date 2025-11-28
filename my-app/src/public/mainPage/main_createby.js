@@ -1,9 +1,9 @@
-import  keycap from './img/keycap.svg'
-import './Sub_createby.css'
-import yellowkeycap from './img/normal_coda_keycap.svg'
-import cubeImg from './img/Cube_Dinamic.svg'
-import swordImg from './img/Sword_Dinamic.svg'
-import switchImg from './img/Switch_Dinamic.svg'
+import  keycap from '../../img/keycap.svg'
+import './main_createby.css'
+import yellowkeycap from '../../img/normal_coda_keycap.svg'
+import cubeImg from '../../img/Cube_Dinamic.svg'
+import swordImg from '../../img/Sword_Dinamic.svg'
+import switchImg from '../../img/Switch_Dinamic.svg'
 
 
 function CreateBy({items, specialName}) {

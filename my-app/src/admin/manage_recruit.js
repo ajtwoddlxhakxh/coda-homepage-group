@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import useApplicants from "./hooks/useRecruitments";
+import useApplicants from "../hooks/useRecruitments";
 import axios from "axios";
 import "./manage_recruit.css";
 import Manage_applicantTable from "./manage_applicantTable";
 import Manage_pagenation from "./manage_pagenation";
+// todo 수정(fetch)기능 추가
 
 const ITEMS_PER_PAGE = 6;
 

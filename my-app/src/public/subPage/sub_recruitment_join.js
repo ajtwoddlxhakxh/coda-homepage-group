@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./clubrecru.css";
+import "./sub_recruitment_join.css";
 import axios from "axios";
 
 function RecruitApplyPage({
@@ -9,18 +9,18 @@ function RecruitApplyPage({
   submitDisabledReason,
 }) {
   const [form, setForm] = useState({
-    name: "",
-    studentId: "", // 연락처
-    major: "", // email
-    age: "",
-    school: "",
-    answer1: "",
-    answer2: "",
-  });
+        name: "",
+        studentId: "", // 연락처
+        major: "", // email
+        age: "",
+        school: "",
+        answer1: "",
+        answer2: "",
+      });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {

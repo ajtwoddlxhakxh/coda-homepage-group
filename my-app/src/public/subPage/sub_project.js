@@ -1,10 +1,10 @@
 import React from "react";
 import {Link, Route, Routes, useLocation} from "react-router-dom";
 import "./sub_project.css";
-import gift from './img/gift.svg';
-import cursor from './img/cursor.svg';
-import crown from './img/crown.svg';
-import gamepad from './img/gamepad.svg';
+import gift from '../../img/gift.svg';
+import cursor from '../../img/cursor.svg';
+import crown from '../../img/crown.svg';
+import gamepad from '../../img/gamepad.svg';
 
 //TODO LINk로 이미지, 텍스트 감싸기, CSS작업+
 // todo link에 텍스트 적용안됨, award제작

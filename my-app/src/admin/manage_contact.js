@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import useContact from './hooks/useContact'
+import useContact from '../hooks/useContact'
 import ManageContact from './manage_contactTable';
 
 import Manage_pagenation from "./manage_pagenation";

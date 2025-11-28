@@ -1,16 +1,16 @@
 import React from "react";
-import "./Sub_recruitment.css";
+import "./sub_recruitment.css";
 import { useNavigate } from "react-router-dom";
 
-import ballongift from "./img/ballongift.svg";
-import rocket from "./img/rocket.svg";
-import globes from "./img/globes.svg";
-import NormalRocket from "./img/NormalRocket.svg";
-import moon from "./img/moon.svg";
-import headphonerecru from "./img/headphonerecru.svg";
-import pencil from "./img/pencil.svg";
-import emoji from "./img/emoji.svg";
-import recrucheck from "./img/recrucheck.svg";
+import ballongift from "../../img/ballongift.svg";
+import rocket from "../../img/rocket.svg";
+import globes from "../../img/globes.svg";
+import NormalRocket from "../../img/NormalRocket.svg";
+import moon from "../../img/moon.svg";
+import headphonerecru from "../../img/headphonerecru.svg";
+import pencil from "../../img/pencil.svg";
+import emoji from "../../img/emoji.svg";
+import recrucheck from "../../img/recrucheck.svg";
 
 export default function Sub_recruitment() {
   const navigate = useNavigate();
@@ -39,11 +39,11 @@ export default function Sub_recruitment() {
           <img className="recrucheck" src={recrucheck} alt="recrucheck" />
           <h2 className="beforeTitle">BEFORE SIGN UP</h2>
 
-          <p className="Rule rule1">규칙 1. 블로그 업로드 및 깃허브 커밋</p>
-          <p className="Rule rule2">
+          <h2 className="Rule rule1 noto-sans-menu">규칙 1. 블로그 업로드 및 깃허브 커밋</h2>
+          <h2 className="Rule rule2 noto-sans-menu">
             규칙 2. 매달 1회 개인 참여 사업 및 프로젝트 조사
-          </p>
-          <p className="Rule rule3">규칙 3. 열심히 노력하는 모습을 보여줄 것</p>
+          </h2>
+          <h2 className="Rule rule3 noto-sans-menu">규칙 3. 열심히 노력하는 모습을 보여줄 것</h2>
 
           <img
             className="headphonerecru"
@@ -69,7 +69,7 @@ export default function Sub_recruitment() {
             className="globes"
             src={globes}
             alt="globes"
-            onClick={() => navigate("/clubrecru")}
+            onClick={() => navigate("/recruitment/clubrecru")}
           />
           <img className="NormalRocket" src={NormalRocket} alt="NormalRocket" />
           <img className="moon" src={moon} alt="moon" />

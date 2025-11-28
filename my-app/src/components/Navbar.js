@@ -1,8 +1,8 @@
 import React from "react";
 import './Navbar.css'
-import codalogo from './img/coda_logo.svg'
+import codalogo from '../img/coda_logo.svg'
 import {Link, Routes, Route} from "react-router-dom";
-import Recruit from './Sub_recruitment'
+import Recruit from '../public/subPage/sub_recruitment'
 function Navbar() {
     return (
         <nav className="navbar">

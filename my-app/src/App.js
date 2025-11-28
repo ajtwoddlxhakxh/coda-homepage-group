@@ -1,22 +1,22 @@
-import Sub_project from "./sub_project";
-import Sub_createby from "./Sub_createby";
-import Navbar from "./Navbar";
-import Sub_main from "./Sub_main";
-import Sub_recruitment from "./Sub_recruitment";
-import Clubcoda from "./Clubcoda";
-import Sub_contact from "./sub_contact";
-import RecruitApplyWrapper from "./RecruitApplyWrapper";
+import Sub_project from "./public/subPage/sub_project";
+import Sub_createby from "./public/mainPage/main_createby";
+import Navbar from "./components/Navbar";
+import Main_coda from "./public/mainPage/main_coda";
+import Sub_recruitment from "./public/subPage/sub_recruitment";
+import Main_clubCoda from "./public/mainPage/main_clubCoda";
+import Sub_contact from "./public/subPage/sub_contact";
+import RecruitApplyWrapper from "./public/RecruitApplyWrapper";
 
 // 관리자 페이지
-import Recruit from "./manage_recruit";
-import Login from "./manage_login";
-import Contact from "./manage_contact";
+import Recruit from "./admin/manage_recruit";
+import Login from "./admin/manage_login";
+import Contact from "./admin/manage_contact";
 
 // 테스트 페이지
 
 import { Route, Routes, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import ClubCoda from "./Clubcoda";
+import ClubCoda from "./public/mainPage/main_clubCoda";
 
 //TODO 특정 경로일때만 navbar보이게 설정
 function App() {
@@ -40,8 +40,8 @@ function App() {
   function Homepage() {
     return (
       <>
-        <Clubcoda />
-        <Sub_main />
+        <Main_clubCoda />
+        <Main_coda />
         <Sub_project />
         <Sub_createby items={developer} specialName={"leader"} />
       </>
@@ -87,7 +87,7 @@ function App() {
         <Route path="projects" element={<Sub_project />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
         <Route path="contact" element={<Sub_contact/>} />
-        <Route path="/clubrecru" element={<RecruitApplyWrapper />} />
+        <Route path="/recruitment/clubrecru" element={<RecruitApplyWrapper />} />
 
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
