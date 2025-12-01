@@ -69,7 +69,7 @@ export default function Sub_recruitment() {
             className="globes"
             src={globes}
             alt="globes"
-            onClick={() => navigate("/recruitment/clubrecru")}
+            onClick={() => navigate("/recruitment/form")}
           />
           <img className="NormalRocket" src={NormalRocket} alt="NormalRocket" />
           <img className="moon" src={moon} alt="moon" />

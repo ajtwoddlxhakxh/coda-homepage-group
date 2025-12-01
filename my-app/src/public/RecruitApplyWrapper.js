@@ -3,12 +3,13 @@ import useRecruitPositions from "../hooks/useRecruitPositions";
 import RecruitApplyPage from "./subPage/sub_recruitment_join";
 import FormInput from "../components/form/FormInput";
 import FormTextarea from "../components/form/FormTextarea";
-
+import FormSelect from "../components/form/FormSelect";
 function RecruitApplyWrapper() {
   const { positions, loading, error } = useRecruitPositions();
 
   // 테스트용 state
   const [testInput, setTestInput] = useState("");
+  const [testSelect, setTestSelect] = useState("");
 
   // 기본 질문
   const fallbackQ1 =
@@ -23,16 +24,33 @@ function RecruitApplyWrapper() {
 
   let submitDisabledReason = null;
   // if (!process.env.REACT_APP_API_URL)
-  //     return <div className={'recruit-status-error'}><h1>API 주소(.env)가 설정되지 않았습니다.</h1></div>
+  //     return (
+  //         <div className={'recruit-header'}><h1>123</h1>
+  //           <div className={'recruit-status-error'}><h1>API 주소(.env)가 설정되지 않았습니다.</h1>
+  //           </div>
+  //         </div>)
   // else if (loading)
-  //     return <div className={'recruit-status-error'}><h1>모집 공고를 불러오는 중입니다</h1></div>
+  //     return (
+  //         <div className={'recruit-header'}><h3>123</h3>
+  //             <div className={'recruit-status-error'}><h1>모집 공고를 불러오는 중입니다</h1>
+  //             </div>
+  //         </div>)
   // else if (error)
-  //     return <div className={'recruit-status-error'}><h1>모집 공고를 불러오지 못했습니다</h1></div>;
+  //     return(
+  //         <div className={'recruit-header'}><h2>123</h2>
+  //             <div className={'recruit-status-error'}><h1>모집 공고를 불러오지 못했습니다</h1>
+  //             </div>
+  //         </div>)
   // else if (!positionId)
-  //     return <div className={'recruit-status-error'}><h1>현재 모집 공고 기간이 아닙니다.</h1></div>
+  //     return (
+  //             <div className={'recruit-header'}><h3>모집 페이지</h3>
+  //                 <div className={'recruit-status-error'}><h1>현재 모집 공고 기간이 아닙니다.</h1>
+  //                 </div>
+  //             </div>)
   return (
 
     <div className={'apply-wrapper'}>
+        <div className={'recruit-header'}><h2>모집 페이지</h2></div>
 
 
 
@@ -55,14 +73,19 @@ function RecruitApplyWrapper() {
       placeholder="여기에 입력하세요"
       />
 
-      <FormTextarea
-        label="<UNK> <UNK>"
-        name="testInput"
-        type="text"
-        value={testInput}
-        onChange={(e) => setTestInput(e.target.value)}
-        required={true}
-        placeholder="<UNK> <UNK>"
+
+        <FormSelect
+          label="테스트 선택"
+          name="testSelect"
+          value={testSelect}
+          onChange={(e) => setTestSelect(e.target.value)}
+          options={[
+            { value: "option1", label: "옵션 1" },
+            { value: "option2", label: "옵션 2" },
+            { value: "option3", label: "옵션 3" }
+          ]}
+          required={true}
+          placeholder="옵션을 선택하세요"
         />
     </div>
   );

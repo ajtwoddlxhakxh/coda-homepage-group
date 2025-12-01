@@ -20,11 +20,11 @@ function FormSelect({
   placeholder = "선택하세요"
 }) {
   return (
-    <div className="apply-field">
-      <label htmlFor={name}>
+    <fieldset className="apply-forminput">
+      <legend>
         {label}
-        {required && <span style={{ color: "red" }}> *</span>}
-      </label>
+        {required && <span> *</span>}
+      </legend>
       <select
         id={name}
         name={name}
@@ -39,7 +39,7 @@ function FormSelect({
           </option>
         ))}
       </select>
-    </div>
+    </fieldset>
   );
 }
 

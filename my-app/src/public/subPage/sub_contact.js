@@ -43,6 +43,7 @@ export default function SubContact() {
         .then(response => {
 
             console.log(response.data, data)
+            alert('문의해주셔서 감사합니다.')
         })
         .catch(error => {
             console.log(error)
@@ -85,10 +86,10 @@ export default function SubContact() {
                 </div>
                 {/* 문의 타입 */}
                 <div className="inquiryType">
-                    <button className="noto-sans-button" onClick={() => setInquiry('일반 문의')} autoFocus>일반 문의</button>
-                    <button className="noto-sans-button" onClick={() => setInquiry('시스템 문의')}>시스템 문의</button>
-                    <button className="noto-sans-button" onClick={() => setInquiry('지원 문의')}>지원 문의</button>
-                    <button className="noto-sans-button" onClick={() => setInquiry('기타 문의')}>기타 문의</button>
+                    <button className={`noto-sans-button ${inquiry === '일반 문의' ? 'selected' : ''}`} onClick={() => setInquiry('일반 문의')}>일반 문의</button>
+                    <button className={`noto-sans-button ${inquiry === '시스템 문의' ? 'selected' : ''}`} onClick={() => setInquiry('시스템 문의')}>시스템 문의</button>
+                    <button className={`noto-sans-button ${inquiry === '지원 문의' ? 'selected' : ''}`} onClick={() => setInquiry('지원 문의')}>지원 문의</button>
+                    <button className={`noto-sans-button ${inquiry === '기타 문의' ? 'selected' : ''}`} onClick={() => setInquiry('기타 문의')}>기타 문의</button>
                 </div>
 
                 {/* 문의 텍스트 창 */}

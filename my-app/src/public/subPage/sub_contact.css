@@ -90,12 +90,14 @@
     border-color: #456BFB;
 }
 
-.inquiryType button:focus,
-.inquiryType button:active {
+.inquiryType button:focus {
+    outline: none;
+}
+
+.inquiryType button.selected {
     background-color: #456BFB;
     color: white;
     border-color: #456BFB;
-    outline: none;
 }
 
 /* 문의 텍스트 입력 영역 */

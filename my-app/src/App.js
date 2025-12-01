@@ -87,7 +87,7 @@ function App() {
         <Route path="projects" element={<Sub_project />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
         <Route path="contact" element={<Sub_contact/>} />
-        <Route path="/recruitment/clubrecru" element={<RecruitApplyWrapper />} />
+        <Route path="/recruitment/form" element={<RecruitApplyWrapper />} />
 
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />

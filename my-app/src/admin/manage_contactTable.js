@@ -73,6 +73,10 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
         if (header.key === 'createdAt') {
             return formatDate(item[header.key]);
         }
+        // if (header.key === 'status') {
+        //     return (
+        //     )
+        // }
         return item[header.key];
     };
 
