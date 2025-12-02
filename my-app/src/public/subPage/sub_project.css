@@ -1,96 +1,170 @@
-
-.quickmenu {
+.subHeader {
   position: relative;
-  min-height: 200vh;
-  background: radial-gradient(
-    40rem 30rem at 50% 50%,
-    #2b2b32 0%,
-    #17171c 45%,
-    #0c0c10 70%,
-    #000 100%
-  );
-  color: #fff;
-  overflow: hidden;
-  transform: scale(0.85);
 }
 
-.qm-item {
-  position: absolute;
-  display: inline-flex;
+.subTitle {
   align-items: center;
-  gap: 16px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
 }
 
-.qm-right {
-  flex-direction: row-reverse;
+.subTitle-2nd {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.SubTitle-3nd {
+  align-items: center;
+  font-size: 1.25rem;
+  color: rgb(156, 163, 175);
+  text-align: center;
 }
 
-.qm-label {
-  font-size: clamp(28px, 4vw, 56px);
-  font-weight: 800;
-  letter-spacing: 5px;
+.subprojectSubTitle {
+  color: #fff;
+  text-align: center;
 }
 
-.qm-icon-wrap {
+
+.subContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 200px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Content Box */
+.contentBox {
   position: relative;
-  display: inline-block;
 }
 
-.qm-icon {
-  width: clamp(80px, 8vw, 140px);
-  height: auto;
-}
-
-.qm-icon.qm-icon--award {
-  width: clamp(140px, 11vw, 200px);
-}
-
-.qm-cursor {
+.cardGlow {
   position: absolute;
-  width: clamp(24px, 2.5vw, 40px);
-  height: auto;
-  bottom: -10px;
-  right: -10px;
-  transform: rotate(-5deg);
+  inset: 0;
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+  filter: blur(24px);
+  pointer-events: none;
 }
 
-.qm-cursor.qm--award {
-  top: 92px;
-  right: 1px;
+.contentBox:hover .cardGlow {
+  opacity: 1;
 }
 
-.qm-pos-study {
-  top: 22%;
-  left: 18%;
-}
-.qm-pos-award {
-  gap: 10px;
-  top: 42%;
-  right: 16%;
-}
-.qm-pos-activity {
-  bottom: 18%;
-  left: 18%;
+.codeReviewGlow {
+  /*background-color: rgba(6, 255, 165, 0.3);*/
 }
 
-.qm-glow-study .qm-label,
-.qm-glow-award .qm-label,
-.qm-glow-activity .qm-label {
-  text-shadow: none;
+.cardContent {
+  position: relative;
+  background-color: rgba(24, 24, 27, 0.5);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgb(39, 39, 42);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.5s;
+  overflow: hidden;
 }
 
-.qm-glow-study .qm-label::first-letter {
-  color: #cffff4;
-  text-shadow: 0 0 6px rgba(0, 255, 224, 0.9), 0 0 18px rgba(0, 255, 224, 0.7),
-    0 0 32px rgba(0, 255, 224, 0.5);
+.cardContent:hover {
+  border-color: rgb(63, 63, 70);
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.3),
+              0 0 13px rgba(255, 255, 255, 0.1);
 }
-.qm-glow-award .qm-label::first-letter {
-  color: #f1d1ff;
-  text-shadow: 0 0 6px rgb(226, 129, 255), 0 0 18px rgb(193, 75, 185),
-    0 0 32px rgba(197, 86, 149, 0.5);
+
+.cardContent p {
+  color: rgb(110, 116, 130);
 }
-.qm-glow-activity .qm-label::first-letter {
-  color: #fffed2;
-  text-shadow: 0 0 6px rgb(255, 245, 129), 0 0 18px rgb(227, 230, 65),
-    0 0 32px rgba(231, 231, 61, 0.5);
+
+/* Icon */
+.iconWrapper {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  filter: blur(24px);
+  opacity: 0.5;
+}
+
+.codeReviewBg {
+  background-color: #06FFA5;
+}
+
+.iconBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codeReviewIconBg {
+  background-color: rgba(6, 255, 165, 0.125);
+}
+
+/* Text */
+.cardTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.cardTitleKo {
+  font-size: 1.25rem;
+  color: rgb(156, 163, 175);
+  margin-bottom: 1rem;
+}
+
+.cardDesc {
+  color: rgb(107, 114, 128);
+  margin-bottom: 0.5rem;
+  line-height: 1.625;
+}
+
+.cardDescKo {
+  color: rgb(75, 85, 99);
+  line-height: 1.625;
+}
+
+/* Corner Accent */
+.cornerAccent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(24px);
+}
+
+/* Join Section */
+.subJoin {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.joinTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.joinSubTitle {
+  font-size: 1.5rem;
+  color: rgb(156, 163, 175);
 }

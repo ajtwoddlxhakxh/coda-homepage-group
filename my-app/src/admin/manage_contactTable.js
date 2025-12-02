@@ -1,8 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import axios from 'axios';
+import manage_contact from '../admin/manage_contact.css'
 
-function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
+
+function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6, onStatusChange }) {
 
     // 현재 페이지에 해당하는 항목만 추출
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -14,6 +17,28 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
 
     // 현재 확장된 행의 ID를 관리하는 상태
     const [expandedId, setExpandedId] = useState(null);
+
+    // 상태 변경 핸들러
+    const handleStatusToggle = async (itemId, currentStatus) => {
+        try {
+            const token = localStorage.getItem('authToken');
+            const newStatus = currentStatus === 'pending' ? 'resolved' : 'pending';
+
+            await axios.patch(
+                `${process.env.REACT_APP_API_URL}/inquiries/admin/${itemId}`,
+                { status: newStatus },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            // 부모 컴포넌트에 상태 변경 알림
+            if (onStatusChange) {
+                onStatusChange(itemId, newStatus);
+            }
+        } catch (error) {
+            console.error('상태 변경 실패:', error);
+            alert('상태 변경에 실패했습니다.');
+        }
+    };
 
     // 페이지 변경 시 확장된 행 초기화
     useEffect(() => {
@@ -61,30 +86,38 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
     };
 
     const getCellContent = (header, item) => {
-        if (header.type === 'checkbox') {
-            return (
-                <input
-                    type="checkbox"
-                    onChange={() => handleSelectItem(item._id)}
-                    checked={selectedItems.has(item._id)}
-                />
-            );
-        }
         if (header.key === 'createdAt') {
             return formatDate(item[header.key]);
         }
-        // if (header.key === 'status') {
-        //     return (
-        //     )
-        // }
+        if (header.key === 'status') {
+            const statusValue = item[header.key];
+            let dotColor = '#F2C55C'; // 기본 노란색 (pending, waiting 등)
+
+            // status 값에 따라 색상 결정
+            if (statusValue === 'resolved') {
+                dotColor = '#4CAF50'; // 초록색
+            }
+            return (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span
+                        style={{
+                            width: '10px',
+                            height: '10px',
+                            borderRadius: '50%',
+                            backgroundColor: dotColor,
+                            display: 'inline-block'
+                        }}
+                    />
+                </div>
+            );
+        }
         return item[header.key];
     };
 
     const manageTableHeaders = [
-        { key: 'checkbox', data: '', type: 'checkbox' },
+        { key: 'tag', data: '태그' },
         { key: '_id', data: '번호' },
         { key: 'email', data: '이메일' },
-        { key: 'tag', data: '문의 유형' },
         { key: 'createdAt', data: '신청일시' },
         { key: 'status', data: '상태' }
     ];
@@ -100,15 +133,7 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
             <tr>
                 {manageTableHeaders.map((header) => (
                     <th key={header.key}>
-                        {header.type === 'checkbox' ? (
-                            <input
-                                type={'checkbox'}
-                                onChange={handleSelectAll}
-                                checked={isAllCurrentPageSelected}
-                            />
-                        ) : (
-                            header.data
-                        )}
+                        {header.data}
                     </th>
                 ))}
             </tr>
@@ -125,10 +150,7 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
                         >
                             {
                                 manageTableHeaders.map((header) => (
-                                    <td
-                                        key={header.key + id}
-                                        onClick={header.type === 'checkbox' ? (e) => e.stopPropagation() : undefined}
-                                    >
+                                    <td key={header.key + id}>
                                         {getCellContent(header, item)}
                                     </td>
                                 ))
@@ -140,15 +162,37 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
                             <tr className="detailRow">
                                 <td colSpan={manageTableHeaders.length}>
                                     <div className="detailContent">
-                                        <div className="detailHeader">상세 정보</div>
+                                        <div className="detailHeader" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <span><h3>상세 정보</h3></span>
+                                            <button
+                                                className="statusChangeButton"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleStatusToggle(item._id, item.status);
+                                                }}
+                                            >
+                                                {item.status === 'pending' ? '완료' : '대기'}
+                                            </button>
+
+                                            {/*tag: { type: String, required: true, enum: ['일반 문의', '시스템 문의', '지원 문의', '기타 문의']},*/}
+                                            {/*email: { type: String, required: true },*/}
+                                            {/*subject: { type: String, required: true }, // 문의 제목*/}
+                                            {/*message: { type: String, required: true }, // 문의 내용*/}
+                                            {/*status: {*/}
+
+                                            </div>
                                         <div className="detailGrid">
+                                            <div className="detailItem">
+                                                <span className="detailLabel">태그</span>
+                                                <span className="detailValue">{item.tag || '-'}</span>
+                                            </div>
                                             <div className="detailItem">
                                                 <span className="detailLabel">이메일</span>
                                                 <span className="detailValue">{item.email || '-'}</span>
                                             </div>
                                             <div className="detailItem">
-                                                <span className="detailLabel">연락처</span>
-                                                <span className="detailValue">{item.phone ? item.phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3') : '-'}</span>
+                                                <span className="detailLabel">문의 제목</span>
+                                                <span className="detailValue">{item.subject || '-'}</span>
                                             </div>
                                             <div className="detailItem">
                                                 <span className="detailLabel">신청일시</span>
@@ -160,9 +204,9 @@ function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6 }) {
                                             </div>
                                         </div>
                                         <div className="detailDocuments">
-                                            <span className="detailLabel">지원내용</span>
+                                            <span className="detailLabel">문의 내용</span>
                                             <div className="documentsText">
-                                                {item.documents || '지원내용이 없습니다.'}
+                                                {item.message || '문의 내용이 없습니다.'}
                                             </div>
                                         </div>
                                     </div>

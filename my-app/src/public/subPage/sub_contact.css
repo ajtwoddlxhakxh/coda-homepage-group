@@ -26,12 +26,14 @@
 
 /* 왼쪽 문의 섹션 */
 .inquirySection {
+
     flex: 1;
     background-color: #0c0c0c;
-    padding: 60px 80px;
+    padding: 100px 80px 60px 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 /* 문의 타이틀 */
@@ -46,6 +48,7 @@
     background-color: white;
     border-radius: 20px;
     padding: 40px;
+
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 

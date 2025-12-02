@@ -9,6 +9,7 @@ export default function SubContact() {
     const [text, setText] = useState('')
     const [inquiry, setInquiry] = useState('')
     const [email, setEmail] = useState('')
+    const [emailError, setEmailError] = useState('')
     const baseURL = process.env.REACT_APP_API_URL;
     const geminiKey = process.env.REACT_APP_GEMINI_API_KEY;
     const ai = new GoogleGenAI({apiKey: geminiKey});
@@ -18,9 +19,24 @@ export default function SubContact() {
         setText(e.target.value)
         console.log(text)
     }
+
+    function validateEmail(email) {
+        // @ 포함 여부 및 기본 이메일 형식 검사
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     function changeEmail(e){
-        setEmail(e.target.value)
-        console.log(email+'<<변경됨')
+        const value = e.target.value;
+        setEmail(value)
+        console.log(value+'<<변경됨')
+
+        // 이메일 유효성 검사
+        if (value && !validateEmail(value)) {
+            setEmailError('올바른 이메일 형식이 아닙니다. (@를 포함해주세요)');
+        } else {
+            setEmailError('');
+        }
     }
 
 
@@ -37,6 +53,13 @@ export default function SubContact() {
             subject: '123응답입니다.',
             message: text
         }
+
+        // 이메일 유효성 검사
+        if (!validateEmail(data.email)) {
+            alert('올바른 이메일 형식을 입력해주세요. (@를 포함해야 합니다)');
+            return;
+        }
+
         if (data.email === '' || data.tag === '' || data.subject === '' || data.message === '') return alert('잘못된 입력입니다.')
         else {
         axios.post(baseURL+'/inquiries', data)

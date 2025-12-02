@@ -1,56 +1,135 @@
 import React from "react";
-import {Link, Route, Routes, useLocation} from "react-router-dom";
-import "./sub_project.css";
-import gift from '../../img/gift.svg';
-import cursor from '../../img/cursor.svg';
-import crown from '../../img/crown.svg';
-import gamepad from '../../img/gamepad.svg';
-
-//TODO LINk로 이미지, 텍스트 감싸기, CSS작업+
-// todo link에 텍스트 적용안됨, award제작
-
+import "../subPage/sub_project.css"
 
 export default function SubProject() {
-  return (
-    <div className="quickmenu">
-      {/* study 영역 */}
-      <div className="qm-item qm-pos-study qm-glow-study">
-          <Link to={'/study'} className={'qm-icon'}>
-        <div className="qm-icon-wrap">
+    return (
+        <div>
+            <div className="subHeader">
+                <span className="subTitle"><h3>Our</h3></span>
+                <span className="subTitle-2nd">Activities</span><br/>
+                <span className="SubTitle-3nd">여기에 설명 심어주기 </span>
+            </div>
 
-          <img src={gift} alt="Gift" className="qm-icon" />
+            <div className="subContent">
+                <div className="contentBox">
+                    <div className="cardGlow codeReviewGlow"></div>
+                    <div className="cardContent">
+                        <div className="iconWrapper">
+                            <div className="iconGlow codeReviewBg"></div>
+                            <div className="iconBox codeReviewIconBg">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#06FFA5"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 className="cardTitle">Study Groups</h3>
+                        <p>스터디 그룹</p>
+                        <p>함께 배우고 함께 성장하는 스터디, 기초부터 심화까지</p>
+                        <div className="cornerAccent codeReviewBg"></div>
+                    </div>
+                </div>
+                <div className="contentBox">
+                    <div className="cardGlow codeReviewGlow"></div>
+                    <div className="cardContent">
+                        <div className="iconWrapper">
+                            <div className="iconGlow codeReviewBg"></div>
+                            <div className="iconBox codeReviewIconBg">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#06FFA5"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 className="cardTitle">Study Groups</h3>
+                        <p>스터디 그룹</p>
+                        <p>함께 배우고 함께 성장하는 스터디, 기초부터 심화까지</p>
+                        <div className="cornerAccent codeReviewBg"></div>
+                    </div>
+                </div>
+                <div className="contentBox">
+                    <div className="cardGlow codeReviewGlow"></div>
+                    <div className="cardContent">
+                        <div className="iconWrapper">
+                            <div className="iconGlow codeReviewBg"></div>
+                            <div className="iconBox codeReviewIconBg">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#06FFA5"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 className="cardTitle">Study Groups</h3>
+                        <p>스터디 그룹</p>
+                        <p>함께 배우고 함께 성장하는 스터디, 기초부터 심화까지</p>
+                        <div className="cornerAccent codeReviewBg"></div>
+                    </div>
+                </div>
+                <div className="contentBox">
+                    <div className="cardGlow codeReviewGlow"></div>
+                    <div className="cardContent">
+                        <div className="iconWrapper">
+                            <div className="iconGlow codeReviewBg"></div>
+                            <div className="iconBox codeReviewIconBg">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#06FFA5"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 className="cardTitle">Study Groups</h3>
+                        <p>스터디 그룹</p>
+                        <p>함께 배우고 함께 성장하는 스터디, 기초부터 심화까지</p>
+                        <div className="cornerAccent codeReviewBg"></div>
+                    </div>
+                </div>
 
-          <img src={cursor} alt="Cursor" className="qm-cursor" />
-        </div></Link>
-        <span className="qm-label">Study</span>
+            </div>
+            <div className="subJoin">
+                <span className="joinTitle">Join Us</span><br/>
+                <span className="joinSubTitle">CODA와 함께하세요</span>
 
-      </div>
-
-      {/* award 영역 (아이콘 오른쪽) */}
-      <div className="qm-item qm-pos-award qm-glow-award qm-right">
-        <div className="qm-icon-wrap">
-          <img
-            src={crown}
-            alt="Crown"
-            className="qm-icon qm-icon--award"
-          />
-          <img
-            src={cursor}
-            alt="Cursor"
-            className="qm-cursor qm--award"
-          />
+            </div>
         </div>
-        <span className="qm-label">Award</span>
-      </div>
-
-      {/* activity 영역 */}
-      <div className="qm-item qm-pos-activity qm-glow-activity">
-        <div className="qm-icon-wrap">
-          <img src={gamepad} alt="Gamepad" className="qm-icon" />
-          <img src={cursor} alt="Cursor" className="qm-cursor" />
-        </div>
-        <span className="qm-label">Activity</span>
-      </div>
-    </div>
-  );
+    )
 }

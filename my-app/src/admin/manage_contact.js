@@ -8,11 +8,32 @@ import Manage_contactTable from "./manage_contactTable";
 
 function ManageRecruit(token) {
     const { data, status, error, loading } = useContact();
+
+    // 로컬 상태로 status 관리
+    const [localStatus, setLocalStatus] = useState([]);
+
+    // useContact에서 받은 status를 로컬 상태로 동기화
+    useEffect(() => {
+        if (status) {
+            setLocalStatus(status);
+        }
+    }, [status]);
+
     const allStatus = {
-        total: status?.length,
-        progress: status?.filter((item) => item.status === "in-progress"),
-        resolved: status?.filter((item) => item.status === "resolved")
+        total: localStatus?.length,
+        progress: localStatus?.filter((item) => item.status === "pending"),
+        resolved: localStatus?.filter((item) => item.status === "resolved")
     };
+
+    // 상태 변경 핸들러
+    const handleStatusChange = (itemId, newStatus) => {
+        setLocalStatus(prevStatus =>
+            prevStatus.map(item =>
+                item._id === itemId ? { ...item, status: newStatus } : item
+            )
+        );
+    };
+
     // 페이지 위치 관리
     const [currentPage, setCurrentPage] = useState(1);
     // 쿠키인증시간 끝나면??
@@ -21,12 +42,13 @@ function ManageRecruit(token) {
         <div className={"recruitContainer"}>
             {/*상태확인*/}
             <div className={"summarySection"}>
+                <span className={"summaryHeader"}>요약</span>
                 <ul className={"summaryStats"}>
                     <li className={"totalCount"}>전체: {allStatus.total ?? 0}</li>
                     <li className={"waitingCount"}>
                         대기: {allStatus.progress?.length || 'null'}
                     </li>
-                    <li className={"confirmCount"}>
+                    <li className={"approvedCount"}>
                         완료: {allStatus.resolved?.length ?? null}
                     </li>
                 </ul>
@@ -41,7 +63,11 @@ function ManageRecruit(token) {
                 {/*코드가 너무 길어져서 따로 뺐어요*/}
                 <span><h1>문의관리</h1> </span>
 
-                <Manage_contactTable currentPage={currentPage} items={status} />
+                <Manage_contactTable
+                    currentPage={currentPage}
+                    items={localStatus}
+                    onStatusChange={handleStatusChange}
+                />
             </div>
 
             {/*페이지 번호 확인 */}

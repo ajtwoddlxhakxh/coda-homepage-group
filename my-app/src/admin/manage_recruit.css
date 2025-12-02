@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
+
 /* ===================== 전체 컨테이너 ===================== */
 .recruitContainer {
   width: 90%;
@@ -17,15 +19,15 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 24px;
 }
+.summaryHeader {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 300px;
+  line-height: 26px;
+  letter-spacing: -0.11px; /* 22px의 -0.5% */
 
-/* "요약" 제목 */
-.summarySection::before {
-  content: "요약";
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 4px;
 }
 
 /* 요약 값 리스트 */
@@ -52,19 +54,37 @@
 
 /* 색/굵기 */
 .summaryStats .totalCount {
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.11px; /* 22px의 -0.5% */
+
 }
 .summaryStats .waitingCount {
   color: #f5a623;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.11px; /* 22px의 -0.5% */
 }
 .summaryStats .approvedCount {
   color: #3cb44a;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.11px; /* 22px의 -0.5% */
 }
 .summaryStats .rejectedCount {
   color: #d0021b;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.11px; /* 22px의 -0.5% */
+
 }
 
 .managementHeader {
@@ -78,7 +98,6 @@
 
 /* "신청 관리" 텍스트 */
 .managementHeader::before {
-  content: "신청 관리";
   position: absolute;
   top: 0;
   left: 0;
@@ -179,9 +198,9 @@
 .applicantTable thead th:nth-child(2)::after,
 .applicantTable thead th:nth-child(5)::after,
 .applicantTable thead th:nth-child(6)::after {
-  content: "▾";
-  margin-left: 4px;
-  font-size: 0.7rem;
+  /*content: "▾";*/
+  /*margin-left: 4px;*/
+  /*font-size: 1.2rem;*/
 }
 
 /* 상태 앞에 ● 표시 */

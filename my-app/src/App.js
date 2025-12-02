@@ -1,6 +1,7 @@
 import Sub_project from "./public/subPage/sub_project";
 import Sub_createby from "./public/mainPage/main_createby";
 import Navbar from "./components/Navbar";
+import ManageNavbar from "./components/manage_Navbar";
 import Main_coda from "./public/mainPage/main_coda";
 import Sub_recruitment from "./public/subPage/sub_recruitment";
 import Main_clubCoda from "./public/mainPage/main_clubCoda";
@@ -18,7 +19,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import ClubCoda from "./public/mainPage/main_clubCoda";
 
-//TODO 특정 경로일때만 navbar보이게 설정
 function App() {
   const location = useLocation();
 
@@ -55,22 +55,21 @@ function App() {
 
     // 주소값 변경시 or isAdmin변경시 작동됨
     useEffect(() => {
-      if (userLocation == "/admin*") {
-        setisAdmin(true);
+          if (userLocation === "/admin*") {
+            setisAdmin(true);
       } else {
         setisAdmin(false);
       }
     }, [userLocation]);
 
-    if (userLocation.startsWith("/admin")) {
-      // 네비바 출력 x
+    if (userLocation.startsWith("/admin") && userLocation !== "/admin/login") {
+
+      // return <ManageNavbar />;
+    } else if (isAdmin === true) {
       return null;
-    } else if (isAdmin === false) {
+    } else if ((isAdmin === false) && (userLocation !== "/admin/login")) {
       return <Navbar />;
-    } else {
-      // 관리자 전용 네비바가 출력됩니다.
-      // <NewNavber />
-      return null;
+      // return <ManageNavbar />;
     }
   }
   return (
@@ -92,7 +91,7 @@ function App() {
         {/* 관리자 페이지 route */}
         <Route path="admin/recruit" element={<Recruit />} />
         <Route path="admin/login" element={<Login />} />
-        <Route path={"admin/contact"} element={<Contact />} />
+        <Route path="admin/contact" element={<Contact />} />
 
         {/* 테스트용 페이지 */}
       </Routes>
