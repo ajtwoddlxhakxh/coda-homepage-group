@@ -2,7 +2,7 @@ import React from "react";
 import {useState, } from "react";
 import contatcdot from '../../img/contact-dot.svg'
 import axios from "axios";
-import { GoogleGenAI } from "@google/genai";
+// import { GoogleGenAI } from "@google/genai";
 import './sub_contact.css'
 
 export default function SubContact() {
@@ -11,8 +11,8 @@ export default function SubContact() {
     const [email, setEmail] = useState('')
     const [emailError, setEmailError] = useState('')
     const baseURL = process.env.REACT_APP_API_URL;
-    const geminiKey = process.env.REACT_APP_GEMINI_API_KEY;
-    const ai = new GoogleGenAI({apiKey: geminiKey});
+    // const geminiKey = process.env.REACT_APP_GEMINI_API_KEY;
+    // const ai = new GoogleGenAI({apiKey: geminiKey});
 
 
     function changeMessage(e){
