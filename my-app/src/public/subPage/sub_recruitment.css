@@ -4,8 +4,7 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings:
-          "wdth" 100
+  font-variation-settings: "wdth" 100;
 }
 
 .subRecruitment {
@@ -22,12 +21,11 @@
 .subRecruitment section {
   position: relative;
   width: 100%;
-  transform: scale(0.7);
 }
 
 /* 섹션 높이 */
 .recruInfo {
-  padding-top: 360px;
+  padding-top: 260px;
 }
 .recruMain {
   min-height: 200vh;
@@ -39,8 +37,8 @@
   background: radial-gradient(circle at center, #0d1a23 0%, #000 80%);
 }
 .beforeSignup {
-  min-height: 140vh;
-  padding: clamp(20px, 4vw, 40px) clamp(16px, 6vw, 64px);
+  min-height: 70vh;
+  padding: clamp(20px, 6vw, 40px) clamp(16px, 8vw, 64px);
 }
 .ctaSignup {
   min-height: 120vh;
@@ -148,18 +146,18 @@
 }
 .rocket {
   position: absolute;
-  left: clamp(100px, 3.6vw, 120px);
-  top: clamp(750px, 9vh, 150px);
-  width: clamp(160px, 26vw, 320px);
+  left: clamp(30px, 0.3vw, 120px);
+  top: clamp(520px, 9vh, 900px);
+  width: clamp(640px, 26vw, 800px);
   height: auto;
   z-index: 2;
   pointer-events: none;
 }
 .ballongift {
   position: absolute;
-  right: clamp(24vw, 10vw, 14vw);
-  top: clamp(220vh, 54vh, 60vh);
-  width: clamp(110px, 20vw, 190px);
+  right: clamp(10vw, 10vw, 14vw);
+  top: clamp(200vh, 54vh, 60vh);
+  width: clamp(500px, 20vw, 400px);
   height: auto;
   z-index: 2;
   pointer-events: none;
@@ -177,7 +175,7 @@
 .recrucheck {
   position: absolute;
   left: clamp(20px, 3.5vw, 100px);
-  top: clamp(20px, 3.9vw, 100px);
+  top: clamp(10px, 2.7vw, 100px);
   width: clamp(26px, 2.9vw, 34px);
   height: auto;
 }
@@ -185,7 +183,7 @@
 /* 규칙 */
 .Rule {
   max-width: 500px;
-  margin-bottom: 10%;
+  margin-bottom: 30%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -193,10 +191,10 @@
   /*font-size: clamp(1.2rem, 1.7vw, 1.15rem);*/
 }
 .rule1 {
-  margin-top: clamp(150px, 5.5vh, 55px);
+  margin-top: clamp(200px, 4.5vh, 300px);
 }
 .Rule + .Rule {
-  margin-top: clamp(80px, 4.6vh, 92px);
+  margin-top: clamp(100px, 4.5vh, 110px);
 }
 
 .beforeSignup {
@@ -204,18 +202,18 @@
 }
 .headphonerecru {
   position: absolute;
-  left: 18%;
-  top: 18%;
-  width: clamp(120px, 22vw, 200px);
+  left: 4%;
+  top: 8%;
+  width: clamp(460px, 22vw, 200px);
   height: auto;
   opacity: 0.96;
   animation: float 3.5s ease-in-out infinite;
 }
 .pencil {
   position: absolute;
-  right: 22%;
-  top: 48%;
-  width: clamp(45px, 14vw, 90px);
+  right: 15%;
+  top: 60%;
+  width: clamp(200px, 14vw, 90px);
   height: auto;
   opacity: 0.95;
   animation: float 4s ease-in-out infinite;
@@ -224,9 +222,8 @@
 .emoji {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
-  width: clamp(80px, 18vw, 150px);
+  top: 110%;
+  width: clamp(130px, 20vw, 150px);
   height: auto;
 }
 
@@ -271,7 +268,7 @@
   left: 50%;
   top: 24%;
   transform: translateX(-50%);
-  width: clamp(380px, 46vw, 200px);
+  width: clamp(530px, 46vw, 200px);
   height: auto;
   z-index: 2;
   transition: transform 0.25s ease;
@@ -283,35 +280,13 @@
 
 .NormalRocket {
   position: absolute;
-  right: clamp(20vw, 6vw, 30vw);
-  bottom: clamp(40px, 8vh, 100px);
+  right: clamp(30vw, 6vw, 30vw);
+  bottom: clamp(10px, 10vh, 100px);
   width: clamp(130px, 33vw, 380px);
+  transform: translateY(15%) rotate(10deg);
   height: auto;
   z-index: 2;
-  animation: rocketFly 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   animation-delay: 8s;
-}
-@keyframes rocketFly {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  20% {
-    transform: translate(20px, -20px) scale(0.95) rotate(3deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(80px, -100px) scale(0.8) rotate(8deg);
-    opacity: 0.9;
-  }
-  80% {
-    transform: translate(160px, -200px) scale(0.65) rotate(12deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translate(250px, -300px) scale(0.5) rotate(15deg);
-    opacity: 0;
-  }
 }
 
 .moon {
@@ -319,7 +294,7 @@
   left: 50%;
   bottom: -5px;
   transform: translateX(-50%);
-  width: clamp(230px, 30vw, 120px);
+  width: clamp(500px, 30vw, 120px);
   height: auto;
   opacity: 0.95;
   z-index: 1;
