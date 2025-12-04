@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import contatcdot from "../../img/contact-dot.svg";
 import axios from "axios";
-<<<<<<< HEAD
 // import { GoogleGenAI } from "@google/genai";
 import './sub_contact.css'
 
