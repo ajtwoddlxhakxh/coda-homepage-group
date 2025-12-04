@@ -13,7 +13,7 @@ export default function SubContact() {
     const baseURL = process.env.REACT_APP_API_URL;
     // const geminiKey = process.env.REACT_APP_GEMINI_API_KEY;
     // const ai = new GoogleGenAI({apiKey: geminiKey});
-=======
+    
 //import { GoogleGenAI } from "@google/genai";
 import "./sub_contact.css";
 
