@@ -67,7 +67,7 @@ export default function SubContact() {
       return alert("잘못된 입력입니다.");
     else {
       axios
-        .post(baseURL + "/inquiries", data)
+        .post(baseURL + "inquiries", data)
         .then((response) => {
           console.log(response.data, data);
           alert("문의해주셔서 감사합니다.");
