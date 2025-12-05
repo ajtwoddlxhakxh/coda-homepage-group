@@ -32,15 +32,34 @@ app.use('/uploads', express.static('uploads'));
 /** CORS */
 //const allowOrigin = process.env.ALLOW_ORIGIN || '*';
 //app.use(cors({ origin: allowOrigin, credentials: true }));
+// const allowedOrigins = [
+//   'http://localhost:3000', 
+//   'http://localhost:4000',
+//   'http://localhost:4001' ,
+//   'https://teseses.netlify.app' // 👈 프론트엔드의 새 주소 추가
+// ];
+
+// app.use(cors({
+//   origin: allowedOrigins,
+//   credentials: true,
+// }));
 const allowedOrigins = [
-  'http://localhost:3000', 
+  'http://localhost:3000',
   'http://localhost:4000',
-  'http://localhost:4001' ,
-  'https://teseses.netlify.app' // 👈 프론트엔드의 새 주소 추가
+  'http://localhost:4001',
+  'https://teseses.netlify.app'
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    // origin이 없으면(로컬에서 Postman 등으로 테스트할 때) 허용하거나,
+    // allowedOrigins 목록에 포함되어 있으면 허용
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
