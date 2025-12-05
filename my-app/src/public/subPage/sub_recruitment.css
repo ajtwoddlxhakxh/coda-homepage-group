@@ -282,7 +282,7 @@
   position: absolute;
   right: clamp(30vw, 6vw, 30vw);
   bottom: clamp(10px, 10vh, 100px);
-  width: clamp(130px, 33vw, 380px);
+  width: clamp(160px, 36vw, 380px);
   transform: translateY(15%) rotate(10deg);
   height: auto;
   z-index: 2;
@@ -291,9 +291,8 @@
 
 .moon {
   position: absolute;
-  left: 65%;
+  left: 33%;
   bottom: -30px;
-  transform: translateY(10%);
   width: clamp(500px, 30vw, 120px);
   height: auto;
   opacity: 0.95;

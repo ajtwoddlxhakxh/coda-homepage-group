@@ -115,6 +115,39 @@
   background-color: rgba(6, 255, 165, 0.125);
 }
 
+.style1 .codeReviewBg {
+    background-color: #00ccff; /* 빛나는 색 */
+    box-shadow: 0 0 20px #00ccff; /* 더 강한 발광 효과 */
+}
+.style1 .codeReviewIconBg {
+    background-color: rgba(0, 204, 255, 0.15); /* 사각형 배경 (연하게) */
+}
+.style1 svg {
+    color: #00ccff; /* 아이콘 선 색상 (currentColor가 이걸 받음) */
+}
+
+.style2 .codeReviewBg {
+    background-color: #f2ff61;
+    box-shadow: 0 0 20px #c1d03c;
+}
+.style2 .codeReviewIconBg {
+    background-color: rgba(179, 195, 7, 0.374);
+}
+.style2 svg {
+    color: #92c701;
+}
+
+.style3 .codeReviewBg {
+    background-color: #ff9900;
+    box-shadow: 0 0 20px #ff9900;
+}
+.style3 .codeReviewIconBg {
+    background-color: rgba(255, 153, 0, 0.15);
+}
+.style3 svg {
+    color: #ff9900;
+}
+
 /* Text */
 .cardTitle {
   font-size: 1.875rem;

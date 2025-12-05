@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from "react";
 import "./sub_recruitment_join.css"; // CSS 파일은 그대로 둠
 import axios from "axios";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
 
 function RecruitApplyPage({
   question1,
@@ -25,10 +23,7 @@ function RecruitApplyPage({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 파티클 엔진 로드
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,56 +93,8 @@ ${form.answer2}
       className="apply-wrapper"
       style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}
     >
-      {/* 2. 파티클 컴포넌트 추가 (z-index를 0으로 설정하여 배경으로 깝니다) */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-        }}
-        options={{
-          background: {
-            color: "#000000", // 배경색 검정 (우주)
-          },
-          fpsLimit: 120,
-          particles: {
-            color: { value: "#ffffff" },
-            move: {
-              enable: true,
-              speed: 0.5, // 천천히 움직임
-              direction: "none",
-              random: true,
-              outModes: "out",
-            },
-            number: {
-              density: { enable: true, area: 800 },
-              value: 100, // 별 개수
-            },
-            opacity: {
-              value: { min: 0.1, max: 0.7 },
-              animation: {
-                enable: true,
-                speed: 1, // 반짝이는 속도
-                sync: false,
-              },
-            },
-            size: {
-              value: { min: 1, max: 3 }, // 별 크기 랜덤
-            },
-          },
-        }}
-      />
 
-      {/* 3. 실제 컨텐츠는 z-index를 1로 주어 파티클 위에 뜨게 합니다. */}
-      <div
-        className="apply-container"
-        style={{ position: "relative", zIndex: 1 }}
-      >
+      
         <h1
           className="apply-title"
           style={{ color: "white", textAlign: "center", paddingTop: "50px" }}
@@ -365,7 +312,7 @@ ${form.answer2}
           </div>
         </form>
       </div>
-    </div>
+    
   );
 }
 
