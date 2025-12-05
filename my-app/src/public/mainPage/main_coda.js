@@ -1,13 +1,5 @@
 import "./main_coda.css";
-import bulb from "../../img/bulb.svg";
-import bulb2 from "../../img/bulb2.svg";
 
-import key1 from "../../img/keycap1.svg";
-import key2 from "../../img/keycap2.svg";
-import key3 from "../../img/keycap3.svg";
-import mainkey from "../../img/mainkey.svg";
-import headset from "../../img/headset.svg";
-import chess from "../../img/Chess.svg";
 
 export default function Main_coda() {
   return (
@@ -31,14 +23,14 @@ export default function Main_coda() {
         </div>
 
         {/* 떠다니는 이미지들 */}
-        <img className="floatImg bulb" src={bulb} alt="Bulb" />
-        <img className="floatImg bulb2" src={bulb2} alt="Bulb 2" />
-        <img className="floatImg Key1" src={key1} alt="Keycap 1" />
-        <img className="floatImg Key2" src={key2} alt="Keycap 2" />
-        <img className="floatImg Key3" src={key3} alt="Keycap 3" />
-        <img className="floatImg Mainkey" src={mainkey} alt="Main Keycap" />
-        <img className="floatImg Headset" src={headset} alt="Headset" />
-        <img className="floatImg Chess" src={chess} alt="Chess" />
+        <img className="floatImg bulb" src="/img/coda_logo.svg" alt="Bulb" />
+        <img className="floatImg bulb2" src="/img/bulb2.svg" alt="Bulb 2" />
+        <img className="floatImg Key1" src="/img/keycap1.svg" alt="Keycap 1" />
+        <img className="floatImg Key2" src="/img/keycap2.svg" alt="Keycap 2" />
+        <img className="floatImg Key3" src="/img/keycap3.svg" alt="Keycap 3" />
+        <img className="floatImg Mainkey" src="/img/mainkey.svg" alt="Main Keycap" />
+        <img className="floatImg Headset" src="/img/headset.svg" alt="Headset" />
+        <img className="floatImg Chess" src="/img/chess.svg" alt="Chess" />
       </section>
     </div>
   );

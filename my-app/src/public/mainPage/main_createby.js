@@ -1,17 +1,11 @@
-import  keycap from '../../img/keycap.svg'
 import './main_createby.css'
-import yellowkeycap from '../../img/normal_coda_keycap.svg'
-import cubeImg from '../../img/Cube_Dinamic.svg'
-import swordImg from '../../img/Sword_Dinamic.svg'
-import switchImg from '../../img/Switch_Dinamic.svg'
-
 
 function CreateBy({items, specialName}) {
     return (
         <div className={'createbyContainer'}>
             <p className={'createbyTitle'}>CREATE BY</p>
             <div className={'imgRapper'}>
-                <img src={swordImg} alt={'sword'} className={'sword'}/>
+                <img src="/img/Sword_Dinamic.svg" alt={'sword'} className={'sword'}/>
                 {/*키캡을 관리하는 컨테이너*/}
                 <div className={'gridContainer'}>
                 <Keycap name={items[0].name} part={items[0].part} />
@@ -21,10 +15,10 @@ function CreateBy({items, specialName}) {
             </div>
 
                 <div className={'gameContainer'}>
-                    <img src={cubeImg} alt={'cube'} className={'cube'}/>
-                    <img src={switchImg} alt={'switch'} className={'switch'}/>
+                    <img src="/img/Cube_Dinamic.svg" alt={'cube'} className={'cube'}/>
+                    <img src="/img/Switch_Dinamic.svg" alt={'switch'} className={'switch'}/>
                 </div>
-                <img src={yellowkeycap} alt={'yellowkeycap'} className={'yellowkeycap'}/>
+                <img src="/img/normal_coda_keycap.svg" alt={'yellowkeycap'} className={'yellowkeycap'}/>
             </div>
         </div>
     );
@@ -39,7 +33,7 @@ function Keycap({name, part}) {
     return (
         <div className={'keycap'}>
             {/* 이미지를 배경 스타일을 위한 div로 변경 */}
-            <img src={keycap} alt={'keycap'} className={'keycapImg'}/>
+            <img src="/img/keycap.svg" alt={'keycap'} className={'keycapImg'}/>
             {/**/}
             <div className={'keycapText'}>
                 {/*.part , .part.?part로 나누어놓음 ex).part.frontend*/}

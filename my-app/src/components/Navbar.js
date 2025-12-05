@@ -1,6 +1,5 @@
 import React from "react";
 import './Navbar.css'
-import codalogo from '../img/coda_logo.svg'
 import {Link, Routes, Route} from "react-router-dom";
 import Recruit from '../public/subPage/sub_recruitment'
 function Navbar() {
@@ -9,7 +8,7 @@ function Navbar() {
             <div className='navberContainer'>
                 {/*코다 로고, 클릭시 '/'로 이동*/}
                 <div className={'navbar_logo'}>
-                    <Link to={'/'}><img src={codalogo} alt={'codalogo'}/> </Link>
+                    <Link to={'/'}><img src="/img/coda_logo.svg" alt={'codalogo'}/> </Link>
                 </div>
                 {/*navbar center메뉴 about, project, recruitment등을 담당*/}
                 <ul className='navbar_menu'>
