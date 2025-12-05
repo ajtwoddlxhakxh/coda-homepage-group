@@ -37,7 +37,8 @@
   font-size: clamp(1rem, 1.5vw, 1.3rem);
   line-height: 1.6;
   color: #ffffff;
-  max-width: 450px;
+  max-width: 550px;
+
 }
 .ClubCodaDescEng {
   font-size: 150%;

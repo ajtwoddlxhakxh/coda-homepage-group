@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
 
 /* manage_contact 관련 모든 요소에 Noto Sans 글꼴 적용 */
-.recruitContainer,
-.recruitContainer * {
+.contactTable * {
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
     font-size: 22px;

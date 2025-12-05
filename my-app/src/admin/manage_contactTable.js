@@ -2,8 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from 'axios';
-import manage_contact from '../admin/manage_contact.css'
-
+import "./manage_contact.css"
 
 function Manage_applicantTable({ currentPage, items = [], itemsPerPage = 6, onStatusChange }) {
 

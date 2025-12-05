@@ -1,20 +1,20 @@
 /* 전체 컨테이너 */
 .noto-sans-button {
-                font-family: "Noto Sans";
-                font-optical-sizing: auto;
-                font-weight: 600;
-                font-style: normal;
-                font-variation-settings:
-                        "wdth" 100;
-            }
+    font-family: "Noto Sans";
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+}
 .inconsolata-title {
-                  font-family: "Inconsolata", monospace;
-                  font-optical-sizing: auto;
-                  font-weight: 700;
-                  font-style: normal;
-                  font-variation-settings:
-                  "wdth" 100;
-              }
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+}
 
 
 
@@ -40,6 +40,7 @@
 .inquiryTitle {
     position: relative;
     margin-bottom: 30px;
+
 }
 
 
@@ -50,6 +51,7 @@
     padding: 40px;
 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
 }
 
 .inquiryTitle img {

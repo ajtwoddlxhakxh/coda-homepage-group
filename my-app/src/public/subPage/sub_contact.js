@@ -105,7 +105,7 @@ export default function SubContact() {
             <div className="inquiryForm">
                 <div className="inquiryTitle">
                     <img src={contatcdot} alt="contatcdot"/><br/>
-                    <h1 className="inconsolata-title">CONTACT US</h1>
+                    <h1 className="noto-sans-button">CONTACT US</h1>
                 </div>
                 {/* 문의 타입 */}
                 <div className="inquiryType">

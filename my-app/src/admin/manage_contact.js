@@ -4,7 +4,7 @@ import useContact from '../hooks/useContact'
 import ManageContact from './manage_contactTable';
 
 import Manage_pagenation from "./manage_pagenation";
-import Manage_contactTable from "./manage_contactTable";
+    import Manage_contactTable from "./manage_contactTable";
 
 function ManageRecruit(token) {
     const { data, status, error, loading } = useContact();
@@ -42,7 +42,7 @@ function ManageRecruit(token) {
         <div className={"recruitContainer"}>
             {/*상태확인*/}
             <div className={"summarySection"}>
-                <span className={"summaryHeader"}>요약</span>
+                <span className={"summaryHeader"}>q</span>
                 <ul className={"summaryStats"}>
                     <li className={"totalCount"}>전체: {allStatus.total ?? 0}</li>
                     <li className={"waitingCount"}>
@@ -67,6 +67,7 @@ function ManageRecruit(token) {
                     currentPage={currentPage}
                     items={localStatus}
                     onStatusChange={handleStatusChange}
+                    className={"contactTable"}
                 />
             </div>
 
