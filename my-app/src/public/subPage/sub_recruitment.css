@@ -291,9 +291,9 @@
 
 .moon {
   position: absolute;
-  left: 50%;
+  left: 65%;
   bottom: -30px;
-  transform: translateY(6%);
+  transform: translateY(10%);
   width: clamp(500px, 30vw, 120px);
   height: auto;
   opacity: 0.95;
