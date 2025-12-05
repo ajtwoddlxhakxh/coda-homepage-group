@@ -35,7 +35,8 @@ app.use('/uploads', express.static('uploads'));
 const allowedOrigins = [
   'http://localhost:3000', 
   'http://localhost:4000',
-  'http://localhost:4001' // 👈 프론트엔드의 새 주소 추가
+  'http://localhost:4001' ,
+  'https://teseses.netlify.app' // 👈 프론트엔드의 새 주소 추가
 ];
 
 app.use(cors({
