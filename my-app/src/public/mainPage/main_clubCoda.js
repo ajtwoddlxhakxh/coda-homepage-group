@@ -1,12 +1,11 @@
 import React from "react";
 import "./main_clubCoda.css";
-import logo from "../../img/logo.svg"; // 파일 경로 주의! Main_clubCoda.jsx가 src/에 있다면 이렇게.
 
 export default function Main_clubCoda() {
   return (
     <section className="ClubCoda">
       <div className="ClubCoda__left">
-        <img className="ClubCoda__logo" src={logo} alt="CODA 로고" />
+        <img className="ClubCoda__logo" src="/img/logo.svg" alt="CODA 로고" />
       </div>
 
       <div className="ClubCoda__right">

@@ -2,16 +2,6 @@ import React from "react";
 import "./sub_recruitment.css";
 import { useNavigate } from "react-router-dom";
 
-import ballongift from "../../img/ballongift.svg";
-import rocket from "../../img/rocket.svg";
-import globes from "../../img/globes.svg";
-import NormalRocket from "../../img/NormalRocket.svg";
-import moon from "../../img/moon.svg";
-import headphonerecru from "../../img/headphonerecru.svg";
-import pencil from "../../img/pencil.svg";
-import emoji from "../../img/emoji.svg";
-import recrucheck from "../../img/recrucheck.svg";
-
 export default function Sub_recruitment() {
   const navigate = useNavigate();
 
@@ -30,14 +20,15 @@ export default function Sub_recruitment() {
           <span className="init initCHANCE">'CHANCE'</span>이다.
         </div>
       </div>
-      <img className="ballongift" src={ballongift} alt="ballongift" />
-      <img className="rocket" src={rocket} alt="rocket" />
+
+      <img className="ballongift" src="/img/ballongift.svg" alt="ballongift" />
+      <img className="rocket" src="/img/rocket.svg" alt="rocket" />
 
       <div className="subRecruitment">
         {/* 1) BEFORE SIGN UP */}
         <div className="ruleContainer">
           <section className="before-signup">
-            <img className="recrucheck" src={recrucheck} alt="recrucheck" />
+            <img className="recrucheck" src="/img/recrucheck.svg" alt="recrucheck" />
             <h2 className="beforeTitle">BEFORE SIGN UP</h2>
 
             <h2 className="Rule rule1 noto-sans-menu">
@@ -50,13 +41,9 @@ export default function Sub_recruitment() {
               규칙 3. 열심히 노력하는 모습을 보여줄 것
             </h2>
 
-            <img
-              className="headphonerecru"
-              src={headphonerecru}
-              alt="headphonerecru"
-            />
-            <img className="pencil" src={pencil} alt="pencil" />
-            <img className="emoji" src={emoji} alt="emoji" />
+            <img className="headphonerecru" src="/img/headphonerecru.svg" alt="headphonerecru" />
+            <img className="pencil" src="/img/pencil.svg" alt="pencil" />
+            <img className="emoji" src="/img/emoji.svg" alt="emoji" />
           </section>
         </div>
 
@@ -73,12 +60,12 @@ export default function Sub_recruitment() {
 
           <img
             className="globes"
-            src={globes}
+            src="/img/globes.svg"
             alt="globes"
             onClick={() => navigate("/recruitment/form")}
           />
-          <img className="NormalRocket" src={NormalRocket} alt="NormalRocket" />
-          <img className="moon" src={moon} alt="moon" />
+          <img className="NormalRocket" src="/img/NormalRocket.svg" alt="NormalRocket" />
+          <img className="moon" src="/img/moon.svg" alt="moon" />
         </section>
       </div>
     </div>
