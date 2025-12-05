@@ -2,7 +2,55 @@ body {
   margin: 0;
   padding: 0;
 }
+/* sub_recruitment_join.css 맨 아래에 추가/교체 */
 
+/* 1. 배경 설정 (이미지X, 코드O) */
+.apply-wrapper {
+  position: relative;
+  /* 우주 색상 배경 (그라데이션) */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* 2. 별 그리기 (가상 요소 사용) */
+.apply-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  
+  /* 별 모양을 점(Gradient)으로 찍음 - 이미지 다운로드 필요 없음 */
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px),
+    radial-gradient(rgba(255,255,255,.3), rgba(255,255,255,.1) 1px, transparent 2px);
+
+
+    
+  /* 별들의 크기와 위치 랜덤 설정 */
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 100px 100px, 50px 50px, 75px 75px, 25px 25px,  10px 10px;
+  background-position: 0 0, 40px 60px, 130px 270px, 20px 30px, 70px 90px, 10px 20px, 30px 40px, 50px 60px;
+  
+  /* 천천히 움직이는 애니메이션 */
+  animation: starMove 80s linear infinite;
+  z-index: -1; /* 글씨 뒤로 */
+  opacity: 0.8;
+}
+
+/* 3. 별 움직임 애니메이션 */
+@keyframes starMove {
+  from { background-position: 0 0, 40px 60px, 130px 270px; }
+  to   { background-position: 550px 550px, 390px 410px, 380px 520px; }
+}
+
+/* 4. 글씨(콘텐츠)는 맨 앞으로 */
+.apply-content {
+  position: relative;
+  z-index: 10;
+}
 /*!* 전체 페이지 래퍼 *!*/
 /*.apply-wrapper {*/
 /* min-height: calc(100vh - 80px);*/
