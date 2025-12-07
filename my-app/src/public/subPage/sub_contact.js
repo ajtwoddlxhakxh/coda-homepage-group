@@ -178,12 +178,31 @@ export default function SubContact() {
       <div className="contactInfoSection">
         {/* 이메일, 인스타그램 따로 */}
         <div className="contactItem email">
-          <h1 className={"noto-sans-menu"}>Email</h1>
-          <h3 className={"noto-sans-menu"}>codaContact@gmail.com</h3>
+          <h1 className={"noto-sans-menu"}>KakaoTalk</h1>
+          <h3 className={"noto-sans-menu"}>
+            <a 
+              href="https://open.kakao.com/o/sIfpuPfh" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }}
+            >
+              https://open.kakao.com/o/sIfpuPfh
+            </a>
+          </h3>
         </div>
+
         <div className="contactItem instagram">
           <h1 className={"noto-sans-menu"}>Instagram</h1>
-          <h3 className={"noto-sans-menu"}>@coda_123</h3>
+          <h3 className={"noto-sans-menu"}>
+            <a 
+              href="https://www.instagram.com/coda_2025" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}
+            >
+              @coda_2025
+            </a>
+          </h3>
         </div>
       </div>
     </div>

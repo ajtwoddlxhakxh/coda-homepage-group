@@ -22,7 +22,7 @@ body {
   
   /* 별 모양을 점(Gradient)으로 찍음 - 이미지 다운로드 필요 없음 */
   background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),
     radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
     radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
     radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px),

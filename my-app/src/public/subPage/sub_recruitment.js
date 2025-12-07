@@ -37,9 +37,10 @@ export default function Sub_recruitment() {
         {/* 1) BEFORE SIGN UP */}
         <div className="ruleContainer">
           <section className="before-signup">
-            <img className="recrucheck" src={recrucheck} alt="recrucheck" />
-            <h2 className="beforeTitle">BEFORE SIGN UP</h2>
-
+            <div className="beforeHeader">
+      <img className="recrucheck" src={recrucheck} alt="recrucheck" />
+      <h2 className="beforeTitle">BEFORE SIGN UP</h2>
+    </div>
             <h2 className="Rule rule1 noto-sans-menu">
               규칙 1. 블로그 업로드 및 깃허브 커밋
             </h2>

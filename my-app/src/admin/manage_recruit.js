@@ -43,12 +43,15 @@ function ManageRecruit(token) {
             </div>
 
             {/* todo 검색창 구현하기, css랑 className차이 있음 */}
-            <div className={"managementHeader"}>
+            
+            {/* <div className={"managementHeader"}>
                 <span className={"searchSection"}>
                     <input type={'search'} placeholder={'Search'}/>
                     <button className={"selectAllButton"}>전체 선택</button>
                 </span>
-            </div>
+            </div> */}
+
+            {/*신청자 테이블*/}
 
             <div className={"applicantTable"}>
                 <h1>신청관리</h1>
