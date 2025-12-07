@@ -209,13 +209,27 @@
 }
 
 .contactItem.email h1::before {
-    content: '✉';
-    font-size: 24px;
+    content: '';  
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg');
+    
+    background-size: cover; 
+    vertical-align: middle; 
+    margin-right: 10px;     
 }
 
 .contactItem.instagram h1::before {
-    content: '';
-    font-size: 24px;
+    content: '';            
+    display: inline-block;   
+    width: 24px;            
+    height: 24px;           
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png');
+    background-size: cover;  
+    background-repeat: no-repeat;
+    vertical-align: middle;  
+    margin-right: 10px;   
 }
 
 .contactItem h3 {

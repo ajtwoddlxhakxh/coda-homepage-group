@@ -1,563 +1,312 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
 
-/* ===================== 전체 컨테이너 ===================== */
+/* ===================== 1. 전체 레이아웃 (좌우 여백 통일) ===================== */
 .recruitContainer {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
+  width: 95%; /* 전체 너비의 95% 사용 */
+  max-width: 1200px; /* 최대 1200px까지만 늘어남 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 60px 0; /* 좌우 패딩을 0으로 해서 내부 요소들이 꽉 차게 함 */
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
-  color: #222;
-  background-color: #ffffff;
-}
-
-/* ======================== 요약 영역 ======================= */
-.summarySection {
+  color: #111;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 24px;
-}
-.summaryHeader {
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 26px;
-  letter-spacing: -0.11px; /* 22px의 -0.5% */
-
+  gap: 40px; /* 요약과 테이블 사이 간격 */
 }
 
-/* 요약 값 리스트 */
-.summaryStats {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: #333;
-}
-
-/* 항목 사이 | 구분선 */
-.summaryStats li::after {
-  content: "|";
-  margin-left: 12px;
-  color: #aaa;
-}
-.summaryStats li:last-child::after {
-  content: "";
-}
-
-/* 색/굵기 */
-.summaryStats .totalCount {
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.11px; /* 22px의 -0.5% */
-
-}
-.summaryStats .waitingCount {
-  color: #f5a623;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.11px; /* 22px의 -0.5% */
-}
-.summaryStats .approvedCount {
-  color: #3cb44a;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.11px; /* 22px의 -0.5% */
-}
-.summaryStats .rejectedCount {
-  color: #d0021b;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.11px; /* 22px의 -0.5% */
-
-}
-
-.managementHeader {
-  position: relative;
-  margin-top: 40px;
-  padding-top: 44px;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* "신청 관리" 텍스트 */
-.managementHeader::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000;
-}
-
-/* 검색 + 전체선택 라인 */
-.searchSection {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 실제 검색창 input 스타일 */
-.searchSection input[type='search'] {
-  width: 260px;
-  height: 38px;
-  padding: 0 12px;
-  border-radius: 8px;
-  border: 1px solid #bfbfbf;
-  background-color: #000;
-  color: #cfcfcf;
-  font-size: 0.95rem;
+/* ===================== 2. 상단 요약 영역 (폰트 키움 & 정렬) ===================== */
+.summarySection {
+  width: 100%;
+  padding: 0 10px; /* 테이블과 라인 맞추기 위한 미세 조정 */
   box-sizing: border-box;
 }
 
-.searchSection input[type='search']::placeholder {
-  color: #cfcfcf;
+.summaryHeader {
+  /* "요약" 글씨 */
+  font-size: 1.5rem; /* 크기 키움 */
+  font-weight: 800;  /* 더 진하게 */
+  color: #000;       /* 완전 검정 */
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
 }
 
-.searchSection input[type='search']:focus {
-  outline: none;
-  border-color: #888;
-}
-
-/* 전체 선택 버튼 */
-.selectAllButton {
-  display: inline-flex;
+/* 리스트 컨테이너 */
+.summaryStats {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid #d0d0d0;
-  background-color: #e9e9e9;
-  color: #222;
-  font-size: 0.92rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  gap: 40px; /* 간격 넓힘 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.selectAllButton:hover {
-  background-color: #d5d5d5;
-  border-color: #b0b0b0;
+/* 개별 아이템 (전체: 3 같은 덩어리) */
+.summaryStats li {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 글자와 숫자 사이 간격 */
+  font-size: 1.1rem; /* 글자 크기 키움 */
+  font-weight: 700;  /* 글자 진하게 */
+  color: #444;
 }
 
-.selectAllButton:active {
-  background-color: #c5c5c5;
+/* 구분선 (|) */
+.summaryStats li:not(:last-child)::after {
+  content: "|";
+  margin-left: 40px; /* 구분선 간격 */
+  color: #ddd;
+  font-weight: 400;
 }
 
+/* 숫자 디자인 (크고 진하게) */
+.totalCount, .waitingCount, .approvedCount, .rejectedCount {
+  font-size: 1.4rem; /* 숫자 더 크게 */
+  font-weight: 800;  /* 숫자 더 진하게 */
+}
+
+/* 색상 포인트 */
+.summaryStats .totalCount { color: #000; }
+.summaryStats .waitingCount { color: #f59e0b; } /* 주황 */
+.summaryStats .approvedCount { color: #10b981; } /* 초록 */
+.summaryStats .rejectedCount { color: #ef4444; } /* 빨강 */
+
+
+/* ===================== 3. 메인 타이틀 & 테이블 (라인 맞춤) ===================== */
 .applicantTable {
   width: 100%;
-  max-width: 1200px;
-  margin: 24px auto 0;
+  padding: 0 10px; /* 요약 섹션과 패딩 동일하게 줘서 라인 맞춤 */
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* "문의관리" 타이틀 */
+.applicantTable h1 {
+  font-size: 1.5rem; /* 요약 타이틀과 크기 통일 */
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #000;
+  letter-spacing: -0.5px;
 }
 
 .applicantTable table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
+  border-collapse: separate; 
+  border-spacing: 0 10px;    
 }
 
-/* 헤더 행 – 연한 회색 박스 */
+/* --- 헤더 (Thead) --- */
 .applicantTable thead tr {
-  background-color: #f3f3f3;
+  background-color: #f3f4f6; 
 }
 
-/* 헤더 셀 공통 */
 .applicantTable thead th {
-  padding: 10px 12px;
-  font-size: 0.95rem;
+  padding: 16px 10px; /* 헤더 높이 살짝 키움 */
+  font-size: 1rem;    /* 헤더 글씨도 조금 키움 */
   font-weight: 700;
-  color: #000000;
+  color: #333;
+  text-align: center;
+  border: none;
 }
 
-.applicantTable thead th:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.applicantTable thead th:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+/* 헤더 둥근 모서리 */
+.applicantTable thead th:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.applicantTable thead th:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
 
-/* 번호, 신청일시, 상태 뒤에 ▾ 표시 */
-.applicantTable thead th:nth-child(2)::after,
+/* 정렬 아이콘 */
+.applicantTable thead th:nth-child(2)::after, 
 .applicantTable thead th:nth-child(5)::after,
 .applicantTable thead th:nth-child(6)::after {
-  /*content: "▾";*/
-  /*margin-left: 4px;*/
-  /*font-size: 1.2rem;*/
-}
-
-/* 상태 앞에 ● 표시 */
-.applicantTable thead th:nth-child(6)::before {
-  content: "●";
-  margin-right: 4px;
-  font-size: 0.6rem;
-}
-
-.applicantTable tbody tr,
-.tableRow {
-  background: #fff;
-  border: 3px solid #e0e0e0;
-  border-radius: 30px;
-  box-shadow: none;
-}
-
-/* 행 내부 td에 테두리 적용 (table border-collapse 우회) */
-.applicantTable tbody tr td:first-child {
-  border-left: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.applicantTable tbody tr td:last-child {
-  border-right: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.applicantTable tbody tr td:not(:first-child):not(:last-child) {
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.applicantTable tbody td {
-  padding: 14px 12px;
-  font-size: 0.95rem;
+  content: " ▼";
+  font-size: 0.7rem;
+  color: #999;
   vertical-align: middle;
 }
 
-/* 체크박스 칸 */
-.applicantTable thead th:first-child,
-.applicantTable tbody td:first-child {
+/* --- 본문 (Tbody) --- */
+.applicantTable tbody tr.clickableRow {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); 
+  transition: transform 0.1s, box-shadow 0.1s;
+  cursor: pointer;
+}
+
+.applicantTable tbody tr.clickableRow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.applicantTable tbody td {
+  padding: 18px 10px;
+  font-size: 1rem; /* 본문 글씨 크기 0.95 -> 1rem으로 살짝 키움 */
+  color: #4b5563;
+  vertical-align: middle;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   text-align: center;
-  width: 40px;
 }
 
-/* 번호, 상태 중앙 정렬 */
-.applicantTable thead th:nth-child(2),
-.applicantTable tbody td:nth-child(2),
-.applicantTable thead th:nth-child(6),
-.applicantTable tbody td:nth-child(6) {
-  text-align: center;
+/* 행 양쪽 끝 둥글게 */
+.applicantTable tbody tr td:first-child {
+  border-left: 1px solid #eee;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.applicantTable tbody tr td:last-child {
+  border-right: 1px solid #eee;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-/* 이름, 연락처, 신청일시 왼쪽 정렬 */
-.applicantTable thead th:nth-child(3),
-.applicantTable tbody td:nth-child(3),
-.applicantTable thead th:nth-child(4),
-.applicantTable tbody td:nth-child(4),
-.applicantTable thead th:nth-child(5),
-.applicantTable tbody td:nth-child(5) {
-  text-align: left;
-}
-
-/* 마지막(상태) 셀은 살짝 오른쪽 여백 */
-.applicantTable tbody td:last-child {
-  padding-right: 20px;
-}
-
-.tableGrid {
-  display: grid;
-  grid-template-columns: 40px 90px 1.2fr 1.2fr 1fr 120px;
-  align-items: center;
-  column-gap: 12px;
-}
-
-.tableHeader {
-  background: #f3f3f3;
-  border-radius: 10px;
-  padding: 10px 12px;
+/* 이름 열 강조 */
+.applicantTable tbody td:nth-child(3) {
   font-weight: 700;
-  font-size: 0.95rem;
-  color: #333;
+  color: #111;
 }
 
-.tableRow {
-  padding: 12px 12px;
-  margin-top: 8px;
-}
 
-/* div 버전 셀 스타일 */
-.cell-center {
-  text-align: center;
-}
-.cell-right {
-  text-align: right;
-}
-.cell-name {
-  font-weight: 600;
-  color: #222;
-}
-.cell-phone,
-.cell-date {
-  color: #444;
-}
-
+/* ===================== 4. 상태 뱃지 (점 + 텍스트) ===================== */
 .statusBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  justify-content: flex-end;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* 상태 텍스트 뒤에 드롭다운 화살표 */
-.statusBadge::after {
-  content: "▼";
-  font-size: 0.65rem;
-  color: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  justify-content: center;
 }
 
 .statusDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
+  display: inline-block;
 }
 
-.status--pending .statusDot {
-  background: #f5a623;
-}
-.status--approved .statusDot {
-  background: #29b34a;
-}
-.status--rejected .statusDot {
-  background: #d0021b;
-}
-.status--viewed .statusDot {
-  background: #1e90ff;
+/* 상태별 색상 */
+.status--pending .statusDot { background-color: #f59e0b; } 
+.status--pending .statusText { color: #f59e0b; }
+
+.status--approved .statusDot { background-color: #10b981; } 
+.status--approved .statusText { color: #10b981; }
+
+.status--rejected .statusDot { background-color: #ef4444; } 
+.status--rejected .statusText { color: #ef4444; }
+
+.statusBadge::after {
+  content: "▼";
+  font-size: 0.6rem;
+  margin-left: 4px;
+  color: #ccc;
 }
 
-.status--pending .statusText {
-  color: #f5a623;
+
+/* ===================== 5. 상세 정보 (수정 없음) ===================== */
+.applicantTable tbody tr.clickableRow.expanded {
+  box-shadow: none; 
+  transform: none;
 }
-.status--approved .statusText {
-  color: #29b34a;
+.applicantTable tbody tr.clickableRow.expanded td {
+  background-color: #f9fafb;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
-.status--rejected .statusText {
-  color: #d0021b;
+.applicantTable tbody tr.detailRow td {
+  padding: 0;
+  border: none;
+  background: transparent;
 }
-.status--viewed .statusText {
-  color: #1e90ff;
+.detailContent {
+  background-color: #f9fafb;
+  border: 1px solid #eee;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 30px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.detailHeader {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+}
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.detailLabel {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+.detailValue {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.documentsText {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  line-height: 1.6;
+  white-space: pre-wrap;
 }
 
+
+/* ===================== 6. 페이지네이션 (회색 원형) ===================== */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  gap: 15px; 
+  margin-top: 50px;
 }
-
 .pageNumber {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
 }
-
 .pageButton {
-  width: 34px;
-  height: 34px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #333;
-  font-size: 0.95rem;
+  min-width: 36px;
+  height: 36px;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
-
 .pageButton:hover {
-  background-color: #f3f3f3;
-  border-color: #999;
+  background-color: #f0f0f0;
 }
-
 .pageButton.active {
-  background-color: #555;
-  color: #fff;
-  border-color: #555;
+  background-color: #dcdcdc; 
+  color: #000;
   font-weight: 700;
-  transform: scale(1.05);
+  width: 36px;
+  height: 36px;
 }
-
 .pageButton.disabled {
-  opacity: 0.4;
+  color: #ccc;
+  cursor: default;
   pointer-events: none;
 }
 
-/* ===================== 클릭 가능한 행 스타일 ===================== */
-.applicantTable tbody tr.clickableRow {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.applicantTable tbody tr.clickableRow:hover {
-  background-color: #f8f8f8;
-}
-
-/* 확장된 행 - 아래쪽 테두리와 radius 제거하여 detailRow와 연결 */
-.applicantTable tbody tr.clickableRow.expanded {
-  background-color: #f9f9f9;
-}
-
-.applicantTable tbody tr.clickableRow.expanded td:first-child {
-  border-bottom: none;
-  border-bottom-left-radius: 0;
-}
-
-.applicantTable tbody tr.clickableRow.expanded td:last-child {
-  border-bottom: none;
-  border-bottom-right-radius: 0;
-}
-
-.applicantTable tbody tr.clickableRow.expanded td:not(:first-child):not(:last-child) {
-  border-bottom: none;
-}
-
-/* ===================== 상세 정보 확장 행 ===================== */
-.applicantTable tbody tr.detailRow {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.applicantTable tbody tr.detailRow td {
-  padding: 0;
-  border: none;
-}
-
-.detailContent {
-  padding: 24px;
-  margin: 0 0 8px 0;
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  box-shadow: none;
-  animation: slideDown 0.25s ease-out;
-  min-height: 120px;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-    padding: 0 24px;
-  }
-  to {
-    opacity: 1;
-    max-height: 500px;
-    padding: 24px;
-  }
-}
-
-.detailHeader {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.detailGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 24px;
-  margin-bottom: 16px;
-}
-
-.detailItem {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.detailLabel {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #666;
-}
-
-.detailValue {
-  font-size: 0.95rem;
-  color: #222;
-}
-
-.detailDocuments {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.documentsText {
-  background-color: #f7f7f7;
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #333;
-  white-space: pre-wrap;
-  word-break: break-word;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-/* ===================== 체크박스 커스텀 스타일 ===================== */
-.applicantTable input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
+/* ===================== 7. 체크박스 ===================== */
+input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  border: 2px solid #333;
-  border-radius: 3px;
-  background-color: #fff;
   cursor: pointer;
-  position: relative;
-  transition: all 0.15s ease;
-}
-
-.applicantTable input[type="checkbox"]:checked {
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-}
-
-.applicantTable input[type="checkbox"]:checked::after {
-  content: "✓";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.applicantTable input[type="checkbox"]:hover {
-  border-color: #666;
+  accent-color: #333;
 }

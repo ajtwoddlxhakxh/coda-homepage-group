@@ -35,24 +35,31 @@ export default function Sub_recruitment() {
 
       <div className="subRecruitment">
         {/* 1) BEFORE SIGN UP */}
-        <section className="before-signup">
-          <img className="recrucheck" src={recrucheck} alt="recrucheck" />
-          <h2 className="beforeTitle">BEFORE SIGN UP</h2>
+        <div className="ruleContainer">
+          <section className="before-signup">
+            <div className="beforeHeader">
+      <img className="recrucheck" src={recrucheck} alt="recrucheck" />
+      <h2 className="beforeTitle">BEFORE SIGN UP</h2>
+    </div>
+            <h2 className="Rule rule1 noto-sans-menu">
+              규칙 1. 블로그 업로드 및 깃허브 커밋
+            </h2>
+            <h2 className="Rule rule2 noto-sans-menu">
+              규칙 2. 매달 1회 개인 참여 사업 및 프로젝트 조사
+            </h2>
+            <h2 className="Rule rule3 noto-sans-menu">
+              규칙 3. 열심히 노력하는 모습을 보여줄 것
+            </h2>
 
-          <h2 className="Rule rule1 noto-sans-menu">규칙 1. 블로그 업로드 및 깃허브 커밋</h2>
-          <h2 className="Rule rule2 noto-sans-menu">
-            규칙 2. 매달 1회 개인 참여 사업 및 프로젝트 조사
-          </h2>
-          <h2 className="Rule rule3 noto-sans-menu">규칙 3. 열심히 노력하는 모습을 보여줄 것</h2>
-
-          <img
-            className="headphonerecru"
-            src={headphonerecru}
-            alt="headphonerecru"
-          />
-          <img className="pencil" src={pencil} alt="pencil" />
-          <img className="emoji" src={emoji} alt="emoji" />
-        </section>
+            <img
+              className="headphonerecru"
+              src={headphonerecru}
+              alt="headphonerecru"
+            />
+            <img className="pencil" src={pencil} alt="pencil" />
+            <img className="emoji" src={emoji} alt="emoji" />
+          </section>
+        </div>
 
         {/* 2) CLICK AND FINISH SIGN UP */}
         <section className="ctaSignup">
