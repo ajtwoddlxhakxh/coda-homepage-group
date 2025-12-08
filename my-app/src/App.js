@@ -43,7 +43,7 @@ function App() {
         <Main_clubCoda />
         <Main_coda />
         <Sub_project />
-        <Sub_createby items={developer} specialName={"leader"} />
+        {/*<Sub_createby items={developer} specialName={"leader"} />*/}
       </>
     );
   }
@@ -83,7 +83,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/" element={<Homepage />} />
         <Route path="about" element={<Homepage />} />
-        <Route path="projects" element={<Sub_project />} />
+        <Route path="projects" element={<Sub_project showJoinSection={false} />} />
         <Route path="recruitment" element={<Sub_recruitment />} />
         <Route path="contact" element={<Sub_contact/>} />
         <Route path="/recruitment/form" element={<RecruitApplyWrapper />} />

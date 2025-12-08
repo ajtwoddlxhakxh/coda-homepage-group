@@ -1,94 +1,192 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import useRecruitPositions from "../hooks/useRecruitPositions";
-import RecruitApplyPage from "./subPage/sub_recruitment_join";
+import useSubmitRecruit from "../hooks/useSubmitRecruit";
 import FormInput from "../components/form/FormInput";
-import FormTextarea from "../components/form/FormTextarea";
 import FormSelect from "../components/form/FormSelect";
+import './subPage/sub_recruitment_join.css';
+
+// --- [1] Star 배경 컴포넌트 (framer-motion 사용) ---
+const StarBackground = () => {
+    const [stars, setStars] = useState([]);
+
+    useEffect(() => {
+        // Generate random stars
+        const newStars = Array.from({ length: 100 }, () => ({
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            size: Math.random() * 2 + 1,
+            delay: Math.random() * 2,
+        }));
+        setStars(newStars);
+    }, []);
+
+    return (
+        <div style={{
+            position: 'fixed',
+            inset: 0,
+            overflow: 'hidden',
+            pointerEvents: 'none',
+            zIndex: -1
+        }}>
+            {stars.map((star, i) => (
+                <motion.div
+                    key={i}
+                    style={{
+                        position: 'absolute',
+                        left: `${star.x}%`,
+                        top: `${star.y}%`,
+                        width: star.size,
+                        height: star.size,
+                        borderRadius: '50%',
+                        backgroundColor: 'white',
+                    }}
+                    animate={{
+                        opacity: [0.2, 1, 0.2],
+                        scale: [1, 1.5, 1],
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: star.delay,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+        </div>
+    );
+};
+
+// --- [2] 메인 컴포넌트 ---
 function RecruitApplyWrapper() {
-  const { positions, loading, error } = useRecruitPositions();
+    const { positions, loading, error } = useRecruitPositions();
+    const { submitRecruit, loading: submitLoading, error: submitError, success } = useSubmitRecruit();
 
-  // 테스트용 state
-  const [testInput, setTestInput] = useState("");
-  const [testSelect, setTestSelect] = useState("");
+    // 상태 관리
+    const [selectedPosition, setSelectedPosition] = useState("");
+    const [email, setEmail] = useState("");
+    const [question1, setQustion1] = useState("");
+    const [question2, setQustion2] = useState("");
+    const [question3, setQustion3] = useState("");
+    const [question4, setQustion4] = useState("");
+    const [question5, setQuestions] = useState("");
 
-  // 기본 질문
-  const fallbackQ1 =
-    "CODA에 지원하게 된 동기와 관심 있는 분야를 작성해 주세요.";
-  const fallbackQ2 =
-    "본인이 참여했던 프로젝트나 활동 중 인상 깊었던 경험을 작성해 주세요.";
+    // 제출 핸들러
+    const handleSubmit = async () => {
+        if (!selectedPosition || !question1 || !email || !question4) {
+            alert("필수 항목을 모두 입력해주세요.");
+            return;
+        }
 
-  const first = positions?.[0] || null;
-  const positionId = first?._id || null;
-  const question1 = first?.question1 || fallbackQ1;
-  const question2 = first?.question2 || fallbackQ2;
+        try {
+            await submitRecruit({
+                positionId: selectedPosition,
+                name: question1,
+                email: email,
+                phone: question4,
+                documents: question5
+            });
+            alert("지원서가 성공적으로 제출되었습니다.");
+        } catch (err) {
+            alert("제출 중 오류가 발생했습니다. 다시 시도해주세요.");
+        }
+    };
 
-  let submitDisabledReason = null;
-  // if (!process.env.REACT_APP_API_URL)
-  //     return (
-  //         <div className={'recruit-header'}><h1>123</h1>
-  //           <div className={'recruit-status-error'}><h1>API 주소(.env)가 설정되지 않았습니다.</h1>
-  //           </div>
-  //         </div>)
-  // else if (loading)
-  //     return (
-  //         <div className={'recruit-header'}><h3>123</h3>
-  //             <div className={'recruit-status-error'}><h1>모집 공고를 불러오는 중입니다</h1>
-  //             </div>
-  //         </div>)
-  // else if (error)
-  //     return(
-  //         <div className={'recruit-header'}><h2>123</h2>
-  //             <div className={'recruit-status-error'}><h1>모집 공고를 불러오지 못했습니다</h1>
-  //             </div>
-  //         </div>)
-  // else if (!positionId)
-  //     return (
-  //             <div className={'recruit-header'}><h3>모집 페이지</h3>
-  //                 <div className={'recruit-status-error'}><h1>현재 모집 공고 기간이 아닙니다.</h1>
-  //                 </div>
-  //             </div>)
-  return (
+    return (
+        <div className={'apply-wrapper'} style={{ position: 'relative', minHeight: '100vh' }}>
+            {/* 배경 파티클 적용 */}
+            <StarBackground />
 
-    <div className={'apply-wrapper'}>
-        <div className={'recruit-header'}><h2>모집 페이지</h2></div>
+            <div className={'recruit-header'}>  <h2>모집 페이지</h2></div>
 
+            <div className="required-notice">
+                <span>*필수 항목</span>
+            </div>
 
+            <FormSelect
+                label="모집 공고"
+                name="position"
+                value={selectedPosition}
+                onChange={(e) => setSelectedPosition(e.target.value)}
+                options={positions.map(pos => ({ value: pos._id, label: pos.title }))}
+                required={true}
+                placeholder="모집 공고를 선택해주세요"
+            />
 
-      <FormInput
-      label="테스트 입력"
-      name="testInput"
-      type="text"
-      value={testInput}
-      onChange={(e) => setTestInput(e.target.value)}
-      required={true}
-      placeholder="여기에 입력하세요"
-      />
-      <FormInput
-      label="테스트 입력"
-      name="testInput"
-      type="text"
-      value={testInput}
-      onChange={(e) => setTestInput(e.target.value)}
-      required={true}
-      placeholder="여기에 입력하세요"
-      />
+            <FormInput
+                label="이름"
+                name="이름"
+                type="text"
+                value={question1}
+                onChange={(e) => setQustion1(e.target.value)}
+                required={true}
+                placeholder="여기에 입력하세요"
+            />
 
+            <FormInput
+                label="이메일"
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required={true}
+                placeholder="이메일을 입력하세요"
+            />
 
-        <FormSelect
-          label="테스트 선택"
-          name="testSelect"
-          value={testSelect}
-          onChange={(e) => setTestSelect(e.target.value)}
-          options={[
-            { value: "option1", label: "옵션 1" },
-            { value: "option2", label: "옵션 2" },
-            { value: "option3", label: "옵션 3" }
-          ]}
-          required={true}
-          placeholder="옵션을 선택하세요"
-        />
-    </div>
-  );
+            <FormInput
+                label="전공"
+                name="testInput"
+                type="text"
+                value={question2}
+                onChange={(e) => setQustion2(e.target.value)}
+                required={true}
+                placeholder="여기에 입력하세요"
+            />
+
+            <FormSelect
+                label="학년"
+                name="testSelect"
+                value={question3}
+                onChange={(e) => setQustion3(e.target.value)}
+                options={[
+                    { value: "option1", label: "1 학년" },
+                    { value: "option2", label: "2 학년" },
+                    { value: "option3", label: "3 학년" },
+                    { value: "option4", label: "4 학년"}
+                ]}
+                required={true}
+                placeholder="학년을 선택해주세요"
+            />
+
+            <FormInput
+                label="전화번호"
+                name="testInput"
+                type="text"
+                value={question4}
+                onChange={(e) => setQustion4(e.target.value)}
+                required={true}
+                placeholder="여기에 입력하세요"
+            />
+
+            <FormInput
+                label="최근에 진행했던 프로젝트를 적어주세요"
+                name="testInput"
+                type="text"
+                value={question5}
+                onChange={(e) => setQuestions(e.target.value)}
+                required={false}
+                placeholder="여기에 입력하세요"
+            />
+
+            <button
+                className="submit-button"
+                onClick={handleSubmit}
+                disabled={submitLoading}
+            >
+                {submitLoading ? "제출 중..." : "제출하기"}
+            </button>
+        </div>
+    );
 }
 
 export default RecruitApplyWrapper;

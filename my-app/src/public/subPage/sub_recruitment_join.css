@@ -2,13 +2,15 @@ body {
   margin: 0;
   padding: 0;
 }
-/* sub_recruitment_join.css 맨 아래에 추가/교체 */
 
-/* 1. 배경 설정 (이미지X, 코드O) */
+/* sub_recruitment_join.css */
+
+/* 1. 배경 설정 */
 .apply-wrapper {
   position: relative;
-  /* 우주 색상 배경 (그라데이션) */
+
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+
   min-height: 100vh;
   overflow: hidden;
   z-index: 0;
@@ -19,21 +21,19 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  
-  /* 별 모양을 점(Gradient)으로 찍음 - 이미지 다운로드 필요 없음 */
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px),
-    radial-gradient(rgba(255,255,255,.3), rgba(255,255,255,.1) 1px, transparent 2px);
 
+  /* 별 모양을 점(Gradient)으로 찍음 */
+  background-image:
+          radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 2px),
+          radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+          radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
+          radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px),
+          radial-gradient(rgba(255,255,255,.3), rgba(255,255,255,.1) 1px, transparent 2px);
 
-    
   /* 별들의 크기와 위치 랜덤 설정 */
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 100px 100px, 50px 50px, 75px 75px, 25px 25px,  10px 10px;
   background-position: 0 0, 40px 60px, 130px 270px, 20px 30px, 70px 90px, 10px 20px, 30px 40px, 50px 60px;
-  
+
   /* 천천히 움직이는 애니메이션 */
   animation: starMove 80s linear infinite;
   z-index: -1; /* 글씨 뒤로 */
@@ -51,142 +51,6 @@ body {
   position: relative;
   z-index: 10;
 }
-/*!* 전체 페이지 래퍼 *!*/
-/*.apply-wrapper {*/
-/* min-height: calc(100vh - 80px);*/
-/* background-color: #000;*/
-/* display: flex;*/
-/* justify-content: center;*/
-/* padding-top: 80px;*/
-/* box-sizing: border-box;*/
-/* color: #fff;*/
-/* font-family: "Pretendard", "Noto Sans KR", sans-serif;*/
-/*}*/
-
-/*!* 가운데 폼 박스 *!*/
-/*.apply-container {*/
-/* width: 90%;*/
-/* max-width: 700px;*/
-/*}*/
-
-/*!* 상단 제목 *!*/
-/*.apply-title {*/
-/* font-size: 2rem;*/
-/* font-weight: 700;*/
-/* margin-bottom: 28px;*/
-/*}*/
-
-/*.apply-form {*/
-/* display: flex;*/
-/* flex-direction: column;*/
-/* gap: 20px;*/
-/*}*/
-
-/*.apply-row {*/
-/* display: flex;*/
-/* gap: 32px;*/
-/*}*/
-
-/*.apply-row.single {*/
-/* flex-direction: column;*/
-/*}*/
-
-/*!* 개별 필드 박스 *!*/
-/*.apply-field {*/
-/* flex: 1;*/
-/* display: flex;*/
-/* flex-direction: column;*/
-/* gap: 6px;*/
-/*}*/
-
-/*!* 라벨 텍스트 *!*/
-/*.apply-field label {*/
-/* font-size: 0.9rem;*/
-/* color: #e5e5e5;*/
-/*}*/
-
-/*!* 공통스타일 *!*/
-/*.apply-field input {*/
-/* height: 32px;*/
-/* border-radius: 6px;*/
-/* border: none;*/
-/* padding: 6px 12px;*/
-/* background-color: #dcdcdc;*/
-/* font-size: 0.9rem;*/
-/* outline: none;*/
-/*}*/
-
-/*.apply-field input:focus {*/
-/* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);*/
-/*}*/
-
-/*!* 질문 블럭(Q1, Q2) *!*/
-/*.apply-question-block {*/
-/* margin-top: 10px;*/
-/* display: flex;*/
-/* flex-direction: column;*/
-/* gap: 8px;*/
-/*}*/
-
-/*.question-label {*/
-/* font-size: 1rem;*/
-/* font-weight: 600;*/
-/*}*/
-
-/*.apply-question-block textarea {*/
-/* width: 100%;*/
-/* min-height: 120px;*/
-/* border-radius: 8px;*/
-/* border: none;*/
-/* padding: 10px 12px;*/
-/* resize: vertical;*/
-/* background-color: #dcdcdc;*/
-/* font-size: 0.9rem;*/
-/* outline: none;*/
-/*}*/
-
-/*.apply-question-block textarea:focus {*/
-/* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);*/
-/*}*/
-
-/*!* 제출 버튼 *!*/
-/*.apply-submit-wrapper {*/
-/* margin-top: 28px;*/
-/* display: flex;*/
-/* justify-content: center;*/
-/*}*/
-
-/*.apply-submit-btn {*/
-/* display: inline-flex;*/
-/* align-items: center;*/
-/* gap: 8px;*/
-/* padding: 10px 26px;*/
-/* border-radius: 999px;*/
-/* border: none;*/
-/* background-color: #1f1f1f;*/
-/* color: #bfbfbf;*/
-/* font-size: 0.95rem;*/
-/* cursor: pointer;*/
-/* transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;*/
-/*}*/
-
-/*.apply-submit-check {*/
-/* width: 18px;*/
-/* height: 18px;*/
-/* border-radius: 4px;*/
-/* background-color: #00c853;*/
-/* display: flex;*/
-/* align-items: center;*/
-/* justify-content: center;*/
-/* font-size: 0.8rem;*/
-/* color: #000;*/
-/*}*/
-
-/*.apply-submit-btn:hover {*/
-/* background-color: #2b2b2b;*/
-/* color: #ffffff;*/
-/* transform: translateY(-1px);*/
-/*}*/
 
 .recruit-header {
   font-size: 40px;
@@ -197,11 +61,11 @@ body {
 
 .recruit-status-error {
   margin: 0;
-
   text-align: center;
   min-height: 100vh;
   background-color: #000;
 }
+
 .recruit-status-error h1 {
   text-align: center;
   font-size: 20px;
@@ -209,13 +73,23 @@ body {
 }
 
 .apply-forminput {
-  border: 1px solid #3d4a5c;
+  /* 핵심 수정: 패딩을 포함해서 너비를 계산 (정렬 문제 해결) */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+
+  /* 디자인 유지 */
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
   border-radius: 4px;
   padding: 12px 16px;
-  margin-top: 30px;
+
+  /* 위치 정렬 */
+  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .apply-forminput:first-child {
@@ -257,4 +131,21 @@ body {
 
 .apply-forminput option {
   color: #000;
+}
+
+.required-notice {
+  /* 핵심 수정: 입력폼과 동일한 너비 및 계산 방식 적용 */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.required-notice span {
+  color: #f7efe8;
+  font-size: 20px;
 }
