@@ -5,6 +5,7 @@ import axios from "axios";
 import "./manage_recruit.css";
 import Manage_applicantTable from "./manage_applicantTable";
 import Manage_pagenation from "./manage_pagenation";
+import ManagePositionForm from "./manage_positionForm";
 // todo 수정(fetch)기능 추가
 
 const ITEMS_PER_PAGE = 6;
@@ -20,6 +21,9 @@ function ManageRecruit(token) {
 
     // 페이지 위치 관리
     const [currentPage, setCurrentPage] = useState(1);
+
+    // 신청공고 모달 상태
+    const [showPositionForm, setShowPositionForm] = useState(false);
 
     // 총 페이지 수 계산
     const totalPages = Math.ceil((status?.length || 0) / ITEMS_PER_PAGE);
@@ -54,7 +58,15 @@ function ManageRecruit(token) {
             {/*신청자 테이블*/}
 
             <div className={"applicantTable"}>
-                <h1>신청관리</h1>
+                <div className={"tableHeader"}>
+                    <h1>신청관리</h1>
+                    <button
+                        className={"createPositionBtn"}
+                        onClick={() => setShowPositionForm(true)}
+                    >
+                        + 신청공고 작성
+                    </button>
+                </div>
                 {/*코드가 너무 길어져서 따로 뺐어요*/}
                 <Manage_applicantTable
                     currentPage={currentPage}
@@ -72,6 +84,14 @@ function ManageRecruit(token) {
                     />
                 </span>
             </div>
+
+            {/* 신청공고 작성 모달 */}
+            {showPositionForm && (
+                <ManagePositionForm
+                    onClose={() => setShowPositionForm(false)}
+                    onSuccess={() => setShowPositionForm(false)}
+                />
+            )}
         </div>
     );
 }

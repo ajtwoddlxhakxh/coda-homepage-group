@@ -149,3 +149,40 @@ body {
   color: #f7efe8;
   font-size: 20px;
 }
+
+.submit-button {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 120px;
+
+  /* forminput과 일관된 스타일 */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+
+  /* 텍스트 스타일 */
+  font-size: 18px;
+  color: #f7efe8;
+  cursor: pointer;
+
+  /* 정렬 - form 영역(800px) 기준 오른쪽 끝 */
+  display: block;
+  margin: 30px calc(50% - 400px) 30px auto;
+
+  /* 호버/트랜지션 효과 */
+  transition: all 0.1s ease;
+}
+
+.submit-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

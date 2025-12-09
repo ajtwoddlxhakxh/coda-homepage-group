@@ -83,8 +83,41 @@
   overflow-x: auto;
 }
 
-/* "문의관리" 타이틀 */
-.applicantTable h1 {
+/* 테이블 헤더 (타이틀 + 버튼) */
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tableHeader h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+/* 신청공고 작성 버튼 */
+.createPositionBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.createPositionBtn:hover {
+  background-color: #0056b3;
+}
+
+/* "문의관리" 타이틀 (기존 - 하위 호환) */
+.applicantTable > h1 {
   font-size: 1.5rem; /* 요약 타이틀과 크기 통일 */
   font-weight: 800;
   margin-bottom: 20px;

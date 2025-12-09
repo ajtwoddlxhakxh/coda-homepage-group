@@ -132,3 +132,62 @@
     transform: translateY(8px) rotateZ(var(--rz, 0));
   }
 }
+
+/*!* 1920x1080 (FHD) 해상도 미디어 쿼리 *!*/
+/*@media screen and (max-width: 1920px) {*/
+/*  .codaStack {*/
+/*    font-size: clamp(5px, 3.5vw, 48px);*/
+/*  }*/
+
+/*  .floatImg {*/
+/*    width: clamp(100px, 12vw, 180px);*/
+/*  }*/
+
+/*  .bulb {*/
+/*    width: 280px;*/
+/*    left: 20%;*/
+/*    top: 26%;*/
+/*  }*/
+
+/*  .bulb2 {*/
+/*    width: 450px;*/
+/*    right: 12%;*/
+/*    bottom: 14%;*/
+/*  }*/
+
+/*  .Key1 {*/
+/*    width: 300px;*/
+/*    right: 18%;*/
+/*    top: 36%;*/
+/*  }*/
+
+/*  .Key2 {*/
+/*    width: 250px;*/
+/*    left: 40%;*/
+/*    top: 26%;*/
+/*  }*/
+
+/*  .Key3 {*/
+/*    width: 160px;*/
+/*    left: 60%;*/
+/*    top: 50%;*/
+/*  }*/
+
+/*  .Mainkey {*/
+/*    width: 380px;*/
+/*    left: 38%;*/
+/*    bottom: 18%;*/
+/*  }*/
+
+/*  .Headset {*/
+/*    width: 600px;*/
+/*    right: 10%;*/
+/*    top: 18%;*/
+/*  }*/
+
+/*  .Chess {*/
+/*    width: 380px;*/
+/*    right: 56%;*/
+/*    bottom: 14%;*/
+/*  }*/
+/*}*/

@@ -6,7 +6,6 @@ import FormInput from "../components/form/FormInput";
 import FormSelect from "../components/form/FormSelect";
 import './subPage/sub_recruitment_join.css';
 
-// --- [1] Star 배경 컴포넌트 (framer-motion 사용) ---
 const StarBackground = () => {
     const [stars, setStars] = useState([]);
 
@@ -57,7 +56,6 @@ const StarBackground = () => {
     );
 };
 
-// --- [2] 메인 컴포넌트 ---
 function RecruitApplyWrapper() {
     const { positions, loading, error } = useRecruitPositions();
     const { submitRecruit, loading: submitLoading, error: submitError, success } = useSubmitRecruit();
