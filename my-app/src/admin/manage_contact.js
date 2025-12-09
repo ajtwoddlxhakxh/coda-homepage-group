@@ -42,7 +42,8 @@ function ManageRecruit(token) {
         <div className={"recruitContainer"}>
             {/*상태확인*/}
             <div className={"summarySection"}>
-                <span className={"summaryHeader"}>q</span>
+                <span className={"summaryHeader"}>요약</span>
+                <span>
                 <ul className={"summaryStats"}>
                     <li className={"totalCount"}>전체: {allStatus.total ?? 0}</li>
                     <li className={"waitingCount"}>
@@ -52,6 +53,7 @@ function ManageRecruit(token) {
                         완료: {allStatus.resolved?.length ?? null}
                     </li>
                 </ul>
+                    </span>
             </div>
         {/*    <div className={"managementHeader"}>*/}
         {/*<span className={"searchSection"}>*/}

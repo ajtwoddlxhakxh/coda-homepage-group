@@ -2,7 +2,6 @@ import React from "react";
 import './Navbar.css'
 import codalogo from '../img/coda_logo.svg'
 import {Link, Routes, Route} from "react-router-dom";
-import Recruit from '../public/subPage/sub_recruitment'
 function Navbar() {
     return (
         <nav className="navbar">
@@ -16,7 +15,7 @@ function Navbar() {
                     <li><Link to={'/about'} className={'noto-sans-menu'}>ABOUT</Link></li>
                     <li><Link to={'/projects'} className={'noto-sans-menu'}>PROJECTS</Link></li>
                     <li><Link to={'/recruitment'}  className={'noto-sans-menu'}>RECRUITMENT</Link></li>
-                    <li><Link to={'contact'} className={'noto-sans-menu'}>CONTACT</Link></li>
+                    <li><Link to={'/contact'} className={'noto-sans-menu'}>CONTACT</Link></li>
                 </ul>
                 {/* 로그인 버튼 제거 */}
                 {/*<ul className="navbar_login">*/}

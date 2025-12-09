@@ -17,7 +17,8 @@
 /* ===================== 2. 상단 요약 영역 (폰트 키움 & 정렬) ===================== */
 .summarySection {
   width: 100%;
-  padding: 0 10px; /* 테이블과 라인 맞추기 위한 미세 조정 */
+  padding: 100px 0 0 0
+; /* 상단: navbar 겹침 방지, 좌우: 테이블과 라인 맞추기 */
   box-sizing: border-box;
 }
 
@@ -36,8 +37,9 @@
   align-items: center;
   gap: 40px; /* 간격 넓힘 */
   list-style: none;
-  padding: 0;
+  padding: 10px 0 0 0;
   margin: 0;
+  letter-spacing: -0.5px; /* summaryHeader와 동일하게 정렬 */
 }
 
 /* 개별 아이템 (전체: 3 같은 덩어리) */
@@ -48,6 +50,8 @@
   font-size: 1.1rem; /* 글자 크기 키움 */
   font-weight: 700;  /* 글자 진하게 */
   color: #444;
+  margin: 0;
+  padding: 0;
 }
 
 /* 구분선 (|) */
@@ -90,13 +94,13 @@
 
 .applicantTable table {
   width: 100%;
-  border-collapse: separate; 
-  border-spacing: 0 10px;    
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
 
 /* --- 헤더 (Thead) --- */
 .applicantTable thead tr {
-  background-color: #f3f4f6; 
+  background-color: #f3f4f6;
 }
 
 .applicantTable thead th {
@@ -113,7 +117,7 @@
 .applicantTable thead th:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
 
 /* 정렬 아이콘 */
-.applicantTable thead th:nth-child(2)::after, 
+.applicantTable thead th:nth-child(2)::after,
 .applicantTable thead th:nth-child(5)::after,
 .applicantTable thead th:nth-child(6)::after {
   content: " ▼";
@@ -125,7 +129,7 @@
 /* --- 본문 (Tbody) --- */
 .applicantTable tbody tr.clickableRow {
   background-color: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08); 
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   transition: transform 0.1s, box-shadow 0.1s;
   cursor: pointer;
 }
@@ -183,13 +187,13 @@
 }
 
 /* 상태별 색상 */
-.status--pending .statusDot { background-color: #f59e0b; } 
+.status--pending .statusDot { background-color: #f59e0b; }
 .status--pending .statusText { color: #f59e0b; }
 
-.status--approved .statusDot { background-color: #10b981; } 
+.status--approved .statusDot { background-color: #10b981; }
 .status--approved .statusText { color: #10b981; }
 
-.status--rejected .statusDot { background-color: #ef4444; } 
+.status--rejected .statusDot { background-color: #ef4444; }
 .status--rejected .statusText { color: #ef4444; }
 
 .statusBadge::after {
@@ -202,7 +206,7 @@
 
 /* ===================== 5. 상세 정보 (수정 없음) ===================== */
 .applicantTable tbody tr.clickableRow.expanded {
-  box-shadow: none; 
+  box-shadow: none;
   transform: none;
 }
 .applicantTable tbody tr.clickableRow.expanded td {
@@ -263,7 +267,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
   margin-top: 50px;
 }
 .pageNumber {
@@ -291,7 +295,7 @@
   background-color: #f0f0f0;
 }
 .pageButton.active {
-  background-color: #dcdcdc; 
+  background-color: #dcdcdc;
   color: #000;
   font-weight: 700;
   width: 36px;

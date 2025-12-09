@@ -24,9 +24,12 @@ import {Link, useLocation} from "react-router-dom";
 //           └─ td.status
 
 // className은 아직 작성 안해놨어요
-function Manage_applicantTable({currentPage, items = []}) {
+function Manage_applicantTable({currentPage, items = [], itemsPerPage = 6}) {
 
-    // 로컬 테스트용 데이터 (items가 비어있을 때 사용)
+    // 현재 페이지에 해당하는 항목만 필터링
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentItems = items.slice(startIndex, endIndex);
 
     // 선택된 항목들의 ID를 관리하는 상태
     const [selectedItems, setSelectedItems] = useState(new Set());
@@ -130,7 +133,7 @@ function Manage_applicantTable({currentPage, items = []}) {
 
             <tbody>
             {
-                items.map((item, id) => (
+                currentItems.map((item, id) => (
                     <React.Fragment key={item._id}>
                         {/* 신청자 정보 행 */}
                         <tr

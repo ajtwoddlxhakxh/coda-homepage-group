@@ -64,7 +64,7 @@ function App() {
 
     if (userLocation.startsWith("/admin") && userLocation !== "/admin/login") {
 
-      // return <ManageNavbar />;
+      return <ManageNavbar />;
     } else if (isAdmin === true) {
       return null;
     } else if ((isAdmin === false) && (userLocation !== "/admin/login")) {

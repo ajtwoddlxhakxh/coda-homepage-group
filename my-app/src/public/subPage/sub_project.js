@@ -8,7 +8,7 @@ export default function SubProject({ showJoinSection = true }) {
             <div className="subHeader">
                 <span className="subTitle">Our</span>
                 <span className="subTitle-2nd">Activities</span>
-                <h5 className="SubTitle-3nd">여기에 설명 심어주기</h5>
+                <h5 className="SubTitle-3nd">CODA는 함께 배우고 성장하는 IT 개발 동아리입니다.</h5>
             </div>
 
             <div className="subContent">
@@ -131,7 +131,7 @@ export default function SubProject({ showJoinSection = true }) {
                             </div>
                         </div>
                         <h3 className="cardTitle">Social Events</h3>
-                        <p>술자리</p>
+                        <p>모임 & 행사</p>
                         <p>편하게 어울리며 서로를 알아가는 시간</p>
                         <div className="cornerAccent "></div>
                     </div>
