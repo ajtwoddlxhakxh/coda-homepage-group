@@ -6,6 +6,8 @@ import ManageContact from './manage_contactTable';
 import Manage_pagenation from "./manage_pagenation";
     import Manage_contactTable from "./manage_contactTable";
 
+const ITEMS_PER_PAGE = 6;
+
 function ManageRecruit(token) {
     const { data, status, error, loading } = useContact();
 
@@ -36,6 +38,7 @@ function ManageRecruit(token) {
 
     // 페이지 위치 관리
     const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil((localStatus?.length || 0) / ITEMS_PER_PAGE);
     // 쿠키인증시간 끝나면??
     console.log(data)
     return (
@@ -77,7 +80,7 @@ function ManageRecruit(token) {
             <div className={"pagination"}>
         <span className={"pageNumber"}>
           <Manage_pagenation
-              totalPage={data?.totalPages || 7}
+              totalPage={totalPages}
               onPageChange={setCurrentPage}
           />
         </span>

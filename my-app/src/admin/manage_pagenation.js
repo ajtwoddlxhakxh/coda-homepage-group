@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './manage_pagenation.css';
 
 function Manage_pagenation({ totalPage, onPageChange }) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,21 +16,22 @@ function Manage_pagenation({ totalPage, onPageChange }) {
     }
 
     return (
-        <nav>
+        <nav className="pagination">
             {/* 이전 버튼 */}
             <button
+                className="pagination-btn"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
             >
-                이전
+                &lt;
             </button>
 
             {/* 페이지 번호 버튼 */}
             {pageButtons.map((pageNum) => (
                 <button
                     key={pageNum}
+                    className={`pagination-btn ${currentPage === pageNum ? "active" : ""}`}
                     onClick={() => handlePageChange(pageNum)}
-                    className={currentPage === pageNum ? "active" : ""}
                 >
                     {pageNum}
                 </button>
@@ -37,10 +39,11 @@ function Manage_pagenation({ totalPage, onPageChange }) {
 
             {/* 다음 버튼 */}
             <button
+                className="pagination-btn"
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPage}
             >
-                다음
+                &gt;
             </button>
         </nav>
     );
