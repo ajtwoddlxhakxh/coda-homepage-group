@@ -179,8 +179,8 @@ function RecruitApplyWrapper() {
                 <FormSelect
                 label="배워보고 싶거나 관심있는 분야를 선택해주세요"
                 name="testSelect"
-                value={question4}
-                onChange={(e) => setQustion4(e.target.value)}
+                value={question6}
+                onChange={(e) => setQustion6(e.target.value)}
                 options={[
                     { value: "option1", label: "웹/앱 개발" },
                     { value: "option2", label: "AI/머신러닝" },
