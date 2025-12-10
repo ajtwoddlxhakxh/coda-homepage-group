@@ -167,13 +167,28 @@ function RecruitApplyWrapper() {
             />
 
             <FormInput
-                label="최근에 진행했던 프로젝트를 적어주세요"
+                label="컴퓨터 지식이나 언어에 대해 공부해본적이 있나요?"
                 name="testInput"
                 type="text"
                 value={question5}
                 onChange={(e) => setQuestions(e.target.value)}
                 required={false}
                 placeholder="여기에 입력하세요"
+            />
+
+                <FormSelect
+                label="배워보고 싶거나 관심있는 분야를 선택해주세요"
+                name="testSelect"
+                value={question4}
+                onChange={(e) => setQustion4(e.target.value)}
+                options={[
+                    { value: "option1", label: "웹/앱 개발" },
+                    { value: "option2", label: "AI/머신러닝" },
+                    { value: "option3", label: "게임 개발" },
+                    { value: "option4", label: "보안" }
+                ]}
+                required={true}
+                placeholder="관심 있는 분야를 선택해주세요"
             />
 
             <button
